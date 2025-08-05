@@ -11,10 +11,10 @@
  */
 
 #include <isl/val.h>
-#include <isl_space_private.h>
-#include <isl_point_private.h>
+#include "isl_space_private.h"
+#include "isl_point_private.h"
 
-#include <isl_pw_macro.h>
+#include "isl_pw_macro.h"
 
 #undef SUFFIX
 #define SUFFIX	point

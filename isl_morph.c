@@ -10,16 +10,16 @@
  * and Ecole Normale Superieure, 45 rue d'Ulm, 75230 Paris, France
  */
 
-#include <isl_map_private.h>
-#include <isl_aff_private.h>
-#include <isl_morph.h>
-#include <isl_seq.h>
-#include <isl_mat_private.h>
-#include <isl_space_private.h>
-#include <isl_equalities.h>
-#include <isl_id_private.h>
-#include <isl_aff_private.h>
-#include <isl_vec_private.h>
+#include "isl_map_private.h"
+#include "isl_aff_private.h"
+#include "isl_morph.h"
+#include "isl_seq.h"
+#include "isl_mat_private.h"
+#include "isl_space_private.h"
+#include "isl_equalities.h"
+#include "isl_id_private.h"
+#include "isl_aff_private.h"
+#include "isl_vec_private.h"
 
 isl_ctx *isl_morph_get_ctx(__isl_keep isl_morph *morph)
 {

@@ -1,4 +1,4 @@
-#include <isl_val_private.h>
+#include "isl_val_private.h"
 
 #define xFN(TYPE,NAME) TYPE ## _ ## NAME
 #define FN(TYPE,NAME) xFN(TYPE,NAME)

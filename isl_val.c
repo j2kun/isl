@@ -7,15 +7,15 @@
  * Ecole Normale Superieure, 45 rue d'Ulm, 75230 Paris, France
  */
 
-#include <isl_int.h>
-#include <isl_ctx_private.h>
-#include <isl_val_private.h>
+#include "isl_int.h"
+#include "isl_ctx_private.h"
+#include "isl_val_private.h"
 
 #undef EL_BASE
 #define EL_BASE val
 
-#include <isl_list_templ.c>
-#include <isl_list_read_templ.c>
+#include "isl_list_templ.c"
+#include "isl_list_read_templ.c"
 
 /* Allocate an isl_val object with indeterminate value.
  */
@@ -1574,20 +1574,20 @@ __isl_give isl_val *isl_val_zero_on_domain(__isl_take isl_local_space *ls)
 #undef BASE
 #define BASE val
 
-#include <isl_multi_no_domain_templ.c>
+#include "isl_multi_no_domain_templ.c"
 #include <isl_multi_no_explicit_domain.c>
-#include <isl_multi_templ.c>
-#include <isl_multi_un_op_templ.c>
-#include <isl_multi_bin_val_templ.c>
-#include <isl_multi_arith_templ.c>
-#include <isl_multi_dim_id_templ.c>
+#include "isl_multi_templ.c"
+#include "isl_multi_un_op_templ.c"
+#include "isl_multi_bin_val_templ.c"
+#include "isl_multi_arith_templ.c"
+#include "isl_multi_dim_id_templ.c"
 #include <isl_multi_dims.c>
-#include <isl_multi_min_max_templ.c>
-#include <isl_multi_nan_templ.c>
-#include <isl_multi_product_templ.c>
-#include <isl_multi_splice_templ.c>
-#include <isl_multi_tuple_id_templ.c>
-#include <isl_multi_zero_templ.c>
+#include "isl_multi_min_max_templ.c"
+#include "isl_multi_nan_templ.c"
+#include "isl_multi_product_templ.c"
+#include "isl_multi_splice_templ.c"
+#include "isl_multi_tuple_id_templ.c"
+#include "isl_multi_zero_templ.c"
 
 /* Does "mv" consist of only zeros?
  */

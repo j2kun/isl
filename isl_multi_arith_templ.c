@@ -9,9 +9,9 @@
  */
 
 #include <isl/space.h>
-#include <isl_val_private.h>
+#include "isl_val_private.h"
 
-#include <isl_multi_macro.h>
+#include "isl_multi_macro.h"
 
 /* Add "multi2" to "multi1" and return the result.
  */

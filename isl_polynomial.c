@@ -9,34 +9,34 @@
  */
 
 #include <stdlib.h>
-#include <isl_ctx_private.h>
-#include <isl_map_private.h>
-#include <isl_factorization.h>
-#include <isl_lp_private.h>
-#include <isl_seq.h>
-#include <isl_union_map_private.h>
-#include <isl_constraint_private.h>
-#include <isl_polynomial_private.h>
-#include <isl_point_private.h>
-#include <isl_space_private.h>
-#include <isl_mat_private.h>
-#include <isl_vec_private.h>
-#include <isl_range.h>
-#include <isl_local.h>
-#include <isl_local_space_private.h>
-#include <isl_aff_private.h>
-#include <isl_val_private.h>
-#include <isl_config.h>
+#include "isl_ctx_private.h"
+#include "isl_map_private.h"
+#include "isl_factorization.h"
+#include "isl_lp_private.h"
+#include "isl_seq.h"
+#include "isl_union_map_private.h"
+#include "isl_constraint_private.h"
+#include "isl_polynomial_private.h"
+#include "isl_point_private.h"
+#include "isl_space_private.h"
+#include "isl_mat_private.h"
+#include "isl_vec_private.h"
+#include "isl_range.h"
+#include "isl_local.h"
+#include "isl_local_space_private.h"
+#include "isl_aff_private.h"
+#include "isl_val_private.h"
+#include "isl_config.h"
 
 #undef EL_BASE
 #define EL_BASE qpolynomial
 
-#include <isl_list_templ.c>
+#include "isl_list_templ.c"
 
 #undef EL_BASE
 #define EL_BASE pw_qpolynomial
 
-#include <isl_list_templ.c>
+#include "isl_list_templ.c"
 
 static unsigned pos(__isl_keep isl_space *space, enum isl_dim_type type)
 {
@@ -3270,30 +3270,30 @@ static __isl_give isl_qpolynomial *isl_qpolynomial_zero_in_space(
 #undef DEFAULT_IS_ZERO
 #define DEFAULT_IS_ZERO 1
 
-#include <isl_pw_templ.c>
-#include <isl_pw_un_op_templ.c>
-#include <isl_pw_add_disjoint_templ.c>
-#include <isl_pw_domain_reverse_templ.c>
+#include "isl_pw_templ.c"
+#include "isl_pw_un_op_templ.c"
+#include "isl_pw_add_disjoint_templ.c"
+#include "isl_pw_domain_reverse_templ.c"
 #include <isl_pw_eval.c>
-#include <isl_pw_fix_templ.c>
-#include <isl_pw_from_range_templ.c>
-#include <isl_pw_insert_dims_templ.c>
-#include <isl_pw_lift_templ.c>
-#include <isl_pw_morph_templ.c>
-#include <isl_pw_move_dims_templ.c>
-#include <isl_pw_neg_templ.c>
-#include <isl_pw_opt_templ.c>
-#include <isl_pw_split_dims_templ.c>
-#include <isl_pw_sub_templ.c>
+#include "isl_pw_fix_templ.c"
+#include "isl_pw_from_range_templ.c"
+#include "isl_pw_insert_dims_templ.c"
+#include "isl_pw_lift_templ.c"
+#include "isl_pw_morph_templ.c"
+#include "isl_pw_move_dims_templ.c"
+#include "isl_pw_neg_templ.c"
+#include "isl_pw_opt_templ.c"
+#include "isl_pw_split_dims_templ.c"
+#include "isl_pw_sub_templ.c"
 
 #undef BASE
 #define BASE pw_qpolynomial
 
 #include <isl_union_single.c>
-#include <isl_union_domain_reverse_templ.c>
+#include "isl_union_domain_reverse_templ.c"
 #include <isl_union_eval.c>
 #include <isl_union_neg.c>
-#include <isl_union_sub_templ.c>
+#include "isl_union_sub_templ.c"
 
 int isl_pw_qpolynomial_is_one(__isl_keep isl_pw_qpolynomial *pwqp)
 {

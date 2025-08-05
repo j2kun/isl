@@ -14,7 +14,7 @@
  */
 
 #include <isl/hash.h>
-#include <isl_union_macro.h>
+#include "isl_union_macro.h"
 
 /* A group of expressions defined over the same domain space "domain_space".
  * The entries of "part_table" are the individual expressions,
@@ -546,4 +546,4 @@ error:
 	return NULL;
 }
 
-#include <isl_union_templ.c>
+#include "isl_union_templ.c"

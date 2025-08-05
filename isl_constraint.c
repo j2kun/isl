@@ -10,14 +10,14 @@
  * ZAC des vignes, 4 rue Jacques Monod, 91893 Orsay, France 
  */
 
-#include <isl_map_private.h>
-#include <isl_constraint_private.h>
-#include <isl_space_private.h>
-#include <isl_seq.h>
-#include <isl_aff_private.h>
-#include <isl_local_space_private.h>
-#include <isl_val_private.h>
-#include <isl_vec_private.h>
+#include "isl_map_private.h"
+#include "isl_constraint_private.h"
+#include "isl_space_private.h"
+#include "isl_seq.h"
+#include "isl_aff_private.h"
+#include "isl_local_space_private.h"
+#include "isl_val_private.h"
+#include "isl_vec_private.h"
 
 #include <bset_to_bmap.c>
 #include <bset_from_bmap.c>
@@ -25,7 +25,7 @@
 #undef EL_BASE
 #define EL_BASE constraint
 
-#include <isl_list_templ.c>
+#include "isl_list_templ.c"
 
 isl_ctx *isl_constraint_get_ctx(__isl_keep isl_constraint *c)
 {

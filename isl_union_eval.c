@@ -8,7 +8,7 @@
  * 91893 Orsay, France
  */
 
-#include <isl_union_macro.h>
+#include "isl_union_macro.h"
 
 /* Evaluate "u" in the void point "pnt".
  * In particular, return the value NaN.

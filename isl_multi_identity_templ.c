@@ -10,7 +10,7 @@
 #include <isl/space.h>
 #include <isl/local_space.h>
 
-#include <isl_multi_macro.h>
+#include "isl_multi_macro.h"
 
 /* Create a multi expression in the given space that maps each
  * input dimension to the corresponding output dimension.

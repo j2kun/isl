@@ -12,8 +12,8 @@
 
 #include <isl/val.h>
 #include <isl/space.h>
-#include <isl_map_private.h>
-#include <isl_aff_private.h>
+#include "isl_map_private.h"
+#include "isl_aff_private.h"
 #include <isl/constraint.h>
 #include <isl/ilp.h>
 #include <isl/fixed_box.h>

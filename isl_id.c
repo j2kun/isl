@@ -8,14 +8,14 @@
  */
 
 #include <string.h>
-#include <isl_ctx_private.h>
-#include <isl_id_private.h>
+#include "isl_ctx_private.h"
+#include "isl_id_private.h"
 
 #undef EL_BASE
 #define EL_BASE id
 
-#include <isl_list_templ.c>
-#include <isl_list_read_templ.c>
+#include "isl_list_templ.c"
+#include "isl_list_read_templ.c"
 
 /* A special, static isl_id to use as domains (and ranges)
  * of sets and parameters domains.
@@ -303,6 +303,6 @@ static isl_bool isl_id_plain_is_equal(__isl_keep isl_id *id1,
 #undef BASE
 #define BASE id
 
-#include <isl_multi_no_domain_templ.c>
+#include "isl_multi_no_domain_templ.c"
 #include <isl_multi_no_explicit_domain.c>
-#include <isl_multi_templ.c>
+#include "isl_multi_templ.c"

@@ -8,7 +8,7 @@
  * Ecole Normale Superieure, 45 rue d'Ulm, 75230 Paris, France
  */
 
-#include <isl_multi_macro.h>
+#include "isl_multi_macro.h"
 
 /* Extract a multi expression with domain space "dom_space"
  * from a tuple "tuple" that was read by read_tuple.

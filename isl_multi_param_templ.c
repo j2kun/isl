@@ -4,7 +4,7 @@
  * Written by Sven Verdoolaege
  */
 
-#include <isl_multi_macro.h>
+#include "isl_multi_macro.h"
 
 /* Does the multiple expression "multi" depend in any way
  * on the parameter with identifier "id"?

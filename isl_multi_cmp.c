@@ -6,7 +6,7 @@
  * Written by Sven Verdoolaege
  */
 
-#include <isl_multi_macro.h>
+#include "isl_multi_macro.h"
 
 /* Compare two multi expressions.
  *

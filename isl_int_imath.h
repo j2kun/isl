@@ -1,7 +1,7 @@
 #ifndef ISL_INT_IMATH_H
 #define ISL_INT_IMATH_H
 
-#include <isl_imath.h>
+#include "isl_imath.h"
 
 /* isl_int is the basic integer type, implemented with imath's mp_int. */
 typedef mp_int isl_int;

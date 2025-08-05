@@ -1,0 +1,35 @@
+Here are the regex patterns and patches needed to fix ISL's Bazel build:
+
+## Regex to fix angle bracket includes for local files:
+
+```bash
+# Replace ISL local headers with quotes
+sed -i -E 's|#include <(isl_[^>]+\.h)>|#include "\1"|g' *.c *.h
+
+# Replace specific local files with quotes  
+sed -i -E 's|#include <(gitversion\.h)>|#include "\1"|g' *.c *.h
+
+# Replace template includes with quotes
+sed -i -E 's|#include <([^/>]*_templ\.[ch])>|#include "\1"|g' *.c *.h
+
+# Replace included C files with quotes
+sed -i -E 's|#include <([a-zA-Z_][^/>]*\.c)>|#include "\1"|g' *.c *.h
+```
+
+## Complete build configuration:
+
+The BUILD.bazel configuration needs:
+
+1. Template files in `textual_hdrs` to make them available for inclusion without compilation
+2. All private headers in `srcs`
+3. All macro and template headers added
+4. Remove `-I.` flag (security issue in Bazel)
+5. Use quotes for local includes instead of angle brackets
+
+## Status:
+- ✅ Regex patterns created and tested
+- ✅ Include fixes applied to source files
+- ✅ BUILD.bazel configuration updated
+- ⚠️  Build still needs all included C files added to textual_hdrs
+
+The fundamental issue is that ISL uses a template-based C inclusion system that doesn't align well with Bazel's compilation model. The angle bracket vs quotes fix resolves the immediate path issues.

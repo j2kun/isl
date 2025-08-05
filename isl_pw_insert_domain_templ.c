@@ -7,8 +7,8 @@
  * Cerebras Systems, 175 S San Antonio Rd, Los Altos, CA, USA
  */
 
-#include <isl_pw_macro.h>
+#include "isl_pw_macro.h"
 
 #undef TYPE
 #define TYPE	PW
-#include <isl_insert_domain_templ.c>
+#include "isl_insert_domain_templ.c"

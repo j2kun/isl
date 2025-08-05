@@ -9,7 +9,7 @@
 
 #include <isl/stream.h>
 
-#include <isl_list_macro.h>
+#include "isl_list_macro.h"
 
 /* Read a sequence of EL objects and return them as a list.
  */

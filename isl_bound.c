@@ -10,13 +10,13 @@
 
 #include <isl/aff.h>
 #include <isl/val.h>
-#include <isl_ctx_private.h>
-#include <isl_map_private.h>
-#include <isl_bound.h>
-#include <isl_bernstein.h>
-#include <isl_range.h>
-#include <isl_polynomial_private.h>
-#include <isl_options_private.h>
+#include "isl_ctx_private.h"
+#include "isl_map_private.h"
+#include "isl_bound.h"
+#include "isl_bernstein.h"
+#include "isl_range.h"
+#include "isl_polynomial_private.h"
+#include "isl_options_private.h"
 
 /* Given a polynomial "poly" that is constant in terms
  * of the domain variables, construct a polynomial reduction

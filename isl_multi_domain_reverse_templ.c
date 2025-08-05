@@ -9,7 +9,7 @@
 
 #include <isl/space.h>
 
-#include <isl_multi_macro.h>
+#include "isl_multi_macro.h"
 
 /* Given a multi expression on a domain (A -> B),
  * interchange A and B in the wrapped domain

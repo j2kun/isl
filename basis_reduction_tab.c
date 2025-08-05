@@ -8,11 +8,11 @@
  */
 
 #include <assert.h>
-#include <isl_map_private.h>
-#include <isl_seq.h>
+#include "isl_map_private.h"
+#include "isl_seq.h"
 #include "isl_tab.h"
-#include <isl_int.h>
-#include <isl_config.h>
+#include "isl_int.h"
+#include "isl_config.h"
 
 struct tab_lp {
 	struct isl_ctx  *ctx;

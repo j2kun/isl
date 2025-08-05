@@ -8,7 +8,7 @@
 
 #include <isl/stream.h>
 
-#include <isl_list_macro.h>
+#include "isl_list_macro.h"
 
 /* Read a list of elements of type EL from "s".
  * The input format corresponds to the way lists are printed

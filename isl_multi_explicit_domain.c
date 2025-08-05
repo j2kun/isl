@@ -10,7 +10,7 @@
  * when the multi expression may have an explicit domain.
  */
 
-#include <isl_multi_macro.h>
+#include "isl_multi_macro.h"
 
 __isl_give MULTI(BASE) *FN(MULTI(BASE),cow)(__isl_take MULTI(BASE) *multi);
 

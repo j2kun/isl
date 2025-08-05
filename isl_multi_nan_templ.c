@@ -7,7 +7,7 @@
  * Ecole Normale Superieure, 45 rue d'Ulm, 75230 Paris, France
  */
 
-#include <isl_multi_macro.h>
+#include "isl_multi_macro.h"
 
 /* Does "multi" involve any NaNs?
  */

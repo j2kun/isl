@@ -14,17 +14,17 @@
 #include <isl/hash.h>
 #include <isl/printer.h>
 #include <string.h>
-#include <isl_config.h>
+#include "isl_config.h"
 
 #ifdef USE_GMP_FOR_MP
-#include <isl_int_gmp.h>
+#include "isl_int_gmp.h"
 #endif
 
 #ifdef USE_IMATH_FOR_MP
 #ifdef USE_SMALL_INT_OPT
-#include <isl_int_sioimath.h>
+#include "isl_int_sioimath.h"
 #else /* USE_SMALL_INT_OPT */
-#include <isl_int_imath.h>
+#include "isl_int_imath.h"
 #endif /* USE_SMALL_INT_OPT */
 #endif /* USE_IMATH_FOR_MP */
 

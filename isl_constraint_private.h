@@ -16,7 +16,7 @@ struct isl_constraint {
 #undef EL
 #define EL isl_constraint
 
-#include <isl_list_templ.h>
+#include "isl_list_templ.h"
 
 __isl_give isl_constraint *isl_basic_set_constraint(
 	__isl_take isl_basic_set *bset, isl_int **line);

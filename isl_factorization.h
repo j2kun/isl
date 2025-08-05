@@ -2,7 +2,7 @@
 #define ISL_FACTORIZATION_H
 
 #include <isl/set.h>
-#include <isl_morph.h>
+#include "isl_morph.h"
 
 #if defined(__cplusplus)
 extern "C" {

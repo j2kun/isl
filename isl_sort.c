@@ -25,7 +25,7 @@
 #include <errno.h>
 #include <string.h>
 #include <stdlib.h>
-#include <isl_sort.h>
+#include "isl_sort.h"
 
 #define MID(lo, hi) (lo + ((hi - lo) >> 1))
 

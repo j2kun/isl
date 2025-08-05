@@ -40,7 +40,7 @@ ISL_DECLARE_LIST(ast_graft)
 #undef EL
 #define EL isl_ast_graft
 
-#include <isl_list_templ.h>
+#include "isl_list_templ.h"
 
 isl_ctx *isl_ast_graft_get_ctx(__isl_keep isl_ast_graft *graft);
 

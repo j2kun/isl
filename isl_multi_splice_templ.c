@@ -10,7 +10,7 @@
 #include <isl/ctx.h>
 #include <isl/space.h>
 
-#include <isl_multi_macro.h>
+#include "isl_multi_macro.h"
 
 /* Given two multi expressions, "multi1"
  *

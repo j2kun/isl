@@ -6,7 +6,7 @@
  * Written by Sven Verdoolaege.
  */
 
-#include <isl_multi_macro.h>
+#include "isl_multi_macro.h"
 
 /* Compute the sum of "multi1" and "multi2" on the union of their domains,
  * with the actual sum on the shared domain and

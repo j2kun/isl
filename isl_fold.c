@@ -8,22 +8,22 @@
  * 91893 Orsay, France 
  */
 
-#include <isl_map_private.h>
-#include <isl_union_map_private.h>
-#include <isl_polynomial_private.h>
-#include <isl_point_private.h>
-#include <isl_space_private.h>
-#include <isl_lp_private.h>
-#include <isl_seq.h>
-#include <isl_mat_private.h>
-#include <isl_val_private.h>
-#include <isl_vec_private.h>
-#include <isl_config.h>
+#include "isl_map_private.h"
+#include "isl_union_map_private.h"
+#include "isl_polynomial_private.h"
+#include "isl_point_private.h"
+#include "isl_space_private.h"
+#include "isl_lp_private.h"
+#include "isl_seq.h"
+#include "isl_mat_private.h"
+#include "isl_val_private.h"
+#include "isl_vec_private.h"
+#include "isl_config.h"
 
 #undef EL_BASE
 #define EL_BASE pw_qpolynomial_fold
 
-#include <isl_list_templ.c>
+#include "isl_list_templ.c"
 
 enum isl_fold isl_fold_type_negate(enum isl_fold type)
 {
@@ -950,16 +950,16 @@ static __isl_give isl_qpolynomial_fold *isl_qpolynomial_fold_zero_in_space(
 #undef DEFAULT_IS_ZERO
 #define DEFAULT_IS_ZERO 1
 
-#include <isl_pw_templ.c>
-#include <isl_pw_add_disjoint_templ.c>
+#include "isl_pw_templ.c"
+#include "isl_pw_add_disjoint_templ.c"
 #include <isl_pw_eval.c>
-#include <isl_pw_fix_templ.c>
-#include <isl_pw_from_range_templ.c>
-#include <isl_pw_insert_dims_templ.c>
-#include <isl_pw_lift_templ.c>
-#include <isl_pw_morph_templ.c>
-#include <isl_pw_move_dims_templ.c>
-#include <isl_pw_opt_templ.c>
+#include "isl_pw_fix_templ.c"
+#include "isl_pw_from_range_templ.c"
+#include "isl_pw_insert_dims_templ.c"
+#include "isl_pw_lift_templ.c"
+#include "isl_pw_morph_templ.c"
+#include "isl_pw_move_dims_templ.c"
+#include "isl_pw_opt_templ.c"
 
 #undef BASE
 #define BASE pw_qpolynomial_fold

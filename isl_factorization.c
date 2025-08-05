@@ -13,10 +13,10 @@
  * ZAC des vignes, 4 rue Jacques Monod, 91893 Orsay, France 
  */
 
-#include <isl_map_private.h>
-#include <isl_factorization.h>
-#include <isl_space_private.h>
-#include <isl_mat_private.h>
+#include "isl_map_private.h"
+#include "isl_factorization.h"
+#include "isl_space_private.h"
+#include "isl_mat_private.h"
 
 /* Return the isl_ctx to which "f" belongs.
  */

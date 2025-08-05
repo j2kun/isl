@@ -1,7 +1,7 @@
 #ifndef ISL_SCHEDLUE_TREE_H
 #define ISL_SCHEDLUE_TREE_H
 
-#include <isl_schedule_band.h>
+#include "isl_schedule_band.h"
 #include <isl/schedule.h>
 #include <isl/set.h>
 #include <isl/union_set.h>

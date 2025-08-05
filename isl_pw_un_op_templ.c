@@ -8,7 +8,7 @@
  * 91893 Orsay, France
  */
 
-#include <isl_pw_macro.h>
+#include "isl_pw_macro.h"
 
 /* Data structure that specifies how isl_pw_*_un_op should
  * modify its input.

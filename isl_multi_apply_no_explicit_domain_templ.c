@@ -26,4 +26,4 @@ static __isl_give MULTI(BASE) *FN(FN(MULTI(BASE),apply_domain),APPLY_DOMBASE)(
 	return multi;
 }
 
-#include <isl_multi_apply_templ.c>
+#include "isl_multi_apply_templ.c"

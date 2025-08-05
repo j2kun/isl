@@ -1,11 +1,11 @@
 #include <stdio.h>
-#include <isl_int.h>
+#include "isl_int.h"
 #include <isl/map.h>
 #include <isl/mat.h>
-#include <isl_morph.h>
+#include "isl_morph.h"
 #include <isl/polynomial.h>
-#include <isl_local.h>
-#include <isl_reordering.h>
+#include "isl_local.h"
+#include "isl_reordering.h"
 #include "isl_list_private.h"
 
 struct isl_poly {
@@ -45,7 +45,7 @@ struct isl_qpolynomial {
 #undef EL
 #define EL isl_qpolynomial
 
-#include <isl_list_templ.h>
+#include "isl_list_templ.h"
 
 struct isl_term {
 	int ref;
@@ -78,12 +78,12 @@ struct isl_pw_qpolynomial {
 #undef PW
 #define PW isl_pw_qpolynomial
 
-#include <isl_pw_templ.h>
+#include "isl_pw_templ.h"
 
 #undef EL
 #define EL isl_pw_qpolynomial
 
-#include <isl_list_templ.h>
+#include "isl_list_templ.h"
 
 /* dim represents the domain space.
  */
@@ -116,12 +116,12 @@ struct isl_pw_qpolynomial_fold {
 #undef PW
 #define PW isl_pw_qpolynomial_fold
 
-#include <isl_pw_templ.h>
+#include "isl_pw_templ.h"
 
 #undef EL
 #define EL isl_pw_qpolynomial_fold
 
-#include <isl_list_templ.h>
+#include "isl_list_templ.h"
 
 void isl_term_get_num(__isl_keep isl_term *term, isl_int *n);
 

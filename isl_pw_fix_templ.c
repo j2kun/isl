@@ -1,4 +1,4 @@
-#include <isl_pw_macro.h>
+#include "isl_pw_macro.h"
 
 /* Fix the value of the given parameter or domain dimension of "pw"
  * to be equal to "value".

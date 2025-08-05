@@ -7,19 +7,19 @@
  * Computerwetenschappen, Celestijnenlaan 200A, B-3001 Leuven, Belgium
  */
 
-#include <isl_ctx_private.h>
-#include <isl_map_private.h>
+#include "isl_ctx_private.h"
+#include "isl_map_private.h"
 #include "isl_sample.h"
 #include <isl/vec.h>
 #include <isl/mat.h>
-#include <isl_seq.h>
+#include "isl_seq.h"
 #include "isl_equalities.h"
 #include "isl_tab.h"
 #include "isl_basis_reduction.h"
-#include <isl_factorization.h>
-#include <isl_point_private.h>
-#include <isl_options_private.h>
-#include <isl_vec_private.h>
+#include "isl_factorization.h"
+#include "isl_point_private.h"
+#include "isl_options_private.h"
+#include "isl_vec_private.h"
 
 #include <bset_from_bmap.c>
 #include <set_to_map.c>

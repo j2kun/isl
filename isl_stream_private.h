@@ -1,6 +1,6 @@
-#include <isl_int.h>
+#include "isl_int.h"
 #include <isl/stream.h>
-#include <isl_yaml.h>
+#include "isl_yaml.h"
 
 struct isl_token {
 	int type;

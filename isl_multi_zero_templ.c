@@ -10,7 +10,7 @@
 #include <isl/space.h>
 #include <isl/local_space.h>
 
-#include <isl_multi_macro.h>
+#include "isl_multi_macro.h"
 
 /* Construct a multi expression in the given space with value zero in
  * each of the output dimensions.

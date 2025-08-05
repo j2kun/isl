@@ -1,5 +1,5 @@
 #include <isl/ctx.h>
-#include <isl_blk.h>
+#include "isl_blk.h"
 
 /* "error" stores the last error that has occurred.
  * It is reset to isl_error_none by isl_ctx_reset_error.

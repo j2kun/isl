@@ -7,7 +7,7 @@
  * Cerebras Systems, 175 S San Antonio Rd, Los Altos, CA, USA
  */
 
-#include <isl_pw_macro.h>
+#include "isl_pw_macro.h"
 
 #undef VAL
 #define VAL	CAT(isl_,VAL_BASE)

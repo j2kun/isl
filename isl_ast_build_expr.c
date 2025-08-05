@@ -15,10 +15,10 @@
 #include <isl/constraint.h>
 #include <isl/ilp.h>
 #include <isl/val.h>
-#include <isl_ast_build_expr.h>
-#include <isl_ast_private.h>
-#include <isl_ast_build_private.h>
-#include <isl_sort.h>
+#include "isl_ast_build_expr.h"
+#include "isl_ast_private.h"
+#include "isl_ast_build_private.h"
+#include "isl_sort.h"
 
 /* Compute the "opposite" of the (numerator of the) argument of a div
  * with denominator "d".

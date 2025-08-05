@@ -8,8 +8,8 @@
  */
 
 #include <isl/val.h>
-#include <isl_map_private.h>
-#include <isl_aff_private.h>
+#include "isl_map_private.h"
+#include "isl_aff_private.h"
 #include <isl/constraint.h>
 #include <isl/set.h>
 

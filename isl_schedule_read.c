@@ -2,8 +2,8 @@
 #include <isl/val.h>
 #include <isl/schedule.h>
 #include <isl/stream.h>
-#include <isl_schedule_private.h>
-#include <isl_schedule_tree.h>
+#include "isl_schedule_private.h"
+#include "isl_schedule_tree.h"
 
 /* An enumeration of the various keys that may appear in a YAML mapping
  * of a schedule.
@@ -452,7 +452,7 @@ error:
 #undef EL_BASE
 #define EL_BASE val
 
-#include <isl_list_read_yaml_templ.c>
+#include "isl_list_read_yaml_templ.c"
 
 /* Read a sequence of integers from "s" (representing the coincident
  * property of a band node).
@@ -592,7 +592,7 @@ error:
 #undef EL_BASE
 #define EL_BASE schedule_tree
 
-#include <isl_list_read_yaml_templ.c>
+#include "isl_list_read_yaml_templ.c"
 
 /* Read a subtree with root node of type "type" from "s".
  * The node is represented by a sequence of children.

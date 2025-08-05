@@ -8,7 +8,7 @@
  */
 
 #include <assert.h>
-#include <isl_map_private.h>
+#include "isl_map_private.h"
 #include "isl_sample.h"
 #include <isl/vec.h>
 

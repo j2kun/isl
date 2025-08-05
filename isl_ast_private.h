@@ -12,7 +12,7 @@
 #undef EL
 #define EL isl_ast_expr
 
-#include <isl_list_templ.h>
+#include "isl_list_templ.h"
 
 /* An expression is either an integer, an identifier or an operation
  * with zero or more arguments.
@@ -48,7 +48,7 @@ __isl_give isl_ast_expr *isl_stream_read_ast_expr(__isl_keep isl_stream *s);
 #undef EL
 #define EL isl_ast_node
 
-#include <isl_list_templ.h>
+#include "isl_list_templ.h"
 
 /* A node is either a block, an if, a for, a user node or a mark node.
  * "else_node" is NULL if the if node does not have an else branch.

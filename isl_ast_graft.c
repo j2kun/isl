@@ -15,10 +15,10 @@
 #include <isl/id.h>
 #include <isl/space.h>
 #include <isl/stream.h>
-#include <isl_ast_private.h>
-#include <isl_ast_build_expr.h>
-#include <isl_ast_build_private.h>
-#include <isl_ast_graft_private.h>
+#include "isl_ast_private.h"
+#include "isl_ast_build_expr.h"
+#include "isl_ast_build_private.h"
+#include "isl_ast_graft_private.h"
 #include "isl_set_to_ast_graft_list.h"
 
 static __isl_give isl_ast_graft *isl_ast_graft_copy(
@@ -29,12 +29,12 @@ static __isl_give isl_ast_graft *isl_stream_read_ast_graft(
 #undef EL_BASE
 #define EL_BASE ast_graft
 
-#include <isl_list_templ.c>
-#include <isl_list_read_templ.c>
+#include "isl_list_templ.c"
+#include "isl_list_read_templ.c"
 
 #undef BASE
 #define BASE ast_graft
-#include <print_templ.c>
+#include "print_templ.c"
 
 isl_ctx *isl_ast_graft_get_ctx(__isl_keep isl_ast_graft *graft)
 {

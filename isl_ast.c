@@ -14,17 +14,17 @@
 #include <isl/id.h>
 #include <isl/stream.h>
 #include <isl/val.h>
-#include <isl_ast_private.h>
+#include "isl_ast_private.h"
 
 #undef EL_BASE
 #define EL_BASE ast_expr
 
-#include <isl_list_templ.c>
+#include "isl_list_templ.c"
 
 #undef EL_BASE
 #define EL_BASE ast_node
 
-#include <isl_list_templ.c>
+#include "isl_list_templ.c"
 
 isl_ctx *isl_ast_print_options_get_ctx(
 	__isl_keep isl_ast_print_options *options)
@@ -2686,7 +2686,7 @@ static isl_stat eat_key(__isl_keep isl_stream *s, const char *expected)
 #undef EL_BASE
 #define EL_BASE ast_expr
 
-#include <isl_list_read_yaml_templ.c>
+#include "isl_list_read_yaml_templ.c"
 
 /* Read an isl_ast_expr object of type isl_ast_expr_op from "s",
  * where the "op" key has already been read by the caller.
@@ -3304,7 +3304,7 @@ static isl_bool next_is_sequence(__isl_keep isl_stream *s)
 #undef EL_BASE
 #define EL_BASE ast_node
 
-#include <isl_list_read_yaml_templ.c>
+#include "isl_list_read_yaml_templ.c"
 
 /* Read an isl_ast_node object of type isl_ast_node_block from "s".
  */

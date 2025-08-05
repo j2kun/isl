@@ -8,7 +8,7 @@
  * Ecole Normale Superieure, 45 rue d'Ulm, 75230 Paris, France
  */
 
-#include <isl_schedule_constraints.h>
+#include "isl_schedule_constraints.h"
 #include <isl/schedule.h>
 #include <isl/space.h>
 #include <isl/set.h>

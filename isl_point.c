@@ -14,18 +14,18 @@
  * and Cerebras Systems, 1237 E Arques Ave, Sunnyvale, CA, USA
  */
 
-#include <isl_map_private.h>
-#include <isl_point_private.h>
+#include "isl_map_private.h"
+#include "isl_point_private.h"
 #include <isl/set.h>
 #include <isl/union_set.h>
-#include <isl_sample.h>
-#include <isl_scan.h>
-#include <isl_seq.h>
-#include <isl_space_private.h>
-#include <isl_local_private.h>
-#include <isl_val_private.h>
-#include <isl_vec_private.h>
-#include <isl_output_private.h>
+#include "isl_sample.h"
+#include "isl_scan.h"
+#include "isl_seq.h"
+#include "isl_space_private.h"
+#include "isl_local_private.h"
+#include "isl_val_private.h"
+#include "isl_vec_private.h"
+#include "isl_output_private.h"
 
 #include <set_to_map.c>
 
