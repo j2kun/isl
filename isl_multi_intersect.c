@@ -8,7 +8,7 @@
  * Ecole Normale Superieure, 45 rue d’Ulm, 75230 Paris, France
  */
 
-#include <isl_multi_macro.h>
+#include "isl_multi_macro.h"
 
 /* Intersect the parameter domain "dom1" with "dom2".
  * That is, intersect the parameters of "dom2" with "dom1".

@@ -7,7 +7,7 @@
  * Ecole Normale Superieure, 45 rue d'Ulm, 75230 Paris, France
  */
 
-#include <isl_pw_macro.h>
+#include "isl_pw_macro.h"
 
 #undef SUFFIX
 #define SUFFIX	multi_aff

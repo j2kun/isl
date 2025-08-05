@@ -8,7 +8,7 @@
  * 91893 Orsay, France
  */
 
-#include <isl_pw_macro.h>
+#include "isl_pw_macro.h"
 
 __isl_give PW *FN(PW,sub)(__isl_take PW *pw1, __isl_take PW *pw2)
 {

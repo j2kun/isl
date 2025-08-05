@@ -1,10 +1,10 @@
 #ifndef ISL_VAL_PRIVATE_H
 #define ISL_VAL_PRIVATE_H
 
-#include <isl_int.h>
+#include "isl_int.h"
 #include <isl/val.h>
 #include <isl/local_space.h>
-#include <isl_reordering.h>
+#include "isl_reordering.h"
 
 /* Represents a "value", which may be an integer value, a rational value,
  * plus or minus infinity or "not a number".
@@ -25,7 +25,7 @@ struct isl_val {
 #undef EL
 #define EL isl_val
 
-#include <isl_list_templ.h>
+#include "isl_list_templ.h"
 
 __isl_give isl_val *isl_val_alloc(isl_ctx *ctx);
 __isl_give isl_val *isl_val_normalize(__isl_take isl_val *v);
@@ -56,6 +56,6 @@ isl_bool isl_val_plain_is_equal(__isl_keep isl_val *val1,
 #undef BASE
 #define BASE val
 
-#include <isl_multi_templ.h>
+#include "isl_multi_templ.h"
 
 #endif

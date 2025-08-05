@@ -12,7 +12,7 @@
 #include <string.h>
 
 #include <isl/ctx.h>
-#include <isl_options_private.h>
+#include "isl_options_private.h"
 #include <isl/ast_build.h>
 #include <isl/schedule.h>
 #include <isl/version.h>

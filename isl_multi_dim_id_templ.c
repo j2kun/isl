@@ -10,7 +10,7 @@
 
 #include <isl/space.h>
 
-#include <isl_multi_macro.h>
+#include "isl_multi_macro.h"
 
 /* Return the position of the dimension of the given type and name
  * in "multi".

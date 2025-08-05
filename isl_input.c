@@ -17,21 +17,21 @@
 #include <ctype.h>
 #include <stdio.h>
 #include <string.h>
-#include <isl_ctx_private.h>
-#include <isl_map_private.h>
-#include <isl_id_private.h>
+#include "isl_ctx_private.h"
+#include "isl_map_private.h"
+#include "isl_id_private.h"
 #include <isl/set.h>
-#include <isl_seq.h>
-#include <isl_stream_private.h>
+#include "isl_seq.h"
+#include "isl_stream_private.h"
 #include <isl/obj.h>
 #include "isl_polynomial_private.h"
 #include <isl/union_set.h>
 #include <isl/union_map.h>
-#include <isl_mat_private.h>
-#include <isl_aff_private.h>
-#include <isl_vec_private.h>
+#include "isl_mat_private.h"
+#include "isl_aff_private.h"
+#include "isl_vec_private.h"
 #include <isl/list.h>
-#include <isl_val_private.h>
+#include "isl_val_private.h"
 
 struct variable {
 	char    	    	*name;
@@ -3691,7 +3691,7 @@ static __isl_give isl_multi_pw_aff *isl_multi_pw_aff_set_tuple_entry(
 #undef BASE
 #define BASE pw_aff
 
-#include <isl_multi_from_tuple_templ.c>
+#include "isl_multi_from_tuple_templ.c"
 
 /* Read a tuple of piecewise affine expressions,
  * including optional constraints on the domain from "s".
@@ -3817,12 +3817,12 @@ isl_stream_read_with_params_union_pw_multi_aff(__isl_keep isl_stream *s,
 #undef BASE
 #define BASE val
 
-#include <isl_multi_read_no_explicit_domain_templ.c>
+#include "isl_multi_read_no_explicit_domain_templ.c"
 
 #undef BASE
 #define BASE id
 
-#include <isl_multi_read_no_explicit_domain_templ.c>
+#include "isl_multi_read_no_explicit_domain_templ.c"
 
 /* Set entry "pos" of "ma" to the corresponding entry in "tuple",
  * as obtained from read_tuple().
@@ -3848,7 +3848,7 @@ static __isl_give isl_multi_aff *isl_multi_aff_set_tuple_entry(
 #undef BASE
 #define BASE aff
 
-#include <isl_multi_from_tuple_templ.c>
+#include "isl_multi_from_tuple_templ.c"
 
 /* Read a multi-affine expression from "s".
  * If the multi-affine expression has a domain, then the tuple

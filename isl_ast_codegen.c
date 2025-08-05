@@ -22,12 +22,12 @@
 #include <isl/union_map.h>
 #include <isl/schedule_node.h>
 #include <isl/options.h>
-#include <isl_sort.h>
-#include <isl_tarjan.h>
-#include <isl_ast_private.h>
-#include <isl_ast_build_expr.h>
-#include <isl_ast_build_private.h>
-#include <isl_ast_graft_private.h>
+#include "isl_sort.h"
+#include "isl_tarjan.h"
+#include "isl_ast_private.h"
+#include "isl_ast_build_expr.h"
+#include "isl_ast_build_private.h"
+#include "isl_ast_graft_private.h"
 
 /* Try and reduce the number of disjuncts in the representation of "set",
  * without dropping explicit representations of local variables.

@@ -8,13 +8,13 @@
  * 91893 Orsay, France 
  */
 
-#include <isl_map_private.h>
+#include "isl_map_private.h"
 #include <isl/set.h>
-#include <isl_space_private.h>
-#include <isl_seq.h>
-#include <isl_aff_private.h>
-#include <isl_mat_private.h>
-#include <isl_factorization.h>
+#include "isl_space_private.h"
+#include "isl_seq.h"
+#include "isl_aff_private.h"
+#include "isl_mat_private.h"
+#include "isl_factorization.h"
 
 /*
  * Let C be a cone and define

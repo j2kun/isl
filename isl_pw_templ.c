@@ -13,10 +13,10 @@
 
 #include <isl/id.h>
 #include <isl/aff.h>
-#include <isl_sort.h>
-#include <isl_val_private.h>
+#include "isl_sort.h"
+#include "isl_val_private.h"
 
-#include <isl_pw_macro.h>
+#include "isl_pw_macro.h"
 
 #include "opt_type.h"
 

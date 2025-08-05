@@ -8,17 +8,17 @@
  * 91893 Orsay, France 
  */
 
-#include <isl_ctx_private.h>
-#include <isl_map_private.h>
+#include "isl_ctx_private.h"
+#include "isl_map_private.h"
 #include <isl/map.h>
-#include <isl_seq.h>
-#include <isl_space_private.h>
-#include <isl_lp_private.h>
+#include "isl_seq.h"
+#include "isl_space_private.h"
+#include "isl_lp_private.h"
 #include <isl/union_map.h>
-#include <isl_mat_private.h>
-#include <isl_vec_private.h>
-#include <isl_options_private.h>
-#include <isl_tarjan.h>
+#include "isl_mat_private.h"
+#include "isl_vec_private.h"
+#include "isl_options_private.h"
+#include "isl_tarjan.h"
 
 isl_bool isl_map_is_transitively_closed(__isl_keep isl_map *map)
 {

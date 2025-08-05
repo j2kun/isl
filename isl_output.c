@@ -16,31 +16,31 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include <isl_ctx_private.h>
-#include <isl_map_private.h>
+#include "isl_ctx_private.h"
+#include "isl_map_private.h"
 #include <isl/set.h>
-#include <isl_seq.h>
-#include <isl_polynomial_private.h>
-#include <isl_printer_private.h>
-#include <isl_space_private.h>
-#include <isl_mat_private.h>
-#include <isl_vec_private.h>
+#include "isl_seq.h"
+#include "isl_polynomial_private.h"
+#include "isl_printer_private.h"
+#include "isl_space_private.h"
+#include "isl_mat_private.h"
+#include "isl_vec_private.h"
 #include <isl/union_set.h>
 #include <isl/union_map.h>
 #include <isl/constraint.h>
-#include <isl_local.h>
-#include <isl_local_space_private.h>
-#include <isl_aff_private.h>
-#include <isl_id_private.h>
-#include <isl_val_private.h>
-#include <isl_constraint_private.h>
+#include "isl_local.h"
+#include "isl_local_space_private.h"
+#include "isl_aff_private.h"
+#include "isl_id_private.h"
+#include "isl_val_private.h"
+#include "isl_constraint_private.h"
 #include <isl/ast_build.h>
-#include <isl_sort.h>
-#include <isl_output_private.h>
+#include "isl_sort.h"
+#include "isl_output_private.h"
 
-#include <bset_to_bmap.c>
-#include <set_to_map.c>
-#include <uset_to_umap.c>
+#include "bset_to_bmap.c"
+#include "set_to_map.c"
+#include "uset_to_umap.c"
 
 static const char *s_to[2] = { " -> ", " \\to " };
 static const char *s_and[2] = { " and ", " \\wedge " };

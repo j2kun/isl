@@ -16,9 +16,9 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include <isl_space_private.h>
-#include <isl_id_private.h>
-#include <isl_reordering.h>
+#include "isl_space_private.h"
+#include "isl_id_private.h"
+#include "isl_reordering.h"
 
 isl_ctx *isl_space_get_ctx(__isl_keep isl_space *space)
 {

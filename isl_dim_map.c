@@ -10,10 +10,10 @@
  * ZAC des vignes, 4 rue Jacques Monod, 91893 Orsay, France 
  */
 
-#include <isl_map_private.h>
-#include <isl_space_private.h>
-#include <isl_dim_map.h>
-#include <isl_reordering.h>
+#include "isl_map_private.h"
+#include "isl_space_private.h"
+#include "isl_dim_map.h"
+#include "isl_reordering.h"
 
 struct isl_dim_map_entry {
 	int pos;

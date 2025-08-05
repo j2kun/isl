@@ -12,7 +12,7 @@
 
 #include <isl/space.h>
 
-#include <isl_multi_macro.h>
+#include "isl_multi_macro.h"
 
 /* Does "multi" have an explicit domain?
  *

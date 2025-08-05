@@ -10,4 +10,4 @@
 #undef VAL_BASE
 #define VAL_BASE	multi_val
 
-#include <isl_pw_add_constant_templ.c>
+#include "isl_pw_add_constant_templ.c"

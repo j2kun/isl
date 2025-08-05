@@ -1,4 +1,4 @@
-#include <isl_config.h>
+#include "isl_config.h"
 
 #if !HAVE_DECL_FFS && !HAVE_DECL___BUILTIN_FFS && HAVE_DECL__BITSCANFORWARD
 #include <intrin.h>

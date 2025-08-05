@@ -17,18 +17,18 @@
 #include <isl/val.h>
 #include <isl/space.h>
 #include <isl/map.h>
-#include <isl_schedule_band.h>
-#include <isl_schedule_private.h>
+#include "isl_schedule_band.h"
+#include "isl_schedule_private.h"
 
 #undef EL
 #define EL isl_schedule_tree
 
-#include <isl_list_templ.h>
+#include "isl_list_templ.h"
 
 #undef EL_BASE
 #define EL_BASE schedule_tree
 
-#include <isl_list_templ.c>
+#include "isl_list_templ.c"
 
 /* Is "tree" the leaf of a schedule tree?
  */

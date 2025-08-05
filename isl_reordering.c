@@ -8,10 +8,10 @@
  * 91893 Orsay, France
  */
 
-#include <isl_ctx_private.h>
+#include "isl_ctx_private.h"
 #include <isl/id.h>
-#include <isl_space_private.h>
-#include <isl_reordering.h>
+#include "isl_space_private.h"
+#include "isl_reordering.h"
 
 /* Create a new reordering description based on
  * the number of source dimensions "src_len" and

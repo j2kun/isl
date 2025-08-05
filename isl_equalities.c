@@ -10,12 +10,12 @@
  * ZAC des vignes, 4 rue Jacques Monod, 91893 Orsay, France
  */
 
-#include <isl_mat_private.h>
-#include <isl_vec_private.h>
-#include <isl_seq.h>
+#include "isl_mat_private.h"
+#include "isl_vec_private.h"
+#include "isl_seq.h"
 #include "isl_map_private.h"
 #include "isl_equalities.h"
-#include <isl_val_private.h>
+#include "isl_val_private.h"
 
 /* Given a set of modulo constraints
  *

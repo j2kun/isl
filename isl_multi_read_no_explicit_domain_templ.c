@@ -10,7 +10,7 @@
 #include <isl/space.h>
 #include <isl/set.h>
 
-#include <isl_multi_macro.h>
+#include "isl_multi_macro.h"
 
 /* This function is called for each element in a tuple inside
  * isl_stream_read_multi_*.

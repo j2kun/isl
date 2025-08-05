@@ -10,22 +10,22 @@
  * B.P. 105 - 78153 Le Chesnay, France
  */
 
-#include <isl_ctx_private.h>
-#include <isl_map_private.h>
-#include <isl_lp_private.h>
+#include "isl_ctx_private.h"
+#include "isl_map_private.h"
+#include "isl_lp_private.h"
 #include <isl/map.h>
-#include <isl_mat_private.h>
-#include <isl_vec_private.h>
+#include "isl_mat_private.h"
+#include "isl_vec_private.h"
 #include <isl/set.h>
-#include <isl_seq.h>
-#include <isl_options_private.h>
+#include "isl_seq.h"
+#include "isl_options_private.h"
 #include "isl_equalities.h"
 #include "isl_tab.h"
-#include <isl_sort.h>
+#include "isl_sort.h"
 
-#include <bset_to_bmap.c>
-#include <bset_from_bmap.c>
-#include <set_to_map.c>
+#include "bset_to_bmap.c"
+#include "bset_from_bmap.c"
+#include "set_to_map.c"
 
 static __isl_give isl_basic_set *uset_convex_hull_wrap_bounded(
 	__isl_take isl_set *set);

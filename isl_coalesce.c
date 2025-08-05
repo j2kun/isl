@@ -20,21 +20,21 @@
  * and Cerebras Systems, 175 S San Antonio Rd, Los Altos, CA, USA
  */
 
-#include <isl_ctx_private.h>
+#include "isl_ctx_private.h"
 #include "isl_map_private.h"
-#include <isl_seq.h>
+#include "isl_seq.h"
 #include <isl/options.h>
 #include "isl_tab.h"
-#include <isl_mat_private.h>
-#include <isl_local_space_private.h>
-#include <isl_val_private.h>
-#include <isl_vec_private.h>
-#include <isl_aff_private.h>
-#include <isl_equalities.h>
-#include <isl_constraint_private.h>
+#include "isl_mat_private.h"
+#include "isl_local_space_private.h"
+#include "isl_val_private.h"
+#include "isl_vec_private.h"
+#include "isl_aff_private.h"
+#include "isl_equalities.h"
+#include "isl_constraint_private.h"
 
-#include <set_to_map.c>
-#include <set_from_map.c>
+#include "set_to_map.c"
+#include "set_from_map.c"
 
 #define STATUS_ERROR		-1
 #define STATUS_REDUNDANT	 1

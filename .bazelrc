@@ -1,0 +1,10 @@
+# Build configurations
+build --cxxopt=-std=c++17
+build --host_cxxopt=-std=c++17
+
+# Test configurations
+test --test_output=errors
+
+# Common flags for CI builds
+build:ci --verbose_failures
+build:ci --keep_going

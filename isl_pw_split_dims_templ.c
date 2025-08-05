@@ -8,7 +8,7 @@
  * 91893 Orsay, France
  */
 
-#include <isl_pw_macro.h>
+#include "isl_pw_macro.h"
 
 __isl_give PW *FN(PW,split_dims)(__isl_take PW *pw,
 	enum isl_dim_type type, unsigned first, unsigned n)

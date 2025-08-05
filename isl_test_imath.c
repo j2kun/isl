@@ -10,7 +10,7 @@
 
 #include <limits.h>
 #include <assert.h>
-#include <isl_imath.h>
+#include "isl_imath.h"
 
 /* This constant is not defined in limits.h, but IMath uses it */
 #define ULONG_MIN 0ul

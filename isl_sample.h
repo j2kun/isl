@@ -11,7 +11,7 @@
 #define ISL_SAMPLE_H
 
 #include <isl/set.h>
-#include <isl_tab.h>
+#include "isl_tab.h"
 
 #if defined(__cplusplus)
 extern "C" {

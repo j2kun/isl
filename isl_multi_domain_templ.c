@@ -9,7 +9,7 @@
 
 #include <isl/set.h>
 
-#include <isl_multi_macro.h>
+#include "isl_multi_macro.h"
 
 /* Return the shared domain of the elements of "multi".
  *

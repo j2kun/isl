@@ -13,19 +13,19 @@
  * and Cerebras Systems, 1237 E Arques Ave, Sunnyvale, CA, USA
  */
 
-#include <isl_ctx_private.h>
+#include "isl_ctx_private.h"
 #include "isl_map_private.h"
-#include <isl_seq.h>
+#include "isl_seq.h"
 #include "isl_tab.h"
 #include "isl_sample.h"
-#include <isl_mat_private.h>
-#include <isl_vec_private.h>
-#include <isl_aff_private.h>
-#include <isl_constraint_private.h>
-#include <isl_options_private.h>
-#include <isl_config.h>
+#include "isl_mat_private.h"
+#include "isl_vec_private.h"
+#include "isl_aff_private.h"
+#include "isl_constraint_private.h"
+#include "isl_options_private.h"
+#include "isl_config.h"
 
-#include <bset_to_bmap.c>
+#include "bset_to_bmap.c"
 
 /*
  * The implementation of parametric integer linear programming in this file

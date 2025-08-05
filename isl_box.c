@@ -12,8 +12,8 @@
 
 #include <isl/val.h>
 #include <isl/space.h>
-#include <isl_map_private.h>
-#include <isl_aff_private.h>
+#include "isl_map_private.h"
+#include "isl_aff_private.h"
 #include <isl/constraint.h>
 #include <isl/ilp.h>
 #include <isl/fixed_box.h>
@@ -544,7 +544,7 @@ __isl_give isl_printer *isl_printer_print_fixed_box(
 
 #undef BASE
 #define BASE fixed_box
-#include <print_templ_yaml.c>
+#include "print_templ_yaml.c"
 
 #undef KEY
 #define KEY enum isl_fb_key

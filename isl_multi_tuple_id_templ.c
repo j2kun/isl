@@ -10,7 +10,7 @@
 
 #include <isl/space.h>
 
-#include <isl_multi_macro.h>
+#include "isl_multi_macro.h"
 
 const char *FN(MULTI(BASE),get_tuple_name)(__isl_keep MULTI(BASE) *multi,
 	enum isl_dim_type type)

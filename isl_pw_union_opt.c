@@ -12,7 +12,7 @@
  * and Cerebras Systems, 175 S San Antonio Rd, Los Altos, CA, USA
  */
 
-#include <isl_pw_macro.h>
+#include "isl_pw_macro.h"
 
 /* Given a function "cmp" that returns the set of elements where
  * "el1" is "better" than "el2", return this set.

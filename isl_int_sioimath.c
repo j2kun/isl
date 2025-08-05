@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include <isl_int.h>
+#include "isl_int.h"
 
 extern int isl_sioimath_decode(isl_sioimath val, int32_t *small, mp_int *big);
 extern int isl_sioimath_decode_big(isl_sioimath val, mp_int *big);

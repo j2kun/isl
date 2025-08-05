@@ -2,7 +2,7 @@
 #define ISL_MAT_PRIVATE_H
 
 #include <isl/mat.h>
-#include <isl_blk.h>
+#include "isl_blk.h"
 
 struct isl_mat {
 	int ref;

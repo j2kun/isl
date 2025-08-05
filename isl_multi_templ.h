@@ -1,6 +1,6 @@
 #include <isl/space.h>
 
-#include <isl_multi_macro.h>
+#include "isl_multi_macro.h"
 
 /* A multiple expression with base expressions of type EL.
  *

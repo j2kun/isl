@@ -2,7 +2,7 @@
 #define ISL_PRINTER_PRIVATE_H
 
 #include <isl/printer.h>
-#include <isl_yaml.h>
+#include "isl_yaml.h"
 #include <isl/id_to_id.h>
 
 struct isl_printer_ops;

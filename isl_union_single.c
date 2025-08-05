@@ -11,7 +11,7 @@
  */
 
 #include <isl/hash.h>
-#include <isl_union_macro.h>
+#include "isl_union_macro.h"
 
 /* A union of expressions defined over different domain spaces.
  * "space" describes the parameters.
@@ -228,4 +228,4 @@ static isl_stat FN(UNION,free_u_entry)(void **entry, void *user)
 	return isl_stat_ok;
 }
 
-#include <isl_union_templ.c>
+#include "isl_union_templ.c"

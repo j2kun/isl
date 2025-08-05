@@ -8,8 +8,8 @@
  * Computerwetenschappen, Celestijnenlaan 200A, B-3001 Leuven, Belgium
  */
 
-#include <isl_ctx_private.h>
-#include <isl_seq.h>
+#include "isl_ctx_private.h"
+#include "isl_seq.h"
 
 void isl_seq_clr(isl_int *p, unsigned len)
 {

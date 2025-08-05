@@ -9,7 +9,7 @@
 
 #include <isl/space.h>
 
-#include <isl_multi_macro.h>
+#include "isl_multi_macro.h"
 
 /* Move the "n" dimensions of "src_type" starting at "src_pos" of "multi"
  * to dimensions of "dst_type" at "dst_pos".

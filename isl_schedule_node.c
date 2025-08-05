@@ -15,9 +15,9 @@
 #include <isl/val.h>
 #include <isl/space.h>
 #include <isl/set.h>
-#include <isl_schedule_band.h>
-#include <isl_schedule_private.h>
-#include <isl_schedule_node_private.h>
+#include "isl_schedule_band.h"
+#include "isl_schedule_private.h"
+#include "isl_schedule_node_private.h"
 
 /* Create a new schedule node in the given schedule, point at the given
  * tree with given ancestors and child positions.

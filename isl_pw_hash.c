@@ -6,7 +6,7 @@
  * Written by Sven Verdoolaege
  */
 
-#include <isl_pw_macro.h>
+#include "isl_pw_macro.h"
 #include <isl/hash.h>
 
 /* Return a hash value that digests "pw".

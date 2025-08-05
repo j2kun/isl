@@ -1,4 +1,4 @@
-#include <isl_printer_private.h>
+#include "isl_printer_private.h"
 
 #define xCAT(A,B) A ## B
 #define CAT(A,B) xCAT(A,B)

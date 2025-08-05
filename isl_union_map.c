@@ -15,24 +15,24 @@
  * and Cerebras Systems, 1237 E Arques Ave, Sunnyvale, CA, USA
  */
 
-#include <isl_map_private.h>
-#include <isl_union_map_private.h>
+#include "isl_map_private.h"
+#include "isl_union_map_private.h"
 #include <isl/ctx.h>
 #include <isl/hash.h>
-#include <isl_aff_private.h>
+#include "isl_aff_private.h"
 #include <isl/map.h>
 #include <isl/set.h>
-#include <isl_space_private.h>
+#include "isl_space_private.h"
 #include <isl/union_set.h>
-#include <isl_maybe_map.h>
-#include <isl_id_private.h>
+#include "isl_maybe_map.h"
+#include "isl_id_private.h"
 
-#include <bset_from_bmap.c>
-#include <set_to_map.c>
-#include <set_from_map.c>
-#include <uset_to_umap.c>
-#include <uset_from_umap.c>
-#include <set_list_from_map_list_inl.c>
+#include "bset_from_bmap.c"
+#include "set_to_map.c"
+#include "set_from_map.c"
+#include "uset_to_umap.c"
+#include "uset_from_umap.c"
+#include "set_list_from_map_list_inl.c"
 
 #undef TYPE
 #define TYPE	isl_union_map

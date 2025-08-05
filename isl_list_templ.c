@@ -13,11 +13,11 @@
  * and Ecole Normale Superieure, 45 rue d’Ulm, 75230 Paris, France
  */
 
-#include <isl_sort.h>
-#include <isl_tarjan.h>
+#include "isl_sort.h"
+#include "isl_tarjan.h"
 #include <isl/printer.h>
 
-#include <isl_list_macro.h>
+#include "isl_list_macro.h"
 
 #define xS(TYPE,NAME) struct TYPE ## _ ## NAME
 #define S(TYPE,NAME) xS(TYPE,NAME)

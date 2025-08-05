@@ -15,20 +15,20 @@
  * and Cerebras Systems, 1237 E Arques Ave, Sunnyvale, CA, USA
  */
 
-#include <isl_ctx_private.h>
-#include <isl_map_private.h>
+#include "isl_ctx_private.h"
+#include "isl_map_private.h"
 #include "isl_equalities.h"
 #include <isl/map.h>
-#include <isl_seq.h>
+#include "isl_seq.h"
 #include "isl_tab.h"
-#include <isl_space_private.h>
-#include <isl_mat_private.h>
-#include <isl_vec_private.h>
+#include "isl_space_private.h"
+#include "isl_mat_private.h"
+#include "isl_vec_private.h"
 
-#include <bset_to_bmap.c>
-#include <bset_from_bmap.c>
-#include <set_to_map.c>
-#include <set_from_map.c>
+#include "bset_to_bmap.c"
+#include "bset_from_bmap.c"
+#include "set_to_map.c"
+#include "set_from_map.c"
 
 /* Mark "bmap" as having one or more inequality constraints modified.
  * If "equivalent" is set, then this modification was done based

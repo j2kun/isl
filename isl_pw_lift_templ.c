@@ -8,7 +8,7 @@
  * 91893 Orsay, France
  */
 
-#include <isl_pw_macro.h>
+#include "isl_pw_macro.h"
 
 static isl_stat foreach_lifted_subset(__isl_take isl_set *set,
 	__isl_take EL *el,

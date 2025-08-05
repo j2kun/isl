@@ -15,7 +15,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-#include <isl_imath.h>
+#include "isl_imath.h"
 #include <isl/hash.h>
 
 #define ARRAY_SIZE(array) (sizeof(array)/sizeof(*array))

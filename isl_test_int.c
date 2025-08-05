@@ -10,7 +10,7 @@
 
 #include <assert.h>
 #include <stdio.h>
-#include <isl_int.h>
+#include "isl_int.h"
 
 #define ARRAY_SIZE(array) (sizeof(array)/sizeof(*array))
 

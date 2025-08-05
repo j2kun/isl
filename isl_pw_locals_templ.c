@@ -7,7 +7,7 @@
  * Cerebras Systems, 175 S San Antonio Rd, Los Altos, CA, USA
  */
 
-#include <isl_pw_macro.h>
+#include "isl_pw_macro.h"
 
 /* isl_pw_*_every_piece callback that checks whether "set" and "el"
  * are free of local variables.

@@ -7,20 +7,20 @@
  * Computerwetenschappen, Celestijnenlaan 200A, B-3001 Leuven, Belgium
  */
 
-#include <isl_ctx_private.h>
-#include <isl_map_private.h>
+#include "isl_ctx_private.h"
+#include "isl_map_private.h"
 #include <isl/ilp.h>
 #include <isl/union_set.h>
 #include "isl_sample.h"
-#include <isl_seq.h>
+#include "isl_seq.h"
 #include "isl_equalities.h"
-#include <isl_aff_private.h>
-#include <isl_local_space_private.h>
-#include <isl_mat_private.h>
-#include <isl_val_private.h>
-#include <isl_vec_private.h>
-#include <isl_lp_private.h>
-#include <isl_ilp_private.h>
+#include "isl_aff_private.h"
+#include "isl_local_space_private.h"
+#include "isl_mat_private.h"
+#include "isl_val_private.h"
+#include "isl_vec_private.h"
+#include "isl_lp_private.h"
+#include "isl_ilp_private.h"
 
 /* Given a basic set "bset", construct a basic set U such that for
  * each element x in U, the whole unit box positioned at x is inside

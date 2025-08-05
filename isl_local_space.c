@@ -12,17 +12,17 @@
  * and Cerebras Systems, 175 S San Antonio Rd, Los Altos, CA, USA
  */
 
-#include <isl_ctx_private.h>
+#include "isl_ctx_private.h"
 #include <isl/id.h>
-#include <isl_map_private.h>
-#include <isl_local_space_private.h>
-#include <isl_space_private.h>
-#include <isl_mat_private.h>
-#include <isl_aff_private.h>
-#include <isl_vec_private.h>
-#include <isl_point_private.h>
-#include <isl_seq.h>
-#include <isl_local.h>
+#include "isl_map_private.h"
+#include "isl_local_space_private.h"
+#include "isl_space_private.h"
+#include "isl_mat_private.h"
+#include "isl_aff_private.h"
+#include "isl_vec_private.h"
+#include "isl_point_private.h"
+#include "isl_seq.h"
+#include "isl_local.h"
 
 isl_ctx *isl_local_space_get_ctx(__isl_keep isl_local_space *ls)
 {

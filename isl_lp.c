@@ -7,20 +7,20 @@
  * Computerwetenschappen, Celestijnenlaan 200A, B-3001 Leuven, Belgium
  */
 
-#include <isl_ctx_private.h>
-#include <isl_map_private.h>
+#include "isl_ctx_private.h"
+#include "isl_map_private.h"
 #include <isl/lp.h>
-#include <isl_seq.h>
+#include "isl_seq.h"
 #include "isl_tab.h"
-#include <isl_options_private.h>
-#include <isl_local_space_private.h>
-#include <isl_aff_private.h>
-#include <isl_mat_private.h>
-#include <isl_val_private.h>
-#include <isl_vec_private.h>
+#include "isl_options_private.h"
+#include "isl_local_space_private.h"
+#include "isl_aff_private.h"
+#include "isl_mat_private.h"
+#include "isl_val_private.h"
+#include "isl_vec_private.h"
 
-#include <bset_to_bmap.c>
-#include <set_to_map.c>
+#include "bset_to_bmap.c"
+#include "set_to_map.c"
 
 static enum isl_lp_result isl_tab_solve_lp(__isl_keep isl_basic_map *bmap,
 	int maximize, isl_int *f, isl_int denom, isl_int *opt,

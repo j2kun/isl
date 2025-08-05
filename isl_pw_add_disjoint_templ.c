@@ -9,7 +9,7 @@
  * 91893 Orsay, France
  */
 
-#include <isl_pw_macro.h>
+#include "isl_pw_macro.h"
 
 /* Make sure "pw" has room for at least "n" more pieces.
  *

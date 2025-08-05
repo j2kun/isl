@@ -1,7 +1,7 @@
 #ifndef ISL_LP_PRIVATE_H
 #define ISL_LP_PRIVATE_H
 
-#include <isl_int.h>
+#include "isl_int.h"
 #include <isl/lp.h>
 #include <isl/vec.h>
 

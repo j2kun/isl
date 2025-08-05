@@ -9,9 +9,9 @@
 
 #include <isl/space.h>
 #include <isl/local_space.h>
-#include <isl_reordering.h>
+#include "isl_reordering.h"
 
-#include <isl_multi_macro.h>
+#include "isl_multi_macro.h"
 
 /* The functions in this file are meant for base object types
  * that do not have any associated space.  They are only meant to be used

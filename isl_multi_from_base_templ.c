@@ -9,7 +9,7 @@
 
 #include <isl/space.h>
 
-#include <isl_multi_macro.h>
+#include "isl_multi_macro.h"
 
 /* Create a multiple expression with a single output/set dimension
  * equal to "el".

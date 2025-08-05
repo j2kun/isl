@@ -8,7 +8,7 @@
  * Ecole Normale Superieure, 45 rue d'Ulm, 75230 Paris, France
  */
 
-#include <isl_schedule_constraints.h>
+#include "isl_schedule_constraints.h"
 #include <isl/schedule.h>
 #include <isl/space.h>
 #include <isl/set.h>
@@ -553,7 +553,7 @@ __isl_give isl_printer *isl_printer_print_schedule_constraints(
 
 #undef BASE
 #define BASE schedule_constraints
-#include <print_templ_yaml.c>
+#include "print_templ_yaml.c"
 
 #undef KEY
 #define KEY enum isl_sc_key

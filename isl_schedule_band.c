@@ -15,8 +15,8 @@
 #include <isl/space.h>
 #include <isl/map.h>
 #include <isl/schedule_node.h>
-#include <isl_schedule_band.h>
-#include <isl_schedule_private.h>
+#include "isl_schedule_band.h"
+#include "isl_schedule_private.h"
 
 isl_ctx *isl_schedule_band_get_ctx(__isl_keep isl_schedule_band *band)
 {

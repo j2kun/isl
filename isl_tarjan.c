@@ -12,7 +12,7 @@
 
 #include <stdlib.h>
 #include <isl/ctx.h>
-#include <isl_tarjan.h>
+#include "isl_tarjan.h"
 
 struct isl_tarjan_graph *isl_tarjan_graph_free(struct isl_tarjan_graph *g)
 {

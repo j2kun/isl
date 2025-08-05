@@ -6,7 +6,7 @@
  * Written by Sven Verdoolaege.
  */
 
-#include <isl_multi_macro.h>
+#include "isl_multi_macro.h"
 
 /* Does the space of "domain" correspond to that of the domain of "multi"?
  * The parameters do not need to be aligned.

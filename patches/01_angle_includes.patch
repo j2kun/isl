@@ -1,0 +1,4391 @@
+diff --git a/basis_reduction_tab.c b/basis_reduction_tab.c
+index b42f6773..11bb9d46 100644
+--- a/basis_reduction_tab.c
++++ b/basis_reduction_tab.c
+@@ -8,11 +8,11 @@
+  */
+ 
+ #include <assert.h>
+-#include <isl_map_private.h>
+-#include <isl_seq.h>
++#include "isl_map_private.h"
++#include "isl_seq.h"
+ #include "isl_tab.h"
+-#include <isl_int.h>
+-#include <isl_config.h>
++#include "isl_int.h"
++#include "isl_config.h"
+ 
+ struct tab_lp {
+ 	struct isl_ctx  *ctx;
+diff --git a/basis_reduction_templ.c b/basis_reduction_templ.c
+index 290da7dc..827f9626 100644
+--- a/basis_reduction_templ.c
++++ b/basis_reduction_templ.c
+@@ -11,10 +11,10 @@
+  */
+ 
+ #include <stdlib.h>
+-#include <isl_ctx_private.h>
+-#include <isl_map_private.h>
+-#include <isl_vec_private.h>
+-#include <isl_options_private.h>
++#include "isl_ctx_private.h"
++#include "isl_map_private.h"
++#include "isl_vec_private.h"
++#include "isl_options_private.h"
+ #include "isl_basis_reduction.h"
+ 
+ static void save_alpha(GBR_LP *lp, int first, int n, GBR_type *alpha)
+diff --git a/bound.c b/bound.c
+index ec79b3be..6609f364 100644
+--- a/bound.c
++++ b/bound.c
+@@ -1,8 +1,8 @@
+ #include <assert.h>
+ #include <isl/stream.h>
+-#include <isl_map_private.h>
++#include "isl_map_private.h"
+ #include <isl/polynomial.h>
+-#include <isl_scan.h>
++#include "isl_scan.h"
+ #include <isl/val.h>
+ #include <isl/options.h>
+ 
+diff --git a/isl_aff.c b/isl_aff.c
+index a3706dfc..b7ede05c 100644
+--- a/isl_aff.c
++++ b/isl_aff.c
+@@ -20,50 +20,50 @@
+  * and Cerebras Systems, 1237 E Arques Ave, Sunnyvale, CA, USA
+  */
+ 
+-#include <isl_ctx_private.h>
+-#include <isl_map_private.h>
+-#include <isl_union_map_private.h>
+-#include <isl_aff_private.h>
+-#include <isl_space_private.h>
+-#include <isl_local_space_private.h>
+-#include <isl_vec_private.h>
+-#include <isl_mat_private.h>
+-#include <isl_id_private.h>
++#include "isl_ctx_private.h"
++#include "isl_map_private.h"
++#include "isl_union_map_private.h"
++#include "isl_aff_private.h"
++#include "isl_space_private.h"
++#include "isl_local_space_private.h"
++#include "isl_vec_private.h"
++#include "isl_mat_private.h"
++#include "isl_id_private.h"
+ #include <isl/constraint.h>
+-#include <isl_seq.h>
++#include "isl_seq.h"
+ #include <isl/set.h>
+-#include <isl_val_private.h>
+-#include <isl_point_private.h>
+-#include <isl_config.h>
++#include "isl_val_private.h"
++#include "isl_point_private.h"
++#include "isl_config.h"
+ 
+ #undef EL_BASE
+ #define EL_BASE aff
+ 
+-#include <isl_list_templ.c>
+-#include <isl_list_read_templ.c>
++#include "isl_list_templ.c"
++#include "isl_list_read_templ.c"
+ 
+ #undef EL_BASE
+ #define EL_BASE pw_aff
+ 
+-#include <isl_list_templ.c>
+-#include <isl_list_read_templ.c>
++#include "isl_list_templ.c"
++#include "isl_list_read_templ.c"
+ 
+ #undef EL_BASE
+ #define EL_BASE pw_multi_aff
+ 
+-#include <isl_list_templ.c>
+-#include <isl_list_read_templ.c>
++#include "isl_list_templ.c"
++#include "isl_list_read_templ.c"
+ 
+ #undef EL_BASE
+ #define EL_BASE union_pw_aff
+ 
+-#include <isl_list_templ.c>
+-#include <isl_list_read_templ.c>
++#include "isl_list_templ.c"
++#include "isl_list_read_templ.c"
+ 
+ #undef EL_BASE
+ #define EL_BASE union_pw_multi_aff
+ 
+-#include <isl_list_templ.c>
++#include "isl_list_templ.c"
+ 
+ /* Construct an isl_aff from the given domain local space "ls" and
+  * coefficients "v", where the local space is known to be valid
+@@ -2700,7 +2700,7 @@ static isl_bool isl_aff_domain_is_product(__isl_keep isl_aff *aff)
+ 
+ #undef TYPE
+ #define TYPE	isl_aff
+-#include <isl_domain_factor_templ.c>
++#include "isl_domain_factor_templ.c"
+ 
+ /* Project the domain of the affine expression onto its parameter space.
+  * The affine expression may not involve any of the domain dimensions.
+@@ -2908,36 +2908,36 @@ static __isl_give isl_aff *isl_aff_zero_in_space(__isl_take isl_space *space)
+ #undef DEFAULT_IS_ZERO
+ #define DEFAULT_IS_ZERO 0
+ 
+-#include <isl_pw_templ.c>
+-#include <isl_pw_un_op_templ.c>
+-#include <isl_pw_add_constant_val_templ.c>
+-#include <isl_pw_add_disjoint_templ.c>
+-#include <isl_pw_bind_domain_templ.c>
+-#include <isl_pw_domain_reverse_templ.c>
+-#include <isl_pw_eval.c>
+-#include <isl_pw_hash.c>
+-#include <isl_pw_fix_templ.c>
+-#include <isl_pw_from_range_templ.c>
+-#include <isl_pw_insert_dims_templ.c>
+-#include <isl_pw_insert_domain_templ.c>
+-#include <isl_pw_move_dims_templ.c>
+-#include <isl_pw_neg_templ.c>
+-#include <isl_pw_pullback_templ.c>
+-#include <isl_pw_scale_templ.c>
+-#include <isl_pw_sub_templ.c>
+-#include <isl_pw_union_opt.c>
++#include "isl_pw_templ.c"
++#include "isl_pw_un_op_templ.c"
++#include "isl_pw_add_constant_val_templ.c"
++#include "isl_pw_add_disjoint_templ.c"
++#include "isl_pw_bind_domain_templ.c"
++#include "isl_pw_domain_reverse_templ.c"
++#include "isl_pw_eval.c"
++#include "isl_pw_hash.c"
++#include "isl_pw_fix_templ.c"
++#include "isl_pw_from_range_templ.c"
++#include "isl_pw_insert_dims_templ.c"
++#include "isl_pw_insert_domain_templ.c"
++#include "isl_pw_move_dims_templ.c"
++#include "isl_pw_neg_templ.c"
++#include "isl_pw_pullback_templ.c"
++#include "isl_pw_scale_templ.c"
++#include "isl_pw_sub_templ.c"
++#include "isl_pw_union_opt.c"
+ 
+ #undef BASE
+ #define BASE pw_aff
+ 
+-#include <isl_union_single.c>
+-#include <isl_union_neg.c>
+-#include <isl_union_sub_templ.c>
++#include "isl_union_single.c"
++#include "isl_union_neg.c"
++#include "isl_union_sub_templ.c"
+ 
+ #undef BASE
+ #define BASE aff
+ 
+-#include <isl_union_pw_templ.c>
++#include "isl_union_pw_templ.c"
+ 
+ /* Compute a piecewise quasi-affine expression with a domain that
+  * is the union of those of pwaff1 and pwaff2 and such that on each
+@@ -2983,7 +2983,7 @@ static isl_bool isl_pw_aff_domain_is_product(__isl_keep isl_pw_aff *pa)
+ 
+ #undef TYPE
+ #define TYPE	isl_pw_aff
+-#include <isl_domain_factor_templ.c>
++#include "isl_domain_factor_templ.c"
+ 
+ /* Return a set containing those elements in the domain
+  * of "pwaff" where it satisfies "fn" (if complement is 0) or
+@@ -4092,40 +4092,40 @@ static __isl_give isl_basic_set *isl_multi_aff_domain(
+ #undef BASE
+ #define BASE aff
+ 
+-#include <isl_multi_no_explicit_domain.c>
+-#include <isl_multi_templ.c>
+-#include <isl_multi_un_op_templ.c>
+-#include <isl_multi_bin_val_templ.c>
+-#include <isl_multi_add_constant_templ.c>
+-#include <isl_multi_align_set.c>
+-#include <isl_multi_arith_templ.c>
+-#include <isl_multi_bind_domain_templ.c>
+-#include <isl_multi_cmp.c>
+-#include <isl_multi_dim_id_templ.c>
+-#include <isl_multi_dims.c>
+-#include <isl_multi_domain_reverse_templ.c>
+-#include <isl_multi_floor.c>
+-#include <isl_multi_from_base_templ.c>
+-#include <isl_multi_identity_templ.c>
+-#include <isl_multi_insert_domain_templ.c>
+-#include <isl_multi_locals_templ.c>
+-#include <isl_multi_move_dims_templ.c>
+-#include <isl_multi_nan_templ.c>
+-#include <isl_multi_product_templ.c>
+-#include <isl_multi_splice_templ.c>
+-#include <isl_multi_tuple_id_templ.c>
+-#include <isl_multi_unbind_params_templ.c>
+-#include <isl_multi_zero_templ.c>
++#include "isl_multi_no_explicit_domain.c"
++#include "isl_multi_templ.c"
++#include "isl_multi_un_op_templ.c"
++#include "isl_multi_bin_val_templ.c"
++#include "isl_multi_add_constant_templ.c"
++#include "isl_multi_align_set.c"
++#include "isl_multi_arith_templ.c"
++#include "isl_multi_bind_domain_templ.c"
++#include "isl_multi_cmp.c"
++#include "isl_multi_dim_id_templ.c"
++#include "isl_multi_dims.c"
++#include "isl_multi_domain_reverse_templ.c"
++#include "isl_multi_floor.c"
++#include "isl_multi_from_base_templ.c"
++#include "isl_multi_identity_templ.c"
++#include "isl_multi_insert_domain_templ.c"
++#include "isl_multi_locals_templ.c"
++#include "isl_multi_move_dims_templ.c"
++#include "isl_multi_nan_templ.c"
++#include "isl_multi_product_templ.c"
++#include "isl_multi_splice_templ.c"
++#include "isl_multi_tuple_id_templ.c"
++#include "isl_multi_unbind_params_templ.c"
++#include "isl_multi_zero_templ.c"
+ 
+ #undef DOMBASE
+ #define DOMBASE set
+-#include <isl_multi_check_domain_templ.c>
+-#include <isl_multi_apply_set_no_explicit_domain_templ.c>
+-#include <isl_multi_gist.c>
++#include "isl_multi_check_domain_templ.c"
++#include "isl_multi_apply_set_no_explicit_domain_templ.c"
++#include "isl_multi_gist.c"
+ 
+ #undef DOMBASE
+ #define DOMBASE basic_set
+-#include <isl_multi_bind_templ.c>
++#include "isl_multi_bind_templ.c"
+ 
+ /* Construct an isl_multi_aff living in "space" that corresponds
+  * to the affine transformation matrix "mat".
+@@ -4717,36 +4717,36 @@ __isl_give isl_set *isl_multi_aff_lex_gt_set(__isl_take isl_multi_aff *ma1,
+ #undef DEFAULT_IS_ZERO
+ #define DEFAULT_IS_ZERO 0
+ 
+-#include <isl_pw_templ.c>
+-#include <isl_pw_un_op_templ.c>
+-#include <isl_pw_add_constant_multi_val_templ.c>
+-#include <isl_pw_add_constant_val_templ.c>
+-#include <isl_pw_add_disjoint_templ.c>
+-#include <isl_pw_bind_domain_templ.c>
+-#include <isl_pw_domain_reverse_templ.c>
+-#include <isl_pw_fix_templ.c>
+-#include <isl_pw_from_range_templ.c>
+-#include <isl_pw_insert_dims_templ.c>
+-#include <isl_pw_insert_domain_templ.c>
+-#include <isl_pw_locals_templ.c>
+-#include <isl_pw_move_dims_templ.c>
+-#include <isl_pw_neg_templ.c>
+-#include <isl_pw_pullback_templ.c>
+-#include <isl_pw_range_tuple_id_templ.c>
+-#include <isl_pw_union_opt.c>
++#include "isl_pw_templ.c"
++#include "isl_pw_un_op_templ.c"
++#include "isl_pw_add_constant_multi_val_templ.c"
++#include "isl_pw_add_constant_val_templ.c"
++#include "isl_pw_add_disjoint_templ.c"
++#include "isl_pw_bind_domain_templ.c"
++#include "isl_pw_domain_reverse_templ.c"
++#include "isl_pw_fix_templ.c"
++#include "isl_pw_from_range_templ.c"
++#include "isl_pw_insert_dims_templ.c"
++#include "isl_pw_insert_domain_templ.c"
++#include "isl_pw_locals_templ.c"
++#include "isl_pw_move_dims_templ.c"
++#include "isl_pw_neg_templ.c"
++#include "isl_pw_pullback_templ.c"
++#include "isl_pw_range_tuple_id_templ.c"
++#include "isl_pw_union_opt.c"
+ 
+ #undef BASE
+ #define BASE pw_multi_aff
+ 
+-#include <isl_union_multi.c>
++#include "isl_union_multi.c"
+ #include "isl_union_locals_templ.c"
+-#include <isl_union_neg.c>
+-#include <isl_union_sub_templ.c>
++#include "isl_union_neg.c"
++#include "isl_union_sub_templ.c"
+ 
+ #undef BASE
+ #define BASE multi_aff
+ 
+-#include <isl_union_pw_templ.c>
++#include "isl_union_pw_templ.c"
+ 
+ /* Generic function for extracting a factor from a product "pma".
+  * "check_space" checks that the space is that of the right kind of product.
+@@ -6699,39 +6699,39 @@ error:
+ #undef DOMBASE
+ #define DOMBASE set
+ 
+-#include <isl_multi_explicit_domain.c>
+-#include <isl_multi_pw_aff_explicit_domain.c>
+-#include <isl_multi_templ.c>
+-#include <isl_multi_un_op_templ.c>
+-#include <isl_multi_bin_val_templ.c>
+-#include <isl_multi_add_constant_templ.c>
+-#include <isl_multi_align_set.c>
+-#include <isl_multi_apply_set_explicit_domain_templ.c>
+-#include <isl_multi_arith_templ.c>
+-#include <isl_multi_bind_templ.c>
+-#include <isl_multi_bind_domain_templ.c>
+-#include <isl_multi_coalesce.c>
+-#include <isl_multi_domain_templ.c>
+-#include <isl_multi_domain_reverse_templ.c>
+-#include <isl_multi_dim_id_templ.c>
+-#include <isl_multi_dims.c>
+-#include <isl_multi_from_base_templ.c>
+-#include <isl_multi_check_domain_templ.c>
+-#include <isl_multi_gist.c>
+-#include <isl_multi_hash.c>
+-#include <isl_multi_identity_templ.c>
+-#include <isl_multi_insert_domain_templ.c>
+-#include <isl_multi_intersect.c>
+-#include <isl_multi_min_max_templ.c>
+-#include <isl_multi_move_dims_templ.c>
+-#include <isl_multi_nan_templ.c>
+-#include <isl_multi_param_templ.c>
+-#include <isl_multi_product_templ.c>
+-#include <isl_multi_splice_templ.c>
+-#include <isl_multi_tuple_id_templ.c>
+-#include <isl_multi_union_add_templ.c>
+-#include <isl_multi_zero_templ.c>
+-#include <isl_multi_unbind_params_templ.c>
++#include "isl_multi_explicit_domain.c"
++#include "isl_multi_pw_aff_explicit_domain.c"
++#include "isl_multi_templ.c"
++#include "isl_multi_un_op_templ.c"
++#include "isl_multi_bin_val_templ.c"
++#include "isl_multi_add_constant_templ.c"
++#include "isl_multi_align_set.c"
++#include "isl_multi_apply_set_explicit_domain_templ.c"
++#include "isl_multi_arith_templ.c"
++#include "isl_multi_bind_templ.c"
++#include "isl_multi_bind_domain_templ.c"
++#include "isl_multi_coalesce.c"
++#include "isl_multi_domain_templ.c"
++#include "isl_multi_domain_reverse_templ.c"
++#include "isl_multi_dim_id_templ.c"
++#include "isl_multi_dims.c"
++#include "isl_multi_from_base_templ.c"
++#include "isl_multi_check_domain_templ.c"
++#include "isl_multi_gist.c"
++#include "isl_multi_hash.c"
++#include "isl_multi_identity_templ.c"
++#include "isl_multi_insert_domain_templ.c"
++#include "isl_multi_intersect.c"
++#include "isl_multi_min_max_templ.c"
++#include "isl_multi_move_dims_templ.c"
++#include "isl_multi_nan_templ.c"
++#include "isl_multi_param_templ.c"
++#include "isl_multi_product_templ.c"
++#include "isl_multi_splice_templ.c"
++#include "isl_multi_tuple_id_templ.c"
++#include "isl_multi_union_add_templ.c"
++#include "isl_multi_zero_templ.c"
++#include "isl_multi_unbind_params_templ.c"
+ 
+ /* Is every element of "mpa" defined over a single universe domain?
+  */
+@@ -8650,28 +8650,28 @@ error:
+ #undef DOMBASE
+ #define DOMBASE union_set
+ 
+-#include <isl_multi_explicit_domain.c>
+-#include <isl_multi_union_pw_aff_explicit_domain.c>
+-#include <isl_multi_templ.c>
+-#include <isl_multi_un_op_templ.c>
+-#include <isl_multi_bin_val_templ.c>
+-#include <isl_multi_align_set.c>
+-#include <isl_multi_align_union_set.c>
+-#include <isl_multi_apply_set_explicit_domain_templ.c>
+-#include <isl_multi_apply_union_set_explicit_domain_templ.c>
+-#include <isl_multi_arith_templ.c>
+-#include <isl_multi_bind_templ.c>
+-#include <isl_multi_coalesce.c>
+-#include <isl_multi_dim_id_templ.c>
+-#include <isl_multi_floor.c>
+-#include <isl_multi_from_base_templ.c>
+-#include <isl_multi_check_domain_templ.c>
+-#include <isl_multi_gist.c>
+-#include <isl_multi_intersect.c>
+-#include <isl_multi_nan_templ.c>
+-#include <isl_multi_tuple_id_templ.c>
+-#include <isl_multi_union_add_templ.c>
+-#include <isl_multi_zero_space_templ.c>
++#include "isl_multi_explicit_domain.c"
++#include "isl_multi_union_pw_aff_explicit_domain.c"
++#include "isl_multi_templ.c"
++#include "isl_multi_un_op_templ.c"
++#include "isl_multi_bin_val_templ.c"
++#include "isl_multi_align_set.c"
++#include "isl_multi_align_union_set.c"
++#include "isl_multi_apply_set_explicit_domain_templ.c"
++#include "isl_multi_apply_union_set_explicit_domain_templ.c"
++#include "isl_multi_arith_templ.c"
++#include "isl_multi_bind_templ.c"
++#include "isl_multi_coalesce.c"
++#include "isl_multi_dim_id_templ.c"
++#include "isl_multi_floor.c"
++#include "isl_multi_from_base_templ.c"
++#include "isl_multi_check_domain_templ.c"
++#include "isl_multi_gist.c"
++#include "isl_multi_intersect.c"
++#include "isl_multi_nan_templ.c"
++#include "isl_multi_tuple_id_templ.c"
++#include "isl_multi_union_add_templ.c"
++#include "isl_multi_zero_space_templ.c"
+ 
+ /* Does "mupa" have a non-trivial explicit domain?
+  *
+diff --git a/isl_aff_map.c b/isl_aff_map.c
+index 3f46d86b..2decdc7d 100644
+--- a/isl_aff_map.c
++++ b/isl_aff_map.c
+@@ -15,13 +15,13 @@
+ #include <isl/space.h>
+ #include <isl/local_space.h>
+ #include <isl/union_map.h>
+-#include <isl_map_private.h>
+-#include <isl_aff_private.h>
+-#include <isl_vec_private.h>
+-#include <isl_seq.h>
++#include "isl_map_private.h"
++#include "isl_aff_private.h"
++#include "isl_vec_private.h"
++#include "isl_seq.h"
+ 
+-#include <bset_from_bmap.c>
+-#include <set_from_map.c>
++#include "bset_from_bmap.c"
++#include "set_from_map.c"
+ 
+ /* Check that the input living in "space" lives in a map space.
+  * That is, check that "space" is a map space.
+diff --git a/isl_aff_private.h b/isl_aff_private.h
+index 208b3f27..aac22a30 100644
+--- a/isl_aff_private.h
++++ b/isl_aff_private.h
+@@ -5,8 +5,8 @@
+ #include <isl/vec.h>
+ #include <isl/mat.h>
+ #include <isl/local_space.h>
+-#include <isl_int.h>
+-#include <isl_reordering.h>
++#include "isl_int.h"
++#include "isl_reordering.h"
+ #include <isl/stream.h>
+ 
+ /* ls represents the domain space.
+@@ -24,7 +24,7 @@ struct isl_aff {
+ #undef EL
+ #define EL isl_aff
+ 
+-#include <isl_list_templ.h>
++#include "isl_list_templ.h"
+ 
+ struct isl_pw_aff_piece {
+ 	struct isl_set *set;
+@@ -45,12 +45,12 @@ struct isl_pw_aff {
+ #undef PW
+ #define PW isl_pw_aff
+ 
+-#include <isl_pw_templ.h>
++#include "isl_pw_templ.h"
+ 
+ #undef EL
+ #define EL isl_pw_aff
+ 
+-#include <isl_list_templ.h>
++#include "isl_list_templ.h"
+ 
+ struct isl_pw_multi_aff_piece {
+ 	isl_set *set;
+@@ -71,7 +71,7 @@ struct isl_pw_multi_aff {
+ #undef PW
+ #define PW isl_pw_multi_aff
+ 
+-#include <isl_pw_templ.h>
++#include "isl_pw_templ.h"
+ 
+ __isl_give isl_aff *isl_aff_alloc_vec(__isl_take isl_local_space *ls,
+ 	__isl_take isl_vec *v);
+@@ -143,7 +143,7 @@ isl_stat isl_aff_check_match_domain_space(__isl_keep isl_aff *aff,
+ #undef BASE
+ #define BASE aff
+ 
+-#include <isl_multi_templ.h>
++#include "isl_multi_templ.h"
+ 
+ __isl_give isl_multi_aff *isl_multi_aff_dup(__isl_keep isl_multi_aff *multi);
+ 
+@@ -159,7 +159,7 @@ __isl_give isl_multi_aff *isl_multi_aff_from_aff_mat(
+ #undef EL
+ #define EL isl_pw_multi_aff
+ 
+-#include <isl_list_templ.h>
++#include "isl_list_templ.h"
+ 
+ __isl_keep isl_multi_aff *isl_pw_multi_aff_peek_base_at(
+ 	__isl_keep isl_pw_multi_aff *pma, int pos);
+@@ -214,7 +214,7 @@ __isl_give isl_basic_set *isl_aff_pos_basic_set(__isl_take isl_aff *aff);
+ #define DOMBASE set
+ #define EXPLICIT_DOMAIN
+ 
+-#include <isl_multi_templ.h>
++#include "isl_multi_templ.h"
+ 
+ #undef EXPLICIT_DOMAIN
+ 
+@@ -224,7 +224,7 @@ __isl_give isl_map *isl_map_intersect_multi_pw_aff_explicit_domain(
+ #undef EL
+ #define EL isl_union_pw_aff
+ 
+-#include <isl_list_templ.h>
++#include "isl_list_templ.h"
+ 
+ #undef BASE
+ #define BASE union_pw_aff
+@@ -232,13 +232,13 @@ __isl_give isl_map *isl_map_intersect_multi_pw_aff_explicit_domain(
+ #define DOMBASE union_set
+ #define EXPLICIT_DOMAIN
+ 
+-#include <isl_multi_templ.h>
++#include "isl_multi_templ.h"
+ 
+ #undef EXPLICIT_DOMAIN
+ 
+ #undef EL
+ #define EL isl_union_pw_multi_aff
+ 
+-#include <isl_list_templ.h>
++#include "isl_list_templ.h"
+ 
+ #endif
+diff --git a/isl_affine_hull.c b/isl_affine_hull.c
+index 7d1d2b2e..efa88b80 100644
+--- a/isl_affine_hull.c
++++ b/isl_affine_hull.c
+@@ -12,22 +12,22 @@
+  * and Ecole Normale Superieure, 45 rue d'Ulm, 75230 Paris, France
+  */
+ 
+-#include <isl_ctx_private.h>
+-#include <isl_map_private.h>
+-#include <isl_seq.h>
++#include "isl_ctx_private.h"
++#include "isl_map_private.h"
++#include "isl_seq.h"
+ #include <isl/set.h>
+ #include <isl/lp.h>
+ #include <isl/map.h>
+ #include "isl_equalities.h"
+ #include "isl_sample.h"
+ #include "isl_tab.h"
+-#include <isl_mat_private.h>
+-#include <isl_vec_private.h>
++#include "isl_mat_private.h"
++#include "isl_vec_private.h"
+ 
+-#include <bset_to_bmap.c>
+-#include <bset_from_bmap.c>
+-#include <set_to_map.c>
+-#include <set_from_map.c>
++#include "bset_to_bmap.c"
++#include "bset_from_bmap.c"
++#include "set_to_map.c"
++#include "set_from_map.c"
+ 
+ __isl_give isl_basic_map *isl_basic_map_implicit_equalities(
+ 	__isl_take isl_basic_map *bmap)
+diff --git a/isl_arg.c b/isl_arg.c
+index 8a9e26d1..45aadd6f 100644
+--- a/isl_arg.c
++++ b/isl_arg.c
+@@ -13,7 +13,7 @@
+ 
+ #include <isl/arg.h>
+ #include <isl/ctx.h>
+-#include <isl_config.h>
++#include "isl_config.h"
+ 
+ static struct isl_arg help_arg[] = {
+ ISL_ARG_PHANTOM_BOOL('h', "help", NULL, "print this help, then exit")
+diff --git a/isl_ast.c b/isl_ast.c
+index c7164c4b..bcf6bc71 100644
+--- a/isl_ast.c
++++ b/isl_ast.c
+@@ -14,17 +14,17 @@
+ #include <isl/id.h>
+ #include <isl/stream.h>
+ #include <isl/val.h>
+-#include <isl_ast_private.h>
++#include "isl_ast_private.h"
+ 
+ #undef EL_BASE
+ #define EL_BASE ast_expr
+ 
+-#include <isl_list_templ.c>
++#include "isl_list_templ.c"
+ 
+ #undef EL_BASE
+ #define EL_BASE ast_node
+ 
+-#include <isl_list_templ.c>
++#include "isl_list_templ.c"
+ 
+ isl_ctx *isl_ast_print_options_get_ctx(
+ 	__isl_keep isl_ast_print_options *options)
+@@ -2686,7 +2686,7 @@ static isl_stat eat_key(__isl_keep isl_stream *s, const char *expected)
+ #undef EL_BASE
+ #define EL_BASE ast_expr
+ 
+-#include <isl_list_read_yaml_templ.c>
++#include "isl_list_read_yaml_templ.c"
+ 
+ /* Read an isl_ast_expr object of type isl_ast_expr_op from "s",
+  * where the "op" key has already been read by the caller.
+@@ -3304,7 +3304,7 @@ static isl_bool next_is_sequence(__isl_keep isl_stream *s)
+ #undef EL_BASE
+ #define EL_BASE ast_node
+ 
+-#include <isl_list_read_yaml_templ.c>
++#include "isl_list_read_yaml_templ.c"
+ 
+ /* Read an isl_ast_node object of type isl_ast_node_block from "s".
+  */
+diff --git a/isl_ast_build.c b/isl_ast_build.c
+index 3f1deffe..2401bb0b 100644
+--- a/isl_ast_build.c
++++ b/isl_ast_build.c
+@@ -19,9 +19,9 @@
+ #include <isl/map.h>
+ #include <isl/union_set.h>
+ #include <isl/union_map.h>
+-#include <isl_ast_build_private.h>
+-#include <isl_ast_private.h>
+-#include <isl_config.h>
++#include "isl_ast_build_private.h"
++#include "isl_ast_private.h"
++#include "isl_config.h"
+ 
+ /* Construct a map that isolates the current dimension.
+  *
+diff --git a/isl_ast_build_expr.c b/isl_ast_build_expr.c
+index 43b731b0..e0f61aa6 100644
+--- a/isl_ast_build_expr.c
++++ b/isl_ast_build_expr.c
+@@ -15,10 +15,10 @@
+ #include <isl/constraint.h>
+ #include <isl/ilp.h>
+ #include <isl/val.h>
+-#include <isl_ast_build_expr.h>
+-#include <isl_ast_private.h>
+-#include <isl_ast_build_private.h>
+-#include <isl_sort.h>
++#include "isl_ast_build_expr.h"
++#include "isl_ast_private.h"
++#include "isl_ast_build_private.h"
++#include "isl_sort.h"
+ 
+ /* Compute the "opposite" of the (numerator of the) argument of a div
+  * with denominator "d".
+diff --git a/isl_ast_codegen.c b/isl_ast_codegen.c
+index 8275827a..d88643e9 100644
+--- a/isl_ast_codegen.c
++++ b/isl_ast_codegen.c
+@@ -22,12 +22,12 @@
+ #include <isl/union_map.h>
+ #include <isl/schedule_node.h>
+ #include <isl/options.h>
+-#include <isl_sort.h>
+-#include <isl_tarjan.h>
+-#include <isl_ast_private.h>
+-#include <isl_ast_build_expr.h>
+-#include <isl_ast_build_private.h>
+-#include <isl_ast_graft_private.h>
++#include "isl_sort.h"
++#include "isl_tarjan.h"
++#include "isl_ast_private.h"
++#include "isl_ast_build_expr.h"
++#include "isl_ast_build_private.h"
++#include "isl_ast_graft_private.h"
+ 
+ /* Try and reduce the number of disjuncts in the representation of "set",
+  * without dropping explicit representations of local variables.
+diff --git a/isl_ast_graft.c b/isl_ast_graft.c
+index d8337769..261320b2 100644
+--- a/isl_ast_graft.c
++++ b/isl_ast_graft.c
+@@ -15,10 +15,10 @@
+ #include <isl/id.h>
+ #include <isl/space.h>
+ #include <isl/stream.h>
+-#include <isl_ast_private.h>
+-#include <isl_ast_build_expr.h>
+-#include <isl_ast_build_private.h>
+-#include <isl_ast_graft_private.h>
++#include "isl_ast_private.h"
++#include "isl_ast_build_expr.h"
++#include "isl_ast_build_private.h"
++#include "isl_ast_graft_private.h"
+ #include "isl_set_to_ast_graft_list.h"
+ 
+ static __isl_give isl_ast_graft *isl_ast_graft_copy(
+@@ -29,12 +29,12 @@ static __isl_give isl_ast_graft *isl_stream_read_ast_graft(
+ #undef EL_BASE
+ #define EL_BASE ast_graft
+ 
+-#include <isl_list_templ.c>
+-#include <isl_list_read_templ.c>
++#include "isl_list_templ.c"
++#include "isl_list_read_templ.c"
+ 
+ #undef BASE
+ #define BASE ast_graft
+-#include <print_templ.c>
++#include "print_templ.c"
+ 
+ isl_ctx *isl_ast_graft_get_ctx(__isl_keep isl_ast_graft *graft)
+ {
+diff --git a/isl_ast_graft_private.h b/isl_ast_graft_private.h
+index 5bf010b8..2e47e474 100644
+--- a/isl_ast_graft_private.h
++++ b/isl_ast_graft_private.h
+@@ -40,7 +40,7 @@ ISL_DECLARE_LIST(ast_graft)
+ #undef EL
+ #define EL isl_ast_graft
+ 
+-#include <isl_list_templ.h>
++#include "isl_list_templ.h"
+ 
+ isl_ctx *isl_ast_graft_get_ctx(__isl_keep isl_ast_graft *graft);
+ 
+diff --git a/isl_ast_private.h b/isl_ast_private.h
+index 8bff794c..6a71b0e5 100644
+--- a/isl_ast_private.h
++++ b/isl_ast_private.h
+@@ -12,7 +12,7 @@
+ #undef EL
+ #define EL isl_ast_expr
+ 
+-#include <isl_list_templ.h>
++#include "isl_list_templ.h"
+ 
+ /* An expression is either an integer, an identifier or an operation
+  * with zero or more arguments.
+@@ -48,7 +48,7 @@ __isl_give isl_ast_expr *isl_stream_read_ast_expr(__isl_keep isl_stream *s);
+ #undef EL
+ #define EL isl_ast_node
+ 
+-#include <isl_list_templ.h>
++#include "isl_list_templ.h"
+ 
+ /* A node is either a block, an if, a for, a user node or a mark node.
+  * "else_node" is NULL if the if node does not have an else branch.
+diff --git a/isl_basis_reduction.h b/isl_basis_reduction.h
+index 2517c2f1..e7cd06ec 100644
+--- a/isl_basis_reduction.h
++++ b/isl_basis_reduction.h
+@@ -11,7 +11,7 @@
+ #define ISL_BASIS_REDUCTION_H
+ 
+ #include <isl/set.h>
+-#include <isl_mat_private.h>
++#include "isl_mat_private.h"
+ #include "isl_tab.h"
+ 
+ #if defined(__cplusplus)
+diff --git a/isl_bernstein.c b/isl_bernstein.c
+index eddea834..7224252d 100644
+--- a/isl_bernstein.c
++++ b/isl_bernstein.c
+@@ -13,17 +13,17 @@
+  * ZAC des vignes, 4 rue Jacques Monod, 91893 Orsay, France
+  */
+ 
+-#include <isl_ctx_private.h>
+-#include <isl_map_private.h>
++#include "isl_ctx_private.h"
++#include "isl_map_private.h"
+ #include <isl/set.h>
+-#include <isl_seq.h>
+-#include <isl_morph.h>
+-#include <isl_factorization.h>
+-#include <isl_vertices_private.h>
+-#include <isl_polynomial_private.h>
+-#include <isl_options_private.h>
+-#include <isl_vec_private.h>
+-#include <isl_bernstein.h>
++#include "isl_seq.h"
++#include "isl_morph.h"
++#include "isl_factorization.h"
++#include "isl_vertices_private.h"
++#include "isl_polynomial_private.h"
++#include "isl_options_private.h"
++#include "isl_vec_private.h"
++#include "isl_bernstein.h"
+ 
+ struct bernstein_data {
+ 	enum isl_fold type;
+diff --git a/isl_bernstein.h b/isl_bernstein.h
+index ca11df4b..4716f333 100644
+--- a/isl_bernstein.h
++++ b/isl_bernstein.h
+@@ -1,4 +1,4 @@
+-#include <isl_bound.h>
++#include "isl_bound.h"
+ 
+ isl_stat isl_qpolynomial_bound_on_domain_bernstein(
+ 	__isl_take isl_basic_set *bset, __isl_take isl_qpolynomial *poly,
+diff --git a/isl_blk.c b/isl_blk.c
+index 0b03ecf0..3deddb29 100644
+--- a/isl_blk.c
++++ b/isl_blk.c
+@@ -7,8 +7,8 @@
+  * Computerwetenschappen, Celestijnenlaan 200A, B-3001 Leuven, Belgium
+  */
+ 
+-#include <isl_blk.h>
+-#include <isl_ctx_private.h>
++#include "isl_blk.h"
++#include "isl_ctx_private.h"
+ 
+ /* The maximal number of cache misses before first element is evicted */
+ #define ISL_BLK_MAX_MISS	100
+diff --git a/isl_blk.h b/isl_blk.h
+index 7756e010..320f036f 100644
+--- a/isl_blk.h
++++ b/isl_blk.h
+@@ -10,7 +10,7 @@
+ #ifndef ISL_BLK_H
+ #define ISL_BLK_H
+ 
+-#include <isl_int.h>
++#include "isl_int.h"
+ 
+ #if defined(__cplusplus)
+ extern "C" {
+diff --git a/isl_bound.c b/isl_bound.c
+index d2829d95..f02ba885 100644
+--- a/isl_bound.c
++++ b/isl_bound.c
+@@ -10,13 +10,13 @@
+ 
+ #include <isl/aff.h>
+ #include <isl/val.h>
+-#include <isl_ctx_private.h>
+-#include <isl_map_private.h>
+-#include <isl_bound.h>
+-#include <isl_bernstein.h>
+-#include <isl_range.h>
+-#include <isl_polynomial_private.h>
+-#include <isl_options_private.h>
++#include "isl_ctx_private.h"
++#include "isl_map_private.h"
++#include "isl_bound.h"
++#include "isl_bernstein.h"
++#include "isl_range.h"
++#include "isl_polynomial_private.h"
++#include "isl_options_private.h"
+ 
+ /* Given a polynomial "poly" that is constant in terms
+  * of the domain variables, construct a polynomial reduction
+diff --git a/isl_box.c b/isl_box.c
+index c674af0d..bd3d348f 100644
+--- a/isl_box.c
++++ b/isl_box.c
+@@ -12,8 +12,8 @@
+ 
+ #include <isl/val.h>
+ #include <isl/space.h>
+-#include <isl_map_private.h>
+-#include <isl_aff_private.h>
++#include "isl_map_private.h"
++#include "isl_aff_private.h"
+ #include <isl/constraint.h>
+ #include <isl/ilp.h>
+ #include <isl/fixed_box.h>
+@@ -544,7 +544,7 @@ __isl_give isl_printer *isl_printer_print_fixed_box(
+ 
+ #undef BASE
+ #define BASE fixed_box
+-#include <print_templ_yaml.c>
++#include "print_templ_yaml.c"
+ 
+ #undef KEY
+ #define KEY enum isl_fb_key
+diff --git a/isl_coalesce.c b/isl_coalesce.c
+index 5e2e69b8..3a553381 100644
+--- a/isl_coalesce.c
++++ b/isl_coalesce.c
+@@ -20,21 +20,21 @@
+  * and Cerebras Systems, 175 S San Antonio Rd, Los Altos, CA, USA
+  */
+ 
+-#include <isl_ctx_private.h>
++#include "isl_ctx_private.h"
+ #include "isl_map_private.h"
+-#include <isl_seq.h>
++#include "isl_seq.h"
+ #include <isl/options.h>
+ #include "isl_tab.h"
+-#include <isl_mat_private.h>
+-#include <isl_local_space_private.h>
+-#include <isl_val_private.h>
+-#include <isl_vec_private.h>
+-#include <isl_aff_private.h>
+-#include <isl_equalities.h>
+-#include <isl_constraint_private.h>
++#include "isl_mat_private.h"
++#include "isl_local_space_private.h"
++#include "isl_val_private.h"
++#include "isl_vec_private.h"
++#include "isl_aff_private.h"
++#include "isl_equalities.h"
++#include "isl_constraint_private.h"
+ 
+-#include <set_to_map.c>
+-#include <set_from_map.c>
++#include "set_to_map.c"
++#include "set_from_map.c"
+ 
+ #define STATUS_ERROR		-1
+ #define STATUS_REDUNDANT	 1
+diff --git a/isl_constraint.c b/isl_constraint.c
+index 31b162e0..dabc8041 100644
+--- a/isl_constraint.c
++++ b/isl_constraint.c
+@@ -10,22 +10,22 @@
+  * ZAC des vignes, 4 rue Jacques Monod, 91893 Orsay, France 
+  */
+ 
+-#include <isl_map_private.h>
+-#include <isl_constraint_private.h>
+-#include <isl_space_private.h>
+-#include <isl_seq.h>
+-#include <isl_aff_private.h>
+-#include <isl_local_space_private.h>
+-#include <isl_val_private.h>
+-#include <isl_vec_private.h>
++#include "isl_map_private.h"
++#include "isl_constraint_private.h"
++#include "isl_space_private.h"
++#include "isl_seq.h"
++#include "isl_aff_private.h"
++#include "isl_local_space_private.h"
++#include "isl_val_private.h"
++#include "isl_vec_private.h"
+ 
+-#include <bset_to_bmap.c>
+-#include <bset_from_bmap.c>
++#include "bset_to_bmap.c"
++#include "bset_from_bmap.c"
+ 
+ #undef EL_BASE
+ #define EL_BASE constraint
+ 
+-#include <isl_list_templ.c>
++#include "isl_list_templ.c"
+ 
+ isl_ctx *isl_constraint_get_ctx(__isl_keep isl_constraint *c)
+ {
+diff --git a/isl_constraint_private.h b/isl_constraint_private.h
+index 901bdcac..74b83fe0 100644
+--- a/isl_constraint_private.h
++++ b/isl_constraint_private.h
+@@ -16,7 +16,7 @@ struct isl_constraint {
+ #undef EL
+ #define EL isl_constraint
+ 
+-#include <isl_list_templ.h>
++#include "isl_list_templ.h"
+ 
+ __isl_give isl_constraint *isl_basic_set_constraint(
+ 	__isl_take isl_basic_set *bset, isl_int **line);
+diff --git a/isl_convex_hull.c b/isl_convex_hull.c
+index 71bc49b2..7f250da7 100644
+--- a/isl_convex_hull.c
++++ b/isl_convex_hull.c
+@@ -10,22 +10,22 @@
+  * B.P. 105 - 78153 Le Chesnay, France
+  */
+ 
+-#include <isl_ctx_private.h>
+-#include <isl_map_private.h>
+-#include <isl_lp_private.h>
++#include "isl_ctx_private.h"
++#include "isl_map_private.h"
++#include "isl_lp_private.h"
+ #include <isl/map.h>
+-#include <isl_mat_private.h>
+-#include <isl_vec_private.h>
++#include "isl_mat_private.h"
++#include "isl_vec_private.h"
+ #include <isl/set.h>
+-#include <isl_seq.h>
+-#include <isl_options_private.h>
++#include "isl_seq.h"
++#include "isl_options_private.h"
+ #include "isl_equalities.h"
+ #include "isl_tab.h"
+-#include <isl_sort.h>
++#include "isl_sort.h"
+ 
+-#include <bset_to_bmap.c>
+-#include <bset_from_bmap.c>
+-#include <set_to_map.c>
++#include "bset_to_bmap.c"
++#include "bset_from_bmap.c"
++#include "set_to_map.c"
+ 
+ static __isl_give isl_basic_set *uset_convex_hull_wrap_bounded(
+ 	__isl_take isl_set *set);
+diff --git a/isl_ctx.c b/isl_ctx.c
+index dd189922..182f9d0a 100644
+--- a/isl_ctx.c
++++ b/isl_ctx.c
+@@ -7,9 +7,9 @@
+  * Computerwetenschappen, Celestijnenlaan 200A, B-3001 Leuven, Belgium
+  */
+ 
+-#include <isl_ctx_private.h>
++#include "isl_ctx_private.h"
+ #include <isl/vec.h>
+-#include <isl_options_private.h>
++#include "isl_options_private.h"
+ 
+ #define __isl_calloc(type,size)		((type *)calloc(1, size))
+ #define __isl_calloc_type(type)		__isl_calloc(type,sizeof(type))
+diff --git a/isl_ctx_private.h b/isl_ctx_private.h
+index 5083a965..38687d55 100644
+--- a/isl_ctx_private.h
++++ b/isl_ctx_private.h
+@@ -1,5 +1,5 @@
+ #include <isl/ctx.h>
+-#include <isl_blk.h>
++#include "isl_blk.h"
+ 
+ /* "error" stores the last error that has occurred.
+  * It is reset to isl_error_none by isl_ctx_reset_error.
+diff --git a/isl_dim_map.c b/isl_dim_map.c
+index 08597bb1..e5486b09 100644
+--- a/isl_dim_map.c
++++ b/isl_dim_map.c
+@@ -10,10 +10,10 @@
+  * ZAC des vignes, 4 rue Jacques Monod, 91893 Orsay, France 
+  */
+ 
+-#include <isl_map_private.h>
+-#include <isl_space_private.h>
+-#include <isl_dim_map.h>
+-#include <isl_reordering.h>
++#include "isl_map_private.h"
++#include "isl_space_private.h"
++#include "isl_dim_map.h"
++#include "isl_reordering.h"
+ 
+ struct isl_dim_map_entry {
+ 	int pos;
+diff --git a/isl_dim_map.h b/isl_dim_map.h
+index 5e45fe00..f1d5914a 100644
+--- a/isl_dim_map.h
++++ b/isl_dim_map.h
+@@ -4,7 +4,7 @@
+ #include <isl/ctx.h>
+ #include <isl/space.h>
+ #include <isl/map.h>
+-#include <isl_reordering.h>
++#include "isl_reordering.h"
+ 
+ struct isl_dim_map;
+ typedef struct isl_dim_map isl_dim_map;
+diff --git a/isl_equalities.c b/isl_equalities.c
+index 90dfb770..a5bf1546 100644
+--- a/isl_equalities.c
++++ b/isl_equalities.c
+@@ -10,12 +10,12 @@
+  * ZAC des vignes, 4 rue Jacques Monod, 91893 Orsay, France
+  */
+ 
+-#include <isl_mat_private.h>
+-#include <isl_vec_private.h>
+-#include <isl_seq.h>
++#include "isl_mat_private.h"
++#include "isl_vec_private.h"
++#include "isl_seq.h"
+ #include "isl_map_private.h"
+ #include "isl_equalities.h"
+-#include <isl_val_private.h>
++#include "isl_val_private.h"
+ 
+ /* Given a set of modulo constraints
+  *
+diff --git a/isl_factorization.c b/isl_factorization.c
+index bd4a259d..ec2924dd 100644
+--- a/isl_factorization.c
++++ b/isl_factorization.c
+@@ -13,10 +13,10 @@
+  * ZAC des vignes, 4 rue Jacques Monod, 91893 Orsay, France 
+  */
+ 
+-#include <isl_map_private.h>
+-#include <isl_factorization.h>
+-#include <isl_space_private.h>
+-#include <isl_mat_private.h>
++#include "isl_map_private.h"
++#include "isl_factorization.h"
++#include "isl_space_private.h"
++#include "isl_mat_private.h"
+ 
+ /* Return the isl_ctx to which "f" belongs.
+  */
+diff --git a/isl_factorization.h b/isl_factorization.h
+index 8b9bf76b..4c2178b3 100644
+--- a/isl_factorization.h
++++ b/isl_factorization.h
+@@ -2,7 +2,7 @@
+ #define ISL_FACTORIZATION_H
+ 
+ #include <isl/set.h>
+-#include <isl_morph.h>
++#include "isl_morph.h"
+ 
+ #if defined(__cplusplus)
+ extern "C" {
+diff --git a/isl_farkas.c b/isl_farkas.c
+index 4ff6d8a4..201cbd37 100644
+--- a/isl_farkas.c
++++ b/isl_farkas.c
+@@ -8,13 +8,13 @@
+  * 91893 Orsay, France 
+  */
+ 
+-#include <isl_map_private.h>
++#include "isl_map_private.h"
+ #include <isl/set.h>
+-#include <isl_space_private.h>
+-#include <isl_seq.h>
+-#include <isl_aff_private.h>
+-#include <isl_mat_private.h>
+-#include <isl_factorization.h>
++#include "isl_space_private.h"
++#include "isl_seq.h"
++#include "isl_aff_private.h"
++#include "isl_mat_private.h"
++#include "isl_factorization.h"
+ 
+ /*
+  * Let C be a cone and define
+diff --git a/isl_ffs.c b/isl_ffs.c
+index c1ee928f..767555b0 100644
+--- a/isl_ffs.c
++++ b/isl_ffs.c
+@@ -1,4 +1,4 @@
+-#include <isl_config.h>
++#include "isl_config.h"
+ 
+ #if !HAVE_DECL_FFS && !HAVE_DECL___BUILTIN_FFS && HAVE_DECL__BITSCANFORWARD
+ #include <intrin.h>
+diff --git a/isl_flow.c b/isl_flow.c
+index c083a965..2c8bf40c 100644
+--- a/isl_flow.c
++++ b/isl_flow.c
+@@ -24,7 +24,7 @@
+ #include <isl/union_map.h>
+ #include <isl/flow.h>
+ #include <isl/schedule_node.h>
+-#include <isl_sort.h>
++#include "isl_sort.h"
+ #include <isl/stream.h>
+ 
+ enum isl_restriction_type {
+diff --git a/isl_fold.c b/isl_fold.c
+index 33ea278e..d9c9ea15 100644
+--- a/isl_fold.c
++++ b/isl_fold.c
+@@ -8,22 +8,22 @@
+  * 91893 Orsay, France 
+  */
+ 
+-#include <isl_map_private.h>
+-#include <isl_union_map_private.h>
+-#include <isl_polynomial_private.h>
+-#include <isl_point_private.h>
+-#include <isl_space_private.h>
+-#include <isl_lp_private.h>
+-#include <isl_seq.h>
+-#include <isl_mat_private.h>
+-#include <isl_val_private.h>
+-#include <isl_vec_private.h>
+-#include <isl_config.h>
++#include "isl_map_private.h"
++#include "isl_union_map_private.h"
++#include "isl_polynomial_private.h"
++#include "isl_point_private.h"
++#include "isl_space_private.h"
++#include "isl_lp_private.h"
++#include "isl_seq.h"
++#include "isl_mat_private.h"
++#include "isl_val_private.h"
++#include "isl_vec_private.h"
++#include "isl_config.h"
+ 
+ #undef EL_BASE
+ #define EL_BASE pw_qpolynomial_fold
+ 
+-#include <isl_list_templ.c>
++#include "isl_list_templ.c"
+ 
+ enum isl_fold isl_fold_type_negate(enum isl_fold type)
+ {
+@@ -950,22 +950,22 @@ static __isl_give isl_qpolynomial_fold *isl_qpolynomial_fold_zero_in_space(
+ #undef DEFAULT_IS_ZERO
+ #define DEFAULT_IS_ZERO 1
+ 
+-#include <isl_pw_templ.c>
+-#include <isl_pw_add_disjoint_templ.c>
+-#include <isl_pw_eval.c>
+-#include <isl_pw_fix_templ.c>
+-#include <isl_pw_from_range_templ.c>
+-#include <isl_pw_insert_dims_templ.c>
+-#include <isl_pw_lift_templ.c>
+-#include <isl_pw_morph_templ.c>
+-#include <isl_pw_move_dims_templ.c>
+-#include <isl_pw_opt_templ.c>
++#include "isl_pw_templ.c"
++#include "isl_pw_add_disjoint_templ.c"
++#include "isl_pw_eval.c"
++#include "isl_pw_fix_templ.c"
++#include "isl_pw_from_range_templ.c"
++#include "isl_pw_insert_dims_templ.c"
++#include "isl_pw_lift_templ.c"
++#include "isl_pw_morph_templ.c"
++#include "isl_pw_move_dims_templ.c"
++#include "isl_pw_opt_templ.c"
+ 
+ #undef BASE
+ #define BASE pw_qpolynomial_fold
+ 
+-#include <isl_union_single.c>
+-#include <isl_union_eval.c>
++#include "isl_union_single.c"
++#include "isl_union_eval.c"
+ 
+ /* Construct a new reduction of the given type and space
+  * with an empty list of polynomials.
+diff --git a/isl_gmp.c b/isl_gmp.c
+index d488fd2e..92a8d790 100644
+--- a/isl_gmp.c
++++ b/isl_gmp.c
+@@ -7,7 +7,7 @@
+  * Computerwetenschappen, Celestijnenlaan 200A, B-3001 Leuven, Belgium
+  */
+ 
+-#include <isl_int.h>
++#include "isl_int.h"
+ 
+ uint32_t isl_gmp_hash(mpz_t v, uint32_t hash)
+ {
+diff --git a/isl_hash.c b/isl_hash.c
+index d0f6564a..526f1780 100644
+--- a/isl_hash.c
++++ b/isl_hash.c
+@@ -8,7 +8,7 @@
+  */
+ 
+ #include <stdlib.h>
+-#include <isl_hash_private.h>
++#include "isl_hash_private.h"
+ #include <isl/ctx.h>
+ #include "isl_config.h"
+ 
+diff --git a/isl_id.c b/isl_id.c
+index d1f575e2..443c1eed 100644
+--- a/isl_id.c
++++ b/isl_id.c
+@@ -8,14 +8,14 @@
+  */
+ 
+ #include <string.h>
+-#include <isl_ctx_private.h>
+-#include <isl_id_private.h>
++#include "isl_ctx_private.h"
++#include "isl_id_private.h"
+ 
+ #undef EL_BASE
+ #define EL_BASE id
+ 
+-#include <isl_list_templ.c>
+-#include <isl_list_read_templ.c>
++#include "isl_list_templ.c"
++#include "isl_list_read_templ.c"
+ 
+ /* A special, static isl_id to use as domains (and ranges)
+  * of sets and parameters domains.
+@@ -303,6 +303,6 @@ static isl_bool isl_id_plain_is_equal(__isl_keep isl_id *id1,
+ #undef BASE
+ #define BASE id
+ 
+-#include <isl_multi_no_domain_templ.c>
+-#include <isl_multi_no_explicit_domain.c>
+-#include <isl_multi_templ.c>
++#include "isl_multi_no_domain_templ.c"
++#include "isl_multi_no_explicit_domain.c"
++#include "isl_multi_templ.c"
+diff --git a/isl_id_private.h b/isl_id_private.h
+index bcc22175..d437047e 100644
+--- a/isl_id_private.h
++++ b/isl_id_private.h
+@@ -32,7 +32,7 @@ struct isl_id {
+ #undef EL
+ #define EL isl_id
+ 
+-#include <isl_list_templ.h>
++#include "isl_list_templ.h"
+ 
+ uint32_t isl_hash_id(uint32_t hash, __isl_keep isl_id *id);
+ int isl_id_cmp(__isl_keep isl_id *id1, __isl_keep isl_id *id2);
+@@ -42,6 +42,6 @@ extern isl_id isl_id_none;
+ #undef BASE
+ #define BASE id
+ 
+-#include <isl_multi_templ.h>
++#include "isl_multi_templ.h"
+ 
+ #endif
+diff --git a/isl_ilp.c b/isl_ilp.c
+index 2c004efe..00680a35 100644
+--- a/isl_ilp.c
++++ b/isl_ilp.c
+@@ -7,20 +7,20 @@
+  * Computerwetenschappen, Celestijnenlaan 200A, B-3001 Leuven, Belgium
+  */
+ 
+-#include <isl_ctx_private.h>
+-#include <isl_map_private.h>
++#include "isl_ctx_private.h"
++#include "isl_map_private.h"
+ #include <isl/ilp.h>
+ #include <isl/union_set.h>
+ #include "isl_sample.h"
+-#include <isl_seq.h>
++#include "isl_seq.h"
+ #include "isl_equalities.h"
+-#include <isl_aff_private.h>
+-#include <isl_local_space_private.h>
+-#include <isl_mat_private.h>
+-#include <isl_val_private.h>
+-#include <isl_vec_private.h>
+-#include <isl_lp_private.h>
+-#include <isl_ilp_private.h>
++#include "isl_aff_private.h"
++#include "isl_local_space_private.h"
++#include "isl_mat_private.h"
++#include "isl_val_private.h"
++#include "isl_vec_private.h"
++#include "isl_lp_private.h"
++#include "isl_ilp_private.h"
+ 
+ /* Given a basic set "bset", construct a basic set U such that for
+  * each element x in U, the whole unit box positioned at x is inside
+diff --git a/isl_ilp_private.h b/isl_ilp_private.h
+index 932b2c3d..762cabf2 100644
+--- a/isl_ilp_private.h
++++ b/isl_ilp_private.h
+@@ -1,7 +1,7 @@
+ #ifndef ISL_ILP_PRIVATE_H
+ #define ISL_ILP_PRIVATE_H
+ 
+-#include <isl_int.h>
++#include "isl_int.h"
+ #include <isl/lp.h>
+ #include <isl/set.h>
+ 
+diff --git a/isl_imath.c b/isl_imath.c
+index d870f148..63e04472 100644
+--- a/isl_imath.c
++++ b/isl_imath.c
+@@ -1,4 +1,4 @@
+-#include <isl_int.h>
++#include "isl_int.h"
+ 
+ uint32_t isl_imath_hash(mp_int v, uint32_t hash)
+ {
+diff --git a/isl_input.c b/isl_input.c
+index 66861265..693b2cdd 100644
+--- a/isl_input.c
++++ b/isl_input.c
+@@ -9,7 +9,7 @@
+  * Written by Sven Verdoolaege, K.U.Leuven, Departement
+  * Computerwetenschappen, Celestijnenlaan 200A, B-3001 Leuven, Belgium
+  * and INRIA Saclay - Ile-de-France, Parc Club Orsay Universite,
+- * ZAC des vignes, 4 rue Jacques Monod, 91893 Orsay, France 
++ * ZAC des vignes, 4 rue Jacques Monod, 91893 Orsay, France
+  * and Ecole Normale Superieure, 45 rue d’Ulm, 75230 Paris, France
+  * and Cerebras Systems, 175 S San Antonio Rd, Los Altos, CA, USA
+  */
+@@ -17,21 +17,21 @@
+ #include <ctype.h>
+ #include <stdio.h>
+ #include <string.h>
+-#include <isl_ctx_private.h>
+-#include <isl_map_private.h>
+-#include <isl_id_private.h>
++#include "isl_ctx_private.h"
++#include "isl_map_private.h"
++#include "isl_id_private.h"
+ #include <isl/set.h>
+-#include <isl_seq.h>
+-#include <isl_stream_private.h>
++#include "isl_seq.h"
++#include "isl_stream_private.h"
+ #include <isl/obj.h>
+ #include "isl_polynomial_private.h"
+ #include <isl/union_set.h>
+ #include <isl/union_map.h>
+-#include <isl_mat_private.h>
+-#include <isl_aff_private.h>
+-#include <isl_vec_private.h>
++#include "isl_mat_private.h"
++#include "isl_aff_private.h"
++#include "isl_vec_private.h"
+ #include <isl/list.h>
+-#include <isl_val_private.h>
++#include "isl_val_private.h"
+ 
+ struct variable {
+ 	char    	    	*name;
+@@ -2175,7 +2175,7 @@ static __isl_give isl_map *read_conjunct(__isl_keep isl_stream *s,
+ 		isl_map_free(map);
+ 		return isl_map_empty(space);
+ 	}
+-		
++
+ 	return add_constraint(s, v, map, rational);
+ error:
+ 	isl_map_free(map);
+@@ -3149,7 +3149,7 @@ __isl_give isl_map *isl_stream_read_map(__isl_keep isl_stream *s)
+ 	if (obj.v)
+ 		isl_assert(s->ctx, obj.type == isl_obj_map ||
+ 				   obj.type == isl_obj_set, goto error);
+-	
++
+ 	if (obj.type == isl_obj_set)
+ 		obj.v = isl_map_from_range(obj.v);
+ 
+@@ -3691,7 +3691,7 @@ static __isl_give isl_multi_pw_aff *isl_multi_pw_aff_set_tuple_entry(
+ #undef BASE
+ #define BASE pw_aff
+ 
+-#include <isl_multi_from_tuple_templ.c>
++#include "isl_multi_from_tuple_templ.c"
+ 
+ /* Read a tuple of piecewise affine expressions,
+  * including optional constraints on the domain from "s".
+@@ -3817,12 +3817,12 @@ isl_stream_read_with_params_union_pw_multi_aff(__isl_keep isl_stream *s,
+ #undef BASE
+ #define BASE val
+ 
+-#include <isl_multi_read_no_explicit_domain_templ.c>
++#include "isl_multi_read_no_explicit_domain_templ.c"
+ 
+ #undef BASE
+ #define BASE id
+ 
+-#include <isl_multi_read_no_explicit_domain_templ.c>
++#include "isl_multi_read_no_explicit_domain_templ.c"
+ 
+ /* Set entry "pos" of "ma" to the corresponding entry in "tuple",
+  * as obtained from read_tuple().
+@@ -3848,7 +3848,7 @@ static __isl_give isl_multi_aff *isl_multi_aff_set_tuple_entry(
+ #undef BASE
+ #define BASE aff
+ 
+-#include <isl_multi_from_tuple_templ.c>
++#include "isl_multi_from_tuple_templ.c"
+ 
+ /* Read a multi-affine expression from "s".
+  * If the multi-affine expression has a domain, then the tuple
+diff --git a/isl_int.h b/isl_int.h
+index 07be2bae..3dd10230 100644
+--- a/isl_int.h
++++ b/isl_int.h
+@@ -14,17 +14,17 @@
+ #include <isl/hash.h>
+ #include <isl/printer.h>
+ #include <string.h>
+-#include <isl_config.h>
++#include "isl_config.h"
+ 
+ #ifdef USE_GMP_FOR_MP
+-#include <isl_int_gmp.h>
++#include "isl_int_gmp.h"
+ #endif
+ 
+ #ifdef USE_IMATH_FOR_MP
+ #ifdef USE_SMALL_INT_OPT
+-#include <isl_int_sioimath.h>
++#include "isl_int_sioimath.h"
+ #else /* USE_SMALL_INT_OPT */
+-#include <isl_int_imath.h>
++#include "isl_int_imath.h"
+ #endif /* USE_SMALL_INT_OPT */
+ #endif /* USE_IMATH_FOR_MP */
+ 
+diff --git a/isl_int_imath.h b/isl_int_imath.h
+index ed314b65..03dcb1b9 100644
+--- a/isl_int_imath.h
++++ b/isl_int_imath.h
+@@ -1,7 +1,7 @@
+ #ifndef ISL_INT_IMATH_H
+ #define ISL_INT_IMATH_H
+ 
+-#include <isl_imath.h>
++#include "isl_imath.h"
+ 
+ /* isl_int is the basic integer type, implemented with imath's mp_int. */
+ typedef mp_int isl_int;
+diff --git a/isl_int_sioimath.c b/isl_int_sioimath.c
+index 17028621..449cd3a2 100644
+--- a/isl_int_sioimath.c
++++ b/isl_int_sioimath.c
+@@ -1,7 +1,7 @@
+ #include <stdlib.h>
+ #include <string.h>
+ 
+-#include <isl_int.h>
++#include "isl_int.h"
+ 
+ extern int isl_sioimath_decode(isl_sioimath val, int32_t *small, mp_int *big);
+ extern int isl_sioimath_decode_big(isl_sioimath val, mp_int *big);
+diff --git a/isl_int_sioimath.h b/isl_int_sioimath.h
+index a2112cd8..7c5ac1c2 100644
+--- a/isl_int_sioimath.h
++++ b/isl_int_sioimath.h
+@@ -15,7 +15,7 @@
+ #include <stdint.h>
+ #include <stdlib.h>
+ 
+-#include <isl_imath.h>
++#include "isl_imath.h"
+ #include <isl/hash.h>
+ 
+ #define ARRAY_SIZE(array) (sizeof(array)/sizeof(*array))
+diff --git a/isl_list_read_templ.c b/isl_list_read_templ.c
+index 11c2bd52..924346b3 100644
+--- a/isl_list_read_templ.c
++++ b/isl_list_read_templ.c
+@@ -8,7 +8,7 @@
+ 
+ #include <isl/stream.h>
+ 
+-#include <isl_list_macro.h>
++#include "isl_list_macro.h"
+ 
+ /* Read a list of elements of type EL from "s".
+  * The input format corresponds to the way lists are printed
+diff --git a/isl_list_read_yaml_templ.c b/isl_list_read_yaml_templ.c
+index 5b6143df..dbb1c3d3 100644
+--- a/isl_list_read_yaml_templ.c
++++ b/isl_list_read_yaml_templ.c
+@@ -9,7 +9,7 @@
+ 
+ #include <isl/stream.h>
+ 
+-#include <isl_list_macro.h>
++#include "isl_list_macro.h"
+ 
+ /* Read a sequence of EL objects and return them as a list.
+  */
+diff --git a/isl_list_templ.c b/isl_list_templ.c
+index 4b040528..4c11269b 100644
+--- a/isl_list_templ.c
++++ b/isl_list_templ.c
+@@ -13,11 +13,11 @@
+  * and Ecole Normale Superieure, 45 rue d’Ulm, 75230 Paris, France
+  */
+ 
+-#include <isl_sort.h>
+-#include <isl_tarjan.h>
++#include "isl_sort.h"
++#include "isl_tarjan.h"
+ #include <isl/printer.h>
+ 
+-#include <isl_list_macro.h>
++#include "isl_list_macro.h"
+ 
+ #define xS(TYPE,NAME) struct TYPE ## _ ## NAME
+ #define S(TYPE,NAME) xS(TYPE,NAME)
+diff --git a/isl_local.c b/isl_local.c
+index 6bc08862..4ff71fae 100644
+--- a/isl_local.c
++++ b/isl_local.c
+@@ -12,11 +12,11 @@
+  */
+ 
+ #include <isl/space.h>
+-#include <isl_vec_private.h>
+-#include <isl_mat_private.h>
+-#include <isl_reordering.h>
+-#include <isl_seq.h>
+-#include <isl_local_private.h>
++#include "isl_vec_private.h"
++#include "isl_mat_private.h"
++#include "isl_reordering.h"
++#include "isl_seq.h"
++#include "isl_local_private.h"
+ 
+ /* Return the isl_ctx to which "local" belongs.
+  */
+diff --git a/isl_local.h b/isl_local.h
+index 03e4a539..52c6496f 100644
+--- a/isl_local.h
++++ b/isl_local.h
+@@ -2,7 +2,7 @@
+ #define ISL_LOCAL_H
+ 
+ #include <isl/mat.h>
+-#include <isl_reordering.h>
++#include "isl_reordering.h"
+ 
+ typedef isl_mat isl_local;
+ 
+diff --git a/isl_local_private.h b/isl_local_private.h
+index bb44d36b..d9c37a4d 100644
+--- a/isl_local_private.h
++++ b/isl_local_private.h
+@@ -1,7 +1,7 @@
+ #ifndef ISL_LOCAL_PRIVATE_H
+ #define ISL_LOCAL_PRIVATE_H
+ 
+-#include <isl_local.h>
++#include "isl_local.h"
+ 
+ __isl_give isl_local *isl_local_alloc_from_mat(__isl_take isl_mat *mat);
+ 
+diff --git a/isl_local_space.c b/isl_local_space.c
+index 5b125ee0..b5651c39 100644
+--- a/isl_local_space.c
++++ b/isl_local_space.c
+@@ -12,17 +12,17 @@
+  * and Cerebras Systems, 175 S San Antonio Rd, Los Altos, CA, USA
+  */
+ 
+-#include <isl_ctx_private.h>
++#include "isl_ctx_private.h"
+ #include <isl/id.h>
+-#include <isl_map_private.h>
+-#include <isl_local_space_private.h>
+-#include <isl_space_private.h>
+-#include <isl_mat_private.h>
+-#include <isl_aff_private.h>
+-#include <isl_vec_private.h>
+-#include <isl_point_private.h>
+-#include <isl_seq.h>
+-#include <isl_local.h>
++#include "isl_map_private.h"
++#include "isl_local_space_private.h"
++#include "isl_space_private.h"
++#include "isl_mat_private.h"
++#include "isl_aff_private.h"
++#include "isl_vec_private.h"
++#include "isl_point_private.h"
++#include "isl_seq.h"
++#include "isl_local.h"
+ 
+ isl_ctx *isl_local_space_get_ctx(__isl_keep isl_local_space *ls)
+ {
+diff --git a/isl_lp.c b/isl_lp.c
+index c6cc8384..80a661f9 100644
+--- a/isl_lp.c
++++ b/isl_lp.c
+@@ -7,20 +7,20 @@
+  * Computerwetenschappen, Celestijnenlaan 200A, B-3001 Leuven, Belgium
+  */
+ 
+-#include <isl_ctx_private.h>
+-#include <isl_map_private.h>
++#include "isl_ctx_private.h"
++#include "isl_map_private.h"
+ #include <isl/lp.h>
+-#include <isl_seq.h>
++#include "isl_seq.h"
+ #include "isl_tab.h"
+-#include <isl_options_private.h>
+-#include <isl_local_space_private.h>
+-#include <isl_aff_private.h>
+-#include <isl_mat_private.h>
+-#include <isl_val_private.h>
+-#include <isl_vec_private.h>
++#include "isl_options_private.h"
++#include "isl_local_space_private.h"
++#include "isl_aff_private.h"
++#include "isl_mat_private.h"
++#include "isl_val_private.h"
++#include "isl_vec_private.h"
+ 
+-#include <bset_to_bmap.c>
+-#include <set_to_map.c>
++#include "bset_to_bmap.c"
++#include "set_to_map.c"
+ 
+ static enum isl_lp_result isl_tab_solve_lp(__isl_keep isl_basic_map *bmap,
+ 	int maximize, isl_int *f, isl_int denom, isl_int *opt,
+diff --git a/isl_lp_private.h b/isl_lp_private.h
+index ddc44c1e..194a964c 100644
+--- a/isl_lp_private.h
++++ b/isl_lp_private.h
+@@ -1,7 +1,7 @@
+ #ifndef ISL_LP_PRIVATE_H
+ #define ISL_LP_PRIVATE_H
+ 
+-#include <isl_int.h>
++#include "isl_int.h"
+ #include <isl/lp.h>
+ #include <isl/vec.h>
+ 
+diff --git a/isl_map.c b/isl_map.c
+index c4f80f48..909b47a1 100644
+--- a/isl_map.c
++++ b/isl_map.c
+@@ -24,37 +24,37 @@
+  */
+ 
+ #include <string.h>
+-#include <isl_ctx_private.h>
+-#include <isl_map_private.h>
+-#include <isl_blk.h>
+-#include <isl_id_private.h>
++#include "isl_ctx_private.h"
++#include "isl_map_private.h"
++#include "isl_blk.h"
++#include "isl_id_private.h"
+ #include <isl/constraint.h>
+ #include "isl_space_private.h"
+ #include "isl_equalities.h"
+-#include <isl_lp_private.h>
+-#include <isl_seq.h>
++#include "isl_lp_private.h"
++#include "isl_seq.h"
+ #include <isl/set.h>
+ #include <isl/map.h>
+-#include <isl_reordering.h>
++#include "isl_reordering.h"
+ #include "isl_sample.h"
+-#include <isl_sort.h>
++#include "isl_sort.h"
+ #include "isl_tab.h"
+ #include <isl/vec.h>
+-#include <isl_mat_private.h>
+-#include <isl_vec_private.h>
+-#include <isl_dim_map.h>
+-#include <isl_local_space_private.h>
+-#include <isl_aff_private.h>
+-#include <isl_options_private.h>
+-#include <isl_morph.h>
+-#include <isl_val_private.h>
+-#include <isl_printer_private.h>
+-#include <isl_maybe_aff.h>
++#include "isl_mat_private.h"
++#include "isl_vec_private.h"
++#include "isl_dim_map.h"
++#include "isl_local_space_private.h"
++#include "isl_aff_private.h"
++#include "isl_options_private.h"
++#include "isl_morph.h"
++#include "isl_val_private.h"
++#include "isl_printer_private.h"
++#include "isl_maybe_aff.h"
+ 
+-#include <bset_to_bmap.c>
+-#include <bset_from_bmap.c>
+-#include <set_to_map.c>
+-#include <set_from_map.c>
++#include "bset_to_bmap.c"
++#include "bset_from_bmap.c"
++#include "set_to_map.c"
++#include "set_from_map.c"
+ 
+ /* Treat "bset" as a basic map.
+  * Internally, isl_basic_set is defined to isl_basic_map, so in practice,
+diff --git a/isl_map_list.c b/isl_map_list.c
+index 3314fa70..c8904d22 100644
+--- a/isl_map_list.c
++++ b/isl_map_list.c
+@@ -4,30 +4,30 @@
+ #undef EL
+ #define EL isl_basic_map
+ 
+-#include <isl_list_templ.h>
++#include "isl_list_templ.h"
+ 
+ #undef EL_BASE
+ #define EL_BASE basic_map
+ 
+-#include <isl_list_templ.c>
++#include "isl_list_templ.c"
+ 
+ #undef EL
+ #define EL isl_map
+ 
+-#include <isl_list_templ.h>
++#include "isl_list_templ.h"
+ 
+ #undef EL_BASE
+ #define EL_BASE map
+ 
+-#include <isl_list_templ.c>
+-#include <isl_list_read_templ.c>
++#include "isl_list_templ.c"
++#include "isl_list_read_templ.c"
+ 
+ #undef EL
+ #define EL isl_union_map
+ 
+-#include <isl_list_templ.h>
++#include "isl_list_templ.h"
+ 
+ #undef EL_BASE
+ #define EL_BASE union_map
+ 
+-#include <isl_list_templ.c>
++#include "isl_list_templ.c"
+diff --git a/isl_map_private.h b/isl_map_private.h
+index f3895f31..ff13e253 100644
+--- a/isl_map_private.h
++++ b/isl_map_private.h
+@@ -18,11 +18,11 @@
+ #include <isl/list.h>
+ #include <isl/set.h>
+ #include <isl/map.h>
+-#include <isl_reordering.h>
++#include "isl_reordering.h"
+ #include <isl/vec.h>
+ #include <isl/hash.h>
+-#include <isl_blk.h>
+-#include <isl_maybe_aff.h>
++#include "isl_blk.h"
++#include "isl_maybe_aff.h"
+ 
+ /* A "basic map" is a relation between two sets of variables,
+  * called the "in" and "out" variables.
+@@ -81,7 +81,7 @@ struct isl_basic_map {
+ #undef EL
+ #define EL isl_basic_set
+ 
+-#include <isl_list_templ.h>
++#include "isl_list_templ.h"
+ 
+ /* A "map" is a (possibly disjoint) union of basic maps.
+  * A "set" is a (possibly disjoint) union of basic sets.
+@@ -116,7 +116,7 @@ struct isl_map {
+ #undef EL
+ #define EL isl_set
+ 
+-#include <isl_list_templ.h>
++#include "isl_list_templ.h"
+ 
+ __isl_give isl_basic_set *isl_basic_set_alloc(isl_ctx *ctx,
+ 	unsigned nparam, unsigned dim, unsigned extra,
+diff --git a/isl_map_simplify.c b/isl_map_simplify.c
+index ab41883b..03c47375 100644
+--- a/isl_map_simplify.c
++++ b/isl_map_simplify.c
+@@ -15,20 +15,20 @@
+  * and Cerebras Systems, 1237 E Arques Ave, Sunnyvale, CA, USA
+  */
+ 
+-#include <isl_ctx_private.h>
+-#include <isl_map_private.h>
++#include "isl_ctx_private.h"
++#include "isl_map_private.h"
+ #include "isl_equalities.h"
+ #include <isl/map.h>
+-#include <isl_seq.h>
++#include "isl_seq.h"
+ #include "isl_tab.h"
+-#include <isl_space_private.h>
+-#include <isl_mat_private.h>
+-#include <isl_vec_private.h>
++#include "isl_space_private.h"
++#include "isl_mat_private.h"
++#include "isl_vec_private.h"
+ 
+-#include <bset_to_bmap.c>
+-#include <bset_from_bmap.c>
+-#include <set_to_map.c>
+-#include <set_from_map.c>
++#include "bset_to_bmap.c"
++#include "bset_from_bmap.c"
++#include "set_to_map.c"
++#include "set_from_map.c"
+ 
+ /* Mark "bmap" as having one or more inequality constraints modified.
+  * If "equivalent" is set, then this modification was done based
+diff --git a/isl_map_subtract.c b/isl_map_subtract.c
+index a25537f6..47efd962 100644
+--- a/isl_map_subtract.c
++++ b/isl_map_subtract.c
+@@ -7,16 +7,16 @@
+  * Computerwetenschappen, Celestijnenlaan 200A, B-3001 Leuven, Belgium
+  */
+ 
+-#include <isl_map_private.h>
+-#include <isl_seq.h>
++#include "isl_map_private.h"
++#include "isl_seq.h"
+ #include <isl/set.h>
+ #include <isl/map.h>
+ #include "isl_tab.h"
+-#include <isl_point_private.h>
+-#include <isl_vec_private.h>
++#include "isl_point_private.h"
++#include "isl_vec_private.h"
+ 
+-#include <set_to_map.c>
+-#include <set_from_map.c>
++#include "set_to_map.c"
++#include "set_from_map.c"
+ 
+ /* Expand the constraint "c" into "v".  The initial "dim" dimensions
+  * are the same, but "v" may have more divs than "c" and the divs of "c"
+diff --git a/isl_mat.c b/isl_mat.c
+index cc4b405c..8d05b510 100644
+--- a/isl_mat.c
++++ b/isl_mat.c
+@@ -13,14 +13,14 @@
+  * and Ecole Normale Superieure, 45 rue d'Ulm, 75230 Paris, France
+  */
+ 
+-#include <isl_ctx_private.h>
+-#include <isl_map_private.h>
++#include "isl_ctx_private.h"
++#include "isl_map_private.h"
+ #include <isl/space.h>
+-#include <isl_seq.h>
+-#include <isl_mat_private.h>
+-#include <isl_vec_private.h>
+-#include <isl_space_private.h>
+-#include <isl_val_private.h>
++#include "isl_seq.h"
++#include "isl_mat_private.h"
++#include "isl_vec_private.h"
++#include "isl_space_private.h"
++#include "isl_val_private.h"
+ 
+ isl_ctx *isl_mat_get_ctx(__isl_keep isl_mat *mat)
+ {
+diff --git a/isl_mat_private.h b/isl_mat_private.h
+index af760a2e..5572e796 100644
+--- a/isl_mat_private.h
++++ b/isl_mat_private.h
+@@ -2,7 +2,7 @@
+ #define ISL_MAT_PRIVATE_H
+ 
+ #include <isl/mat.h>
+-#include <isl_blk.h>
++#include "isl_blk.h"
+ 
+ struct isl_mat {
+ 	int ref;
+diff --git a/isl_morph.c b/isl_morph.c
+index 8727cc61..087c6c4e 100644
+--- a/isl_morph.c
++++ b/isl_morph.c
+@@ -10,16 +10,16 @@
+  * and Ecole Normale Superieure, 45 rue d'Ulm, 75230 Paris, France
+  */
+ 
+-#include <isl_map_private.h>
+-#include <isl_aff_private.h>
+-#include <isl_morph.h>
+-#include <isl_seq.h>
+-#include <isl_mat_private.h>
+-#include <isl_space_private.h>
+-#include <isl_equalities.h>
+-#include <isl_id_private.h>
+-#include <isl_aff_private.h>
+-#include <isl_vec_private.h>
++#include "isl_map_private.h"
++#include "isl_aff_private.h"
++#include "isl_morph.h"
++#include "isl_seq.h"
++#include "isl_mat_private.h"
++#include "isl_space_private.h"
++#include "isl_equalities.h"
++#include "isl_id_private.h"
++#include "isl_aff_private.h"
++#include "isl_vec_private.h"
+ 
+ isl_ctx *isl_morph_get_ctx(__isl_keep isl_morph *morph)
+ {
+diff --git a/isl_multi_add_constant_templ.c b/isl_multi_add_constant_templ.c
+index a54f3fa7..df1854bc 100644
+--- a/isl_multi_add_constant_templ.c
++++ b/isl_multi_add_constant_templ.c
+@@ -7,7 +7,7 @@
+  * Cerebras Systems, 175 S San Antonio Rd, Los Altos, CA, USA
+  */
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ /* Add "v" to the constant terms of all the base expressions of "multi".
+  */
+diff --git a/isl_multi_apply_explicit_domain_templ.c b/isl_multi_apply_explicit_domain_templ.c
+index 09432986..cdd40255 100644
+--- a/isl_multi_apply_explicit_domain_templ.c
++++ b/isl_multi_apply_explicit_domain_templ.c
+@@ -35,4 +35,4 @@ static __isl_give MULTI(BASE) *FN(FN(MULTI(BASE),apply_domain),APPLY_DOMBASE)(
+ 	return multi;
+ }
+ 
+-#include <isl_multi_apply_templ.c>
++#include "isl_multi_apply_templ.c"
+diff --git a/isl_multi_apply_no_explicit_domain_templ.c b/isl_multi_apply_no_explicit_domain_templ.c
+index 56876efa..c493adf5 100644
+--- a/isl_multi_apply_no_explicit_domain_templ.c
++++ b/isl_multi_apply_no_explicit_domain_templ.c
+@@ -26,4 +26,4 @@ static __isl_give MULTI(BASE) *FN(FN(MULTI(BASE),apply_domain),APPLY_DOMBASE)(
+ 	return multi;
+ }
+ 
+-#include <isl_multi_apply_templ.c>
++#include "isl_multi_apply_templ.c"
+diff --git a/isl_multi_apply_set_explicit_domain_templ.c b/isl_multi_apply_set_explicit_domain_templ.c
+index 7a28bca6..9db945b2 100644
+--- a/isl_multi_apply_set_explicit_domain_templ.c
++++ b/isl_multi_apply_set_explicit_domain_templ.c
+@@ -1,7 +1,7 @@
+ #define APPLY_DOMBASE set
+ #define APPLY_DOM isl_set
+ 
+-#include <isl_multi_apply_explicit_domain_templ.c>
++#include "isl_multi_apply_explicit_domain_templ.c"
+ 
+ #undef APPLY_DOMBASE
+ #undef APPLY_DOM
+diff --git a/isl_multi_apply_set_no_explicit_domain_templ.c b/isl_multi_apply_set_no_explicit_domain_templ.c
+index 374f7b0f..8022a9ee 100644
+--- a/isl_multi_apply_set_no_explicit_domain_templ.c
++++ b/isl_multi_apply_set_no_explicit_domain_templ.c
+@@ -1,7 +1,7 @@
+ #define APPLY_DOMBASE set
+ #define APPLY_DOM isl_set
+ 
+-#include <isl_multi_apply_no_explicit_domain_templ.c>
++#include "isl_multi_apply_no_explicit_domain_templ.c"
+ 
+ #undef APPLY_DOMBASE
+ #undef APPLY_DOM
+diff --git a/isl_multi_apply_templ.c b/isl_multi_apply_templ.c
+index 9eecfbcc..e34bb852 100644
+--- a/isl_multi_apply_templ.c
++++ b/isl_multi_apply_templ.c
+@@ -8,7 +8,7 @@
+  * Ecole Normale Superieure, 45 rue d’Ulm, 75230 Paris, France
+  */
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ /* Transform the elements of "multi" by applying "fn" to them
+  * with extra argument "set".
+diff --git a/isl_multi_apply_union_set_explicit_domain_templ.c b/isl_multi_apply_union_set_explicit_domain_templ.c
+index 6d5f3b8e..1400ba18 100644
+--- a/isl_multi_apply_union_set_explicit_domain_templ.c
++++ b/isl_multi_apply_union_set_explicit_domain_templ.c
+@@ -1,7 +1,7 @@
+ #define APPLY_DOMBASE union_set
+ #define APPLY_DOM isl_union_set
+ 
+-#include <isl_multi_apply_explicit_domain_templ.c>
++#include "isl_multi_apply_explicit_domain_templ.c"
+ 
+ #undef APPLY_DOMBASE
+ #undef APPLY_DOM
+diff --git a/isl_multi_arith_templ.c b/isl_multi_arith_templ.c
+index 4e61051f..cc0ed742 100644
+--- a/isl_multi_arith_templ.c
++++ b/isl_multi_arith_templ.c
+@@ -9,9 +9,9 @@
+  */
+ 
+ #include <isl/space.h>
+-#include <isl_val_private.h>
++#include "isl_val_private.h"
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ /* Add "multi2" to "multi1" and return the result.
+  */
+diff --git a/isl_multi_bind_domain_templ.c b/isl_multi_bind_domain_templ.c
+index d7eec37c..98d747f0 100644
+--- a/isl_multi_bind_domain_templ.c
++++ b/isl_multi_bind_domain_templ.c
+@@ -7,8 +7,8 @@
+  * Cerebras Systems, 175 S San Antonio Rd, Los Altos, CA, USA
+  */
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ #undef TYPE
+ #define TYPE	MULTI(BASE)
+-#include <isl_bind_domain_templ.c>
++#include "isl_bind_domain_templ.c"
+diff --git a/isl_multi_check_domain_templ.c b/isl_multi_check_domain_templ.c
+index 3a6c4e67..91d9e66d 100644
+--- a/isl_multi_check_domain_templ.c
++++ b/isl_multi_check_domain_templ.c
+@@ -6,7 +6,7 @@
+  * Written by Sven Verdoolaege.
+  */
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ /* Does the space of "domain" correspond to that of the domain of "multi"?
+  * The parameters do not need to be aligned.
+diff --git a/isl_multi_cmp.c b/isl_multi_cmp.c
+index 27ab6dcb..09e78059 100644
+--- a/isl_multi_cmp.c
++++ b/isl_multi_cmp.c
+@@ -6,7 +6,7 @@
+  * Written by Sven Verdoolaege
+  */
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ /* Compare two multi expressions.
+  *
+diff --git a/isl_multi_coalesce.c b/isl_multi_coalesce.c
+index 588e107f..58ded1be 100644
+--- a/isl_multi_coalesce.c
++++ b/isl_multi_coalesce.c
+@@ -7,7 +7,7 @@
+  * Ecole Normale Superieure, 45 rue d'Ulm, 75230 Paris, France
+  */
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ /* Coalesce the elements of "multi".
+  *
+diff --git a/isl_multi_dim_id_templ.c b/isl_multi_dim_id_templ.c
+index 5103edf8..f2de0285 100644
+--- a/isl_multi_dim_id_templ.c
++++ b/isl_multi_dim_id_templ.c
+@@ -10,7 +10,7 @@
+ 
+ #include <isl/space.h>
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ /* Return the position of the dimension of the given type and name
+  * in "multi".
+diff --git a/isl_multi_dims.c b/isl_multi_dims.c
+index fb5cb114..b58668ce 100644
+--- a/isl_multi_dims.c
++++ b/isl_multi_dims.c
+@@ -8,9 +8,9 @@
+  * Ecole Normale Superieure, 45 rue d'Ulm, 75230 Paris, France
+  */
+ 
+-#include <isl_space_private.h>
++#include "isl_space_private.h"
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ /* Check whether "multi" has non-zero coefficients for any dimension
+  * in the given range or if any of these dimensions appear
+diff --git a/isl_multi_domain_reverse_templ.c b/isl_multi_domain_reverse_templ.c
+index 312aa874..f3ceb18e 100644
+--- a/isl_multi_domain_reverse_templ.c
++++ b/isl_multi_domain_reverse_templ.c
+@@ -9,7 +9,7 @@
+ 
+ #include <isl/space.h>
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ /* Given a multi expression on a domain (A -> B),
+  * interchange A and B in the wrapped domain
+diff --git a/isl_multi_domain_templ.c b/isl_multi_domain_templ.c
+index 6aa97fe3..9e69eb8d 100644
+--- a/isl_multi_domain_templ.c
++++ b/isl_multi_domain_templ.c
+@@ -9,7 +9,7 @@
+ 
+ #include <isl/set.h>
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ /* Return the shared domain of the elements of "multi".
+  *
+diff --git a/isl_multi_explicit_domain.c b/isl_multi_explicit_domain.c
+index bb658238..ac259cbf 100644
+--- a/isl_multi_explicit_domain.c
++++ b/isl_multi_explicit_domain.c
+@@ -10,7 +10,7 @@
+  * when the multi expression may have an explicit domain.
+  */
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ __isl_give MULTI(BASE) *FN(MULTI(BASE),cow)(__isl_take MULTI(BASE) *multi);
+ 
+diff --git a/isl_multi_floor.c b/isl_multi_floor.c
+index f13ea9a7..0aee4802 100644
+--- a/isl_multi_floor.c
++++ b/isl_multi_floor.c
+@@ -7,7 +7,7 @@
+  * Ecole Normale Superieure, 45 rue d'Ulm, 75230 Paris, France
+  */
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ /* Given f, return floor(f).
+  */
+diff --git a/isl_multi_from_base_templ.c b/isl_multi_from_base_templ.c
+index 2a2a6b1e..153bf8bc 100644
+--- a/isl_multi_from_base_templ.c
++++ b/isl_multi_from_base_templ.c
+@@ -9,7 +9,7 @@
+ 
+ #include <isl/space.h>
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ /* Create a multiple expression with a single output/set dimension
+  * equal to "el".
+diff --git a/isl_multi_from_tuple_templ.c b/isl_multi_from_tuple_templ.c
+index 46d35cc2..145c7169 100644
+--- a/isl_multi_from_tuple_templ.c
++++ b/isl_multi_from_tuple_templ.c
+@@ -8,7 +8,7 @@
+  * Ecole Normale Superieure, 45 rue d'Ulm, 75230 Paris, France
+  */
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ /* Extract a multi expression with domain space "dom_space"
+  * from a tuple "tuple" that was read by read_tuple.
+diff --git a/isl_multi_gist.c b/isl_multi_gist.c
+index 68f92797..6d114556 100644
+--- a/isl_multi_gist.c
++++ b/isl_multi_gist.c
+@@ -8,7 +8,7 @@
+  * Ecole Normale Superieure, 45 rue d’Ulm, 75230 Paris, France
+  */
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ /* Compute the gist of the parameter domain "dom1" with respect to "dom2".
+  *
+diff --git a/isl_multi_hash.c b/isl_multi_hash.c
+index 0c7ebdf7..8900d590 100644
+--- a/isl_multi_hash.c
++++ b/isl_multi_hash.c
+@@ -6,7 +6,7 @@
+  * Written by Sven Verdoolaege
+  */
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ #include <isl/hash.h>
+ 
+ /* Return a hash value that digests "multi".
+diff --git a/isl_multi_identity_templ.c b/isl_multi_identity_templ.c
+index 1ffeadf5..0dbe4a42 100644
+--- a/isl_multi_identity_templ.c
++++ b/isl_multi_identity_templ.c
+@@ -10,7 +10,7 @@
+ #include <isl/space.h>
+ #include <isl/local_space.h>
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ /* Create a multi expression in the given space that maps each
+  * input dimension to the corresponding output dimension.
+diff --git a/isl_multi_insert_domain_templ.c b/isl_multi_insert_domain_templ.c
+index e4e403cd..1d14a9cd 100644
+--- a/isl_multi_insert_domain_templ.c
++++ b/isl_multi_insert_domain_templ.c
+@@ -7,8 +7,8 @@
+  * Cerebras Systems, 175 S San Antonio Rd, Los Altos, CA, USA
+  */
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ #undef TYPE
+ #define TYPE	MULTI(BASE)
+-#include <isl_insert_domain_templ.c>
++#include "isl_insert_domain_templ.c"
+diff --git a/isl_multi_intersect.c b/isl_multi_intersect.c
+index f8f64307..b4f20332 100644
+--- a/isl_multi_intersect.c
++++ b/isl_multi_intersect.c
+@@ -8,7 +8,7 @@
+  * Ecole Normale Superieure, 45 rue d’Ulm, 75230 Paris, France
+  */
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ /* Intersect the parameter domain "dom1" with "dom2".
+  * That is, intersect the parameters of "dom2" with "dom1".
+diff --git a/isl_multi_locals_templ.c b/isl_multi_locals_templ.c
+index 3cfb0a33..4ef63aab 100644
+--- a/isl_multi_locals_templ.c
++++ b/isl_multi_locals_templ.c
+@@ -7,7 +7,7 @@
+  * Cerebras Systems, 175 S San Antonio Rd, Los Altos, CA, USA
+  */
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ /* Does "multi" involve any local variables?
+  */
+diff --git a/isl_multi_macro.h b/isl_multi_macro.h
+index 394494b0..43b2c13a 100644
+--- a/isl_multi_macro.h
++++ b/isl_multi_macro.h
+@@ -1,6 +1,6 @@
+ #undef EL_BASE
+ #define EL_BASE BASE
+-#include <isl_list_macro.h>
++#include "isl_list_macro.h"
+ 
+ #define xMULTI(BASE) isl_multi_ ## BASE
+ #define MULTI(BASE) xMULTI(BASE)
+diff --git a/isl_multi_move_dims_templ.c b/isl_multi_move_dims_templ.c
+index ba9830e2..57320233 100644
+--- a/isl_multi_move_dims_templ.c
++++ b/isl_multi_move_dims_templ.c
+@@ -9,7 +9,7 @@
+ 
+ #include <isl/space.h>
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ /* Move the "n" dimensions of "src_type" starting at "src_pos" of "multi"
+  * to dimensions of "dst_type" at "dst_pos".
+diff --git a/isl_multi_nan_templ.c b/isl_multi_nan_templ.c
+index 2ea73a81..e297bb69 100644
+--- a/isl_multi_nan_templ.c
++++ b/isl_multi_nan_templ.c
+@@ -7,7 +7,7 @@
+  * Ecole Normale Superieure, 45 rue d'Ulm, 75230 Paris, France
+  */
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ /* Does "multi" involve any NaNs?
+  */
+diff --git a/isl_multi_no_domain_templ.c b/isl_multi_no_domain_templ.c
+index 1c98ac45..52f8780d 100644
+--- a/isl_multi_no_domain_templ.c
++++ b/isl_multi_no_domain_templ.c
+@@ -9,9 +9,9 @@
+ 
+ #include <isl/space.h>
+ #include <isl/local_space.h>
+-#include <isl_reordering.h>
++#include "isl_reordering.h"
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ /* The functions in this file are meant for base object types
+  * that do not have any associated space.  They are only meant to be used
+diff --git a/isl_multi_no_explicit_domain.c b/isl_multi_no_explicit_domain.c
+index cba4387a..ab83b88f 100644
+--- a/isl_multi_no_explicit_domain.c
++++ b/isl_multi_no_explicit_domain.c
+@@ -12,7 +12,7 @@
+ 
+ #include <isl/space.h>
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ /* Does "multi" have an explicit domain?
+  *
+diff --git a/isl_multi_param_templ.c b/isl_multi_param_templ.c
+index eab93548..a4f412b6 100644
+--- a/isl_multi_param_templ.c
++++ b/isl_multi_param_templ.c
+@@ -4,7 +4,7 @@
+  * Written by Sven Verdoolaege
+  */
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ /* Does the multiple expression "multi" depend in any way
+  * on the parameter with identifier "id"?
+diff --git a/isl_multi_product_templ.c b/isl_multi_product_templ.c
+index 5640326f..19c5b7a7 100644
+--- a/isl_multi_product_templ.c
++++ b/isl_multi_product_templ.c
+@@ -9,7 +9,7 @@
+ 
+ #include <isl/space.h>
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ /* Given two MULTI(BASE)s A -> B and C -> D,
+  * construct a MULTI(BASE) [A -> C] -> [B -> D].
+diff --git a/isl_multi_read_no_explicit_domain_templ.c b/isl_multi_read_no_explicit_domain_templ.c
+index b6ec27f6..0da120df 100644
+--- a/isl_multi_read_no_explicit_domain_templ.c
++++ b/isl_multi_read_no_explicit_domain_templ.c
+@@ -10,7 +10,7 @@
+ #include <isl/space.h>
+ #include <isl/set.h>
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ /* This function is called for each element in a tuple inside
+  * isl_stream_read_multi_*.
+diff --git a/isl_multi_splice_templ.c b/isl_multi_splice_templ.c
+index 8dca6208..7a8353e3 100644
+--- a/isl_multi_splice_templ.c
++++ b/isl_multi_splice_templ.c
+@@ -10,7 +10,7 @@
+ #include <isl/ctx.h>
+ #include <isl/space.h>
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ /* Given two multi expressions, "multi1"
+  *
+diff --git a/isl_multi_templ.c b/isl_multi_templ.c
+index 6e0a6ed5..e03514dc 100644
+--- a/isl_multi_templ.c
++++ b/isl_multi_templ.c
+@@ -9,11 +9,11 @@
+  */
+ 
+ #include <isl/id.h>
+-#include <isl_space_private.h>
++#include "isl_space_private.h"
+ #include <isl/set.h>
+-#include <isl_reordering.h>
++#include "isl_reordering.h"
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ #define MULTI_NAME(BASE) "isl_multi_" #BASE
+ 
+diff --git a/isl_multi_templ.h b/isl_multi_templ.h
+index c5049adc..3dbbb47f 100644
+--- a/isl_multi_templ.h
++++ b/isl_multi_templ.h
+@@ -1,6 +1,6 @@
+ #include <isl/space.h>
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ /* A multiple expression with base expressions of type EL.
+  *
+diff --git a/isl_multi_tuple_id_templ.c b/isl_multi_tuple_id_templ.c
+index 87f9fe6b..087cf959 100644
+--- a/isl_multi_tuple_id_templ.c
++++ b/isl_multi_tuple_id_templ.c
+@@ -10,7 +10,7 @@
+ 
+ #include <isl/space.h>
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ const char *FN(MULTI(BASE),get_tuple_name)(__isl_keep MULTI(BASE) *multi,
+ 	enum isl_dim_type type)
+diff --git a/isl_multi_un_op_templ.c b/isl_multi_un_op_templ.c
+index cdee6182..92a1205d 100644
+--- a/isl_multi_un_op_templ.c
++++ b/isl_multi_un_op_templ.c
+@@ -7,7 +7,7 @@
+  * Ecole Normale Superieure, 45 rue d'Ulm, 75230 Paris, France
+  */
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ /* Data structure that specifies how isl_multi_*_un_op should
+  * modify its input.
+diff --git a/isl_multi_unbind_params_templ.c b/isl_multi_unbind_params_templ.c
+index 47433195..5205b8be 100644
+--- a/isl_multi_unbind_params_templ.c
++++ b/isl_multi_unbind_params_templ.c
+@@ -7,7 +7,7 @@
+  * Cerebras Systems, 175 S San Antonio Rd, Los Altos, CA, USA
+  */
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ #undef TYPE
+ #define TYPE	MULTI(BASE)
+diff --git a/isl_multi_union_add_templ.c b/isl_multi_union_add_templ.c
+index 3178998d..6e23fa76 100644
+--- a/isl_multi_union_add_templ.c
++++ b/isl_multi_union_add_templ.c
+@@ -6,7 +6,7 @@
+  * Written by Sven Verdoolaege.
+  */
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ /* Compute the sum of "multi1" and "multi2" on the union of their domains,
+  * with the actual sum on the shared domain and
+diff --git a/isl_multi_zero_templ.c b/isl_multi_zero_templ.c
+index dee3a8fb..f5d3de65 100644
+--- a/isl_multi_zero_templ.c
++++ b/isl_multi_zero_templ.c
+@@ -10,7 +10,7 @@
+ #include <isl/space.h>
+ #include <isl/local_space.h>
+ 
+-#include <isl_multi_macro.h>
++#include "isl_multi_macro.h"
+ 
+ /* Construct a multi expression in the given space with value zero in
+  * each of the output dimensions.
+diff --git a/isl_options.c b/isl_options.c
+index a9b59c59..1a955bba 100644
+--- a/isl_options.c
++++ b/isl_options.c
+@@ -12,7 +12,7 @@
+ #include <string.h>
+ 
+ #include <isl/ctx.h>
+-#include <isl_options_private.h>
++#include "isl_options_private.h"
+ #include <isl/ast_build.h>
+ #include <isl/schedule.h>
+ #include <isl/version.h>
+diff --git a/isl_output.c b/isl_output.c
+index 76b21e5b..9167cc90 100644
+--- a/isl_output.c
++++ b/isl_output.c
+@@ -16,31 +16,31 @@
+ 
+ #include <stdlib.h>
+ #include <string.h>
+-#include <isl_ctx_private.h>
+-#include <isl_map_private.h>
++#include "isl_ctx_private.h"
++#include "isl_map_private.h"
+ #include <isl/set.h>
+-#include <isl_seq.h>
+-#include <isl_polynomial_private.h>
+-#include <isl_printer_private.h>
+-#include <isl_space_private.h>
+-#include <isl_mat_private.h>
+-#include <isl_vec_private.h>
++#include "isl_seq.h"
++#include "isl_polynomial_private.h"
++#include "isl_printer_private.h"
++#include "isl_space_private.h"
++#include "isl_mat_private.h"
++#include "isl_vec_private.h"
+ #include <isl/union_set.h>
+ #include <isl/union_map.h>
+ #include <isl/constraint.h>
+-#include <isl_local.h>
+-#include <isl_local_space_private.h>
+-#include <isl_aff_private.h>
+-#include <isl_id_private.h>
+-#include <isl_val_private.h>
+-#include <isl_constraint_private.h>
++#include "isl_local.h"
++#include "isl_local_space_private.h"
++#include "isl_aff_private.h"
++#include "isl_id_private.h"
++#include "isl_val_private.h"
++#include "isl_constraint_private.h"
+ #include <isl/ast_build.h>
+-#include <isl_sort.h>
+-#include <isl_output_private.h>
++#include "isl_sort.h"
++#include "isl_output_private.h"
+ 
+-#include <bset_to_bmap.c>
+-#include <set_to_map.c>
+-#include <uset_to_umap.c>
++#include "bset_to_bmap.c"
++#include "set_to_map.c"
++#include "uset_to_umap.c"
+ 
+ static const char *s_to[2] = { " -> ", " \\to " };
+ static const char *s_and[2] = { " and ", " \\wedge " };
+diff --git a/isl_point.c b/isl_point.c
+index 4fe7594c..9dca4384 100644
+--- a/isl_point.c
++++ b/isl_point.c
+@@ -14,20 +14,20 @@
+  * and Cerebras Systems, 1237 E Arques Ave, Sunnyvale, CA, USA
+  */
+ 
+-#include <isl_map_private.h>
+-#include <isl_point_private.h>
++#include "isl_map_private.h"
++#include "isl_point_private.h"
+ #include <isl/set.h>
+ #include <isl/union_set.h>
+-#include <isl_sample.h>
+-#include <isl_scan.h>
+-#include <isl_seq.h>
+-#include <isl_space_private.h>
+-#include <isl_local_private.h>
+-#include <isl_val_private.h>
+-#include <isl_vec_private.h>
+-#include <isl_output_private.h>
++#include "isl_sample.h"
++#include "isl_scan.h"
++#include "isl_seq.h"
++#include "isl_space_private.h"
++#include "isl_local_private.h"
++#include "isl_val_private.h"
++#include "isl_vec_private.h"
++#include "isl_output_private.h"
+ 
+-#include <set_to_map.c>
++#include "set_to_map.c"
+ 
+ isl_ctx *isl_point_get_ctx(__isl_keep isl_point *pnt)
+ {
+diff --git a/isl_polynomial.c b/isl_polynomial.c
+index ec83ffa2..1f417a1a 100644
+--- a/isl_polynomial.c
++++ b/isl_polynomial.c
+@@ -9,34 +9,34 @@
+  */
+ 
+ #include <stdlib.h>
+-#include <isl_ctx_private.h>
+-#include <isl_map_private.h>
+-#include <isl_factorization.h>
+-#include <isl_lp_private.h>
+-#include <isl_seq.h>
+-#include <isl_union_map_private.h>
+-#include <isl_constraint_private.h>
+-#include <isl_polynomial_private.h>
+-#include <isl_point_private.h>
+-#include <isl_space_private.h>
+-#include <isl_mat_private.h>
+-#include <isl_vec_private.h>
+-#include <isl_range.h>
+-#include <isl_local.h>
+-#include <isl_local_space_private.h>
+-#include <isl_aff_private.h>
+-#include <isl_val_private.h>
+-#include <isl_config.h>
++#include "isl_ctx_private.h"
++#include "isl_map_private.h"
++#include "isl_factorization.h"
++#include "isl_lp_private.h"
++#include "isl_seq.h"
++#include "isl_union_map_private.h"
++#include "isl_constraint_private.h"
++#include "isl_polynomial_private.h"
++#include "isl_point_private.h"
++#include "isl_space_private.h"
++#include "isl_mat_private.h"
++#include "isl_vec_private.h"
++#include "isl_range.h"
++#include "isl_local.h"
++#include "isl_local_space_private.h"
++#include "isl_aff_private.h"
++#include "isl_val_private.h"
++#include "isl_config.h"
+ 
+ #undef EL_BASE
+ #define EL_BASE qpolynomial
+ 
+-#include <isl_list_templ.c>
++#include "isl_list_templ.c"
+ 
+ #undef EL_BASE
+ #define EL_BASE pw_qpolynomial
+ 
+-#include <isl_list_templ.c>
++#include "isl_list_templ.c"
+ 
+ static unsigned pos(__isl_keep isl_space *space, enum isl_dim_type type)
+ {
+@@ -3270,30 +3270,30 @@ static __isl_give isl_qpolynomial *isl_qpolynomial_zero_in_space(
+ #undef DEFAULT_IS_ZERO
+ #define DEFAULT_IS_ZERO 1
+ 
+-#include <isl_pw_templ.c>
+-#include <isl_pw_un_op_templ.c>
+-#include <isl_pw_add_disjoint_templ.c>
+-#include <isl_pw_domain_reverse_templ.c>
+-#include <isl_pw_eval.c>
+-#include <isl_pw_fix_templ.c>
+-#include <isl_pw_from_range_templ.c>
+-#include <isl_pw_insert_dims_templ.c>
+-#include <isl_pw_lift_templ.c>
+-#include <isl_pw_morph_templ.c>
+-#include <isl_pw_move_dims_templ.c>
+-#include <isl_pw_neg_templ.c>
+-#include <isl_pw_opt_templ.c>
+-#include <isl_pw_split_dims_templ.c>
+-#include <isl_pw_sub_templ.c>
++#include "isl_pw_templ.c"
++#include "isl_pw_un_op_templ.c"
++#include "isl_pw_add_disjoint_templ.c"
++#include "isl_pw_domain_reverse_templ.c"
++#include "isl_pw_eval.c"
++#include "isl_pw_fix_templ.c"
++#include "isl_pw_from_range_templ.c"
++#include "isl_pw_insert_dims_templ.c"
++#include "isl_pw_lift_templ.c"
++#include "isl_pw_morph_templ.c"
++#include "isl_pw_move_dims_templ.c"
++#include "isl_pw_neg_templ.c"
++#include "isl_pw_opt_templ.c"
++#include "isl_pw_split_dims_templ.c"
++#include "isl_pw_sub_templ.c"
+ 
+ #undef BASE
+ #define BASE pw_qpolynomial
+ 
+-#include <isl_union_single.c>
+-#include <isl_union_domain_reverse_templ.c>
+-#include <isl_union_eval.c>
+-#include <isl_union_neg.c>
+-#include <isl_union_sub_templ.c>
++#include "isl_union_single.c"
++#include "isl_union_domain_reverse_templ.c"
++#include "isl_union_eval.c"
++#include "isl_union_neg.c"
++#include "isl_union_sub_templ.c"
+ 
+ int isl_pw_qpolynomial_is_one(__isl_keep isl_pw_qpolynomial *pwqp)
+ {
+diff --git a/isl_polynomial_private.h b/isl_polynomial_private.h
+index 2f782655..80670763 100644
+--- a/isl_polynomial_private.h
++++ b/isl_polynomial_private.h
+@@ -1,11 +1,11 @@
+ #include <stdio.h>
+-#include <isl_int.h>
++#include "isl_int.h"
+ #include <isl/map.h>
+ #include <isl/mat.h>
+-#include <isl_morph.h>
++#include "isl_morph.h"
+ #include <isl/polynomial.h>
+-#include <isl_local.h>
+-#include <isl_reordering.h>
++#include "isl_local.h"
++#include "isl_reordering.h"
+ #include "isl_list_private.h"
+ 
+ struct isl_poly {
+@@ -45,7 +45,7 @@ struct isl_qpolynomial {
+ #undef EL
+ #define EL isl_qpolynomial
+ 
+-#include <isl_list_templ.h>
++#include "isl_list_templ.h"
+ 
+ struct isl_term {
+ 	int ref;
+@@ -78,12 +78,12 @@ struct isl_pw_qpolynomial {
+ #undef PW
+ #define PW isl_pw_qpolynomial
+ 
+-#include <isl_pw_templ.h>
++#include "isl_pw_templ.h"
+ 
+ #undef EL
+ #define EL isl_pw_qpolynomial
+ 
+-#include <isl_list_templ.h>
++#include "isl_list_templ.h"
+ 
+ /* dim represents the domain space.
+  */
+@@ -116,12 +116,12 @@ struct isl_pw_qpolynomial_fold {
+ #undef PW
+ #define PW isl_pw_qpolynomial_fold
+ 
+-#include <isl_pw_templ.h>
++#include "isl_pw_templ.h"
+ 
+ #undef EL
+ #define EL isl_pw_qpolynomial_fold
+ 
+-#include <isl_list_templ.h>
++#include "isl_list_templ.h"
+ 
+ void isl_term_get_num(__isl_keep isl_term *term, isl_int *n);
+ 
+diff --git a/isl_power_templ.c b/isl_power_templ.c
+index 26f0fe55..a7664436 100644
+--- a/isl_power_templ.c
++++ b/isl_power_templ.c
+@@ -1,4 +1,4 @@
+-#include <isl_val_private.h>
++#include "isl_val_private.h"
+ 
+ #define xFN(TYPE,NAME) TYPE ## _ ## NAME
+ #define FN(TYPE,NAME) xFN(TYPE,NAME)
+diff --git a/isl_printer.c b/isl_printer.c
+index f58a8a7a..675a063e 100644
+--- a/isl_printer.c
++++ b/isl_printer.c
+@@ -1,8 +1,8 @@
+ #include <string.h>
+-#include <isl_int.h>
++#include "isl_int.h"
+ #include <isl/id.h>
+ #include <isl/id_to_id.h>
+-#include <isl_printer_private.h>
++#include "isl_printer_private.h"
+ 
+ static __isl_give isl_printer *file_start_line(__isl_take isl_printer *p)
+ {
+diff --git a/isl_printer_private.h b/isl_printer_private.h
+index 6b852e8b..9fc18ba4 100644
+--- a/isl_printer_private.h
++++ b/isl_printer_private.h
+@@ -2,7 +2,7 @@
+ #define ISL_PRINTER_PRIVATE_H
+ 
+ #include <isl/printer.h>
+-#include <isl_yaml.h>
++#include "isl_yaml.h"
+ #include <isl/id_to_id.h>
+ 
+ struct isl_printer_ops;
+diff --git a/isl_pw_add_constant_multi_val_templ.c b/isl_pw_add_constant_multi_val_templ.c
+index eccc356c..9b166c27 100644
+--- a/isl_pw_add_constant_multi_val_templ.c
++++ b/isl_pw_add_constant_multi_val_templ.c
+@@ -10,4 +10,4 @@
+ #undef VAL_BASE
+ #define VAL_BASE	multi_val
+ 
+-#include <isl_pw_add_constant_templ.c>
++#include "isl_pw_add_constant_templ.c"
+diff --git a/isl_pw_add_constant_templ.c b/isl_pw_add_constant_templ.c
+index db60e4f7..5f796fa1 100644
+--- a/isl_pw_add_constant_templ.c
++++ b/isl_pw_add_constant_templ.c
+@@ -7,7 +7,7 @@
+  * Cerebras Systems, 175 S San Antonio Rd, Los Altos, CA, USA
+  */
+ 
+-#include <isl_pw_macro.h>
++#include "isl_pw_macro.h"
+ 
+ #undef VAL
+ #define VAL	CAT(isl_,VAL_BASE)
+diff --git a/isl_pw_add_constant_val_templ.c b/isl_pw_add_constant_val_templ.c
+index d63ec049..543b0d97 100644
+--- a/isl_pw_add_constant_val_templ.c
++++ b/isl_pw_add_constant_val_templ.c
+@@ -10,4 +10,4 @@
+ #undef VAL_BASE
+ #define VAL_BASE	val
+ 
+-#include <isl_pw_add_constant_templ.c>
++#include "isl_pw_add_constant_templ.c"
+diff --git a/isl_pw_add_disjoint_templ.c b/isl_pw_add_disjoint_templ.c
+index 160b9b5e..56636ac4 100644
+--- a/isl_pw_add_disjoint_templ.c
++++ b/isl_pw_add_disjoint_templ.c
+@@ -9,7 +9,7 @@
+  * 91893 Orsay, France
+  */
+ 
+-#include <isl_pw_macro.h>
++#include "isl_pw_macro.h"
+ 
+ /* Make sure "pw" has room for at least "n" more pieces.
+  *
+diff --git a/isl_pw_bind_domain_templ.c b/isl_pw_bind_domain_templ.c
+index 2a01495b..8caa836e 100644
+--- a/isl_pw_bind_domain_templ.c
++++ b/isl_pw_bind_domain_templ.c
+@@ -7,8 +7,8 @@
+  * Cerebras Systems, 175 S San Antonio Rd, Los Altos, CA, USA
+  */
+ 
+-#include <isl_pw_macro.h>
++#include "isl_pw_macro.h"
+ 
+ #undef TYPE
+ #define TYPE	PW
+-#include <isl_bind_domain_templ.c>
++#include "isl_bind_domain_templ.c"
+diff --git a/isl_pw_eval.c b/isl_pw_eval.c
+index 40396b60..d8e2b49c 100644
+--- a/isl_pw_eval.c
++++ b/isl_pw_eval.c
+@@ -11,10 +11,10 @@
+  */
+ 
+ #include <isl/val.h>
+-#include <isl_space_private.h>
+-#include <isl_point_private.h>
++#include "isl_space_private.h"
++#include "isl_point_private.h"
+ 
+-#include <isl_pw_macro.h>
++#include "isl_pw_macro.h"
+ 
+ #undef SUFFIX
+ #define SUFFIX	point
+diff --git a/isl_pw_fix_templ.c b/isl_pw_fix_templ.c
+index 36a50bc1..548e4f06 100644
+--- a/isl_pw_fix_templ.c
++++ b/isl_pw_fix_templ.c
+@@ -1,4 +1,4 @@
+-#include <isl_pw_macro.h>
++#include "isl_pw_macro.h"
+ 
+ /* Fix the value of the given parameter or domain dimension of "pw"
+  * to be equal to "value".
+diff --git a/isl_pw_from_range_templ.c b/isl_pw_from_range_templ.c
+index c9394bd6..ce454f38 100644
+--- a/isl_pw_from_range_templ.c
++++ b/isl_pw_from_range_templ.c
+@@ -7,7 +7,7 @@
+  * Ecole Normale Superieure, 45 rue d'Ulm, 75230 Paris, France
+  */
+ 
+-#include <isl_pw_macro.h>
++#include "isl_pw_macro.h"
+ 
+ #undef TYPE
+ #define TYPE	PW
+diff --git a/isl_pw_hash.c b/isl_pw_hash.c
+index 4d121c07..06f50782 100644
+--- a/isl_pw_hash.c
++++ b/isl_pw_hash.c
+@@ -6,7 +6,7 @@
+  * Written by Sven Verdoolaege
+  */
+ 
+-#include <isl_pw_macro.h>
++#include "isl_pw_macro.h"
+ #include <isl/hash.h>
+ 
+ /* Return a hash value that digests "pw".
+diff --git a/isl_pw_insert_domain_templ.c b/isl_pw_insert_domain_templ.c
+index bd02d268..5635ac1c 100644
+--- a/isl_pw_insert_domain_templ.c
++++ b/isl_pw_insert_domain_templ.c
+@@ -7,8 +7,8 @@
+  * Cerebras Systems, 175 S San Antonio Rd, Los Altos, CA, USA
+  */
+ 
+-#include <isl_pw_macro.h>
++#include "isl_pw_macro.h"
+ 
+ #undef TYPE
+ #define TYPE	PW
+-#include <isl_insert_domain_templ.c>
++#include "isl_insert_domain_templ.c"
+diff --git a/isl_pw_lift_templ.c b/isl_pw_lift_templ.c
+index 0ffe09af..ae5fc0a4 100644
+--- a/isl_pw_lift_templ.c
++++ b/isl_pw_lift_templ.c
+@@ -8,7 +8,7 @@
+  * 91893 Orsay, France
+  */
+ 
+-#include <isl_pw_macro.h>
++#include "isl_pw_macro.h"
+ 
+ static isl_stat foreach_lifted_subset(__isl_take isl_set *set,
+ 	__isl_take EL *el,
+diff --git a/isl_pw_locals_templ.c b/isl_pw_locals_templ.c
+index ecd3aefe..ae997012 100644
+--- a/isl_pw_locals_templ.c
++++ b/isl_pw_locals_templ.c
+@@ -7,7 +7,7 @@
+  * Cerebras Systems, 175 S San Antonio Rd, Los Altos, CA, USA
+  */
+ 
+-#include <isl_pw_macro.h>
++#include "isl_pw_macro.h"
+ 
+ /* isl_pw_*_every_piece callback that checks whether "set" and "el"
+  * are free of local variables.
+diff --git a/isl_pw_neg_templ.c b/isl_pw_neg_templ.c
+index 0f5b5217..8ad1a8d0 100644
+--- a/isl_pw_neg_templ.c
++++ b/isl_pw_neg_templ.c
+@@ -8,7 +8,7 @@
+  * 91893 Orsay, France
+  */
+ 
+-#include <isl_pw_macro.h>
++#include "isl_pw_macro.h"
+ 
+ __isl_give PW *FN(PW,neg)(__isl_take PW *pw)
+ {
+diff --git a/isl_pw_pullback_templ.c b/isl_pw_pullback_templ.c
+index 5486061e..951ebc25 100644
+--- a/isl_pw_pullback_templ.c
++++ b/isl_pw_pullback_templ.c
+@@ -7,7 +7,7 @@
+  * Ecole Normale Superieure, 45 rue d'Ulm, 75230 Paris, France
+  */
+ 
+-#include <isl_pw_macro.h>
++#include "isl_pw_macro.h"
+ 
+ #undef SUFFIX
+ #define SUFFIX	multi_aff
+diff --git a/isl_pw_scale_templ.c b/isl_pw_scale_templ.c
+index 81c8495e..0c6448af 100644
+--- a/isl_pw_scale_templ.c
++++ b/isl_pw_scale_templ.c
+@@ -8,7 +8,7 @@
+  * 91893 Orsay, France
+  */
+ 
+-#include <isl_pw_macro.h>
++#include "isl_pw_macro.h"
+ 
+ __isl_give PW *FN(PW,scale)(__isl_take PW *pw, isl_int v)
+ {
+diff --git a/isl_pw_split_dims_templ.c b/isl_pw_split_dims_templ.c
+index 68e9165b..6e714652 100644
+--- a/isl_pw_split_dims_templ.c
++++ b/isl_pw_split_dims_templ.c
+@@ -8,7 +8,7 @@
+  * 91893 Orsay, France
+  */
+ 
+-#include <isl_pw_macro.h>
++#include "isl_pw_macro.h"
+ 
+ __isl_give PW *FN(PW,split_dims)(__isl_take PW *pw,
+ 	enum isl_dim_type type, unsigned first, unsigned n)
+diff --git a/isl_pw_sub_templ.c b/isl_pw_sub_templ.c
+index 34107948..a45505eb 100644
+--- a/isl_pw_sub_templ.c
++++ b/isl_pw_sub_templ.c
+@@ -8,7 +8,7 @@
+  * 91893 Orsay, France
+  */
+ 
+-#include <isl_pw_macro.h>
++#include "isl_pw_macro.h"
+ 
+ __isl_give PW *FN(PW,sub)(__isl_take PW *pw1, __isl_take PW *pw2)
+ {
+diff --git a/isl_pw_templ.c b/isl_pw_templ.c
+index c431677d..c3aa6dff 100644
+--- a/isl_pw_templ.c
++++ b/isl_pw_templ.c
+@@ -13,10 +13,10 @@
+ 
+ #include <isl/id.h>
+ #include <isl/aff.h>
+-#include <isl_sort.h>
+-#include <isl_val_private.h>
++#include "isl_sort.h"
++#include "isl_val_private.h"
+ 
+-#include <isl_pw_macro.h>
++#include "isl_pw_macro.h"
+ 
+ #include "opt_type.h"
+ 
+diff --git a/isl_pw_templ.h b/isl_pw_templ.h
+index 98db44af..5a1a2d69 100644
+--- a/isl_pw_templ.h
++++ b/isl_pw_templ.h
+@@ -1,5 +1,5 @@
+ #include <isl/space.h>
+ 
+-#include <isl_pw_macro.h>
++#include "isl_pw_macro.h"
+ 
+ __isl_keep isl_space *FN(PW,peek_space)(__isl_keep PW *pw);
+diff --git a/isl_pw_un_op_templ.c b/isl_pw_un_op_templ.c
+index 5b9a0550..d1cf733a 100644
+--- a/isl_pw_un_op_templ.c
++++ b/isl_pw_un_op_templ.c
+@@ -8,7 +8,7 @@
+  * 91893 Orsay, France
+  */
+ 
+-#include <isl_pw_macro.h>
++#include "isl_pw_macro.h"
+ 
+ /* Data structure that specifies how isl_pw_*_un_op should
+  * modify its input.
+diff --git a/isl_pw_union_opt.c b/isl_pw_union_opt.c
+index 99b00459..25574e18 100644
+--- a/isl_pw_union_opt.c
++++ b/isl_pw_union_opt.c
+@@ -12,7 +12,7 @@
+  * and Cerebras Systems, 175 S San Antonio Rd, Los Altos, CA, USA
+  */
+ 
+-#include <isl_pw_macro.h>
++#include "isl_pw_macro.h"
+ 
+ /* Given a function "cmp" that returns the set of elements where
+  * "el1" is "better" than "el2", return this set.
+diff --git a/isl_range.c b/isl_range.c
+index 5bcfcffb..b771ae8b 100644
+--- a/isl_range.c
++++ b/isl_range.c
+@@ -1,10 +1,10 @@
+-#include <isl_ctx_private.h>
++#include "isl_ctx_private.h"
+ #include <isl/val.h>
+-#include <isl_constraint_private.h>
++#include "isl_constraint_private.h"
+ #include <isl/set.h>
+-#include <isl_polynomial_private.h>
+-#include <isl_morph.h>
+-#include <isl_range.h>
++#include "isl_polynomial_private.h"
++#include "isl_morph.h"
++#include "isl_range.h"
+ 
+ struct range_data {
+ 	struct isl_bound	*bound;
+diff --git a/isl_range.h b/isl_range.h
+index 6a5dd4a4..bd8e83dc 100644
+--- a/isl_range.h
++++ b/isl_range.h
+@@ -1,4 +1,4 @@
+-#include <isl_bound.h>
++#include "isl_bound.h"
+ 
+ isl_stat isl_qpolynomial_bound_on_domain_range(__isl_take isl_basic_set *bset,
+ 	__isl_take isl_qpolynomial *poly, struct isl_bound *bound);
+diff --git a/isl_reordering.c b/isl_reordering.c
+index bfbdd9e0..7c9be93d 100644
+--- a/isl_reordering.c
++++ b/isl_reordering.c
+@@ -8,10 +8,10 @@
+  * 91893 Orsay, France
+  */
+ 
+-#include <isl_ctx_private.h>
++#include "isl_ctx_private.h"
+ #include <isl/id.h>
+-#include <isl_space_private.h>
+-#include <isl_reordering.h>
++#include "isl_space_private.h"
++#include "isl_reordering.h"
+ 
+ /* Create a new reordering description based on
+  * the number of source dimensions "src_len" and
+diff --git a/isl_sample.c b/isl_sample.c
+index 32dd216b..137493d4 100644
+--- a/isl_sample.c
++++ b/isl_sample.c
+@@ -7,22 +7,22 @@
+  * Computerwetenschappen, Celestijnenlaan 200A, B-3001 Leuven, Belgium
+  */
+ 
+-#include <isl_ctx_private.h>
+-#include <isl_map_private.h>
++#include "isl_ctx_private.h"
++#include "isl_map_private.h"
+ #include "isl_sample.h"
+ #include <isl/vec.h>
+ #include <isl/mat.h>
+-#include <isl_seq.h>
++#include "isl_seq.h"
+ #include "isl_equalities.h"
+ #include "isl_tab.h"
+ #include "isl_basis_reduction.h"
+-#include <isl_factorization.h>
+-#include <isl_point_private.h>
+-#include <isl_options_private.h>
+-#include <isl_vec_private.h>
++#include "isl_factorization.h"
++#include "isl_point_private.h"
++#include "isl_options_private.h"
++#include "isl_vec_private.h"
+ 
+-#include <bset_from_bmap.c>
+-#include <set_to_map.c>
++#include "bset_from_bmap.c"
++#include "set_to_map.c"
+ 
+ static __isl_give isl_vec *isl_basic_set_sample_bounded(
+ 	__isl_take isl_basic_set *bset);
+diff --git a/isl_sample.h b/isl_sample.h
+index 6ffdad8a..3b68ba6f 100644
+--- a/isl_sample.h
++++ b/isl_sample.h
+@@ -11,7 +11,7 @@
+ #define ISL_SAMPLE_H
+ 
+ #include <isl/set.h>
+-#include <isl_tab.h>
++#include "isl_tab.h"
+ 
+ #if defined(__cplusplus)
+ extern "C" {
+diff --git a/isl_scan.c b/isl_scan.c
+index c4666ed1..3164ea77 100644
+--- a/isl_scan.c
++++ b/isl_scan.c
+@@ -7,14 +7,14 @@
+  * Computerwetenschappen, Celestijnenlaan 200A, B-3001 Leuven, Belgium
+  */
+ 
+-#include <isl_ctx_private.h>
+-#include <isl_map_private.h>
++#include "isl_ctx_private.h"
++#include "isl_map_private.h"
+ #include "isl_basis_reduction.h"
+ #include "isl_scan.h"
+-#include <isl_seq.h>
++#include "isl_seq.h"
+ #include "isl_tab.h"
+-#include <isl_val_private.h>
+-#include <isl_vec_private.h>
++#include "isl_val_private.h"
++#include "isl_vec_private.h"
+ 
+ struct isl_counter {
+ 	struct isl_scan_callback callback;
+diff --git a/isl_schedule.c b/isl_schedule.c
+index bdeeaba0..35277d40 100644
+--- a/isl_schedule.c
++++ b/isl_schedule.c
+@@ -13,16 +13,16 @@
+ 
+ #include <isl/ctx.h>
+ #include <isl/val.h>
+-#include <isl_aff_private.h>
++#include "isl_aff_private.h"
+ #include <isl/map.h>
+ #include <isl/set.h>
+ #include <isl/schedule.h>
+ #include <isl/schedule_node.h>
+-#include <isl_sort.h>
++#include "isl_sort.h"
+ #include <isl/printer.h>
+-#include <isl_schedule_private.h>
+-#include <isl_schedule_tree.h>
+-#include <isl_schedule_node_private.h>
++#include "isl_schedule_private.h"
++#include "isl_schedule_tree.h"
++#include "isl_schedule_node_private.h"
+ 
+ /* Return a schedule encapsulating the given schedule tree.
+  *
+@@ -681,4 +681,4 @@ __isl_give isl_printer *isl_printer_print_schedule(__isl_take isl_printer *p,
+ 
+ #undef BASE
+ #define BASE schedule
+-#include <print_templ_yaml.c>
++#include "print_templ_yaml.c"
+diff --git a/isl_schedule_band.c b/isl_schedule_band.c
+index 668579a4..7c3d1d78 100644
+--- a/isl_schedule_band.c
++++ b/isl_schedule_band.c
+@@ -15,8 +15,8 @@
+ #include <isl/space.h>
+ #include <isl/map.h>
+ #include <isl/schedule_node.h>
+-#include <isl_schedule_band.h>
+-#include <isl_schedule_private.h>
++#include "isl_schedule_band.h"
++#include "isl_schedule_private.h"
+ 
+ isl_ctx *isl_schedule_band_get_ctx(__isl_keep isl_schedule_band *band)
+ {
+diff --git a/isl_schedule_constraints.c b/isl_schedule_constraints.c
+index c35ac66d..4c3bb4c7 100644
+--- a/isl_schedule_constraints.c
++++ b/isl_schedule_constraints.c
+@@ -8,7 +8,7 @@
+  * Ecole Normale Superieure, 45 rue d'Ulm, 75230 Paris, France
+  */
+ 
+-#include <isl_schedule_constraints.h>
++#include "isl_schedule_constraints.h"
+ #include <isl/schedule.h>
+ #include <isl/space.h>
+ #include <isl/set.h>
+@@ -553,7 +553,7 @@ __isl_give isl_printer *isl_printer_print_schedule_constraints(
+ 
+ #undef BASE
+ #define BASE schedule_constraints
+-#include <print_templ_yaml.c>
++#include "print_templ_yaml.c"
+ 
+ #undef KEY
+ #define KEY enum isl_sc_key
+diff --git a/isl_schedule_node.c b/isl_schedule_node.c
+index 9d140e56..f913bbb1 100644
+--- a/isl_schedule_node.c
++++ b/isl_schedule_node.c
+@@ -15,9 +15,9 @@
+ #include <isl/val.h>
+ #include <isl/space.h>
+ #include <isl/set.h>
+-#include <isl_schedule_band.h>
+-#include <isl_schedule_private.h>
+-#include <isl_schedule_node_private.h>
++#include "isl_schedule_band.h"
++#include "isl_schedule_private.h"
++#include "isl_schedule_node_private.h"
+ 
+ /* Create a new schedule node in the given schedule, point at the given
+  * tree with given ancestors and child positions.
+diff --git a/isl_schedule_node_private.h b/isl_schedule_node_private.h
+index c4ad6ef6..62b0e33d 100644
+--- a/isl_schedule_node_private.h
++++ b/isl_schedule_node_private.h
+@@ -2,8 +2,8 @@
+ #define ISL_SCHEDLUE_NODE_PRIVATE_H
+ 
+ #include <isl/schedule_node.h>
+-#include <isl_schedule_band.h>
+-#include <isl_schedule_tree.h>
++#include "isl_schedule_band.h"
++#include "isl_schedule_tree.h"
+ 
+ /* An isl_schedule_node points to a particular location in a schedule tree.
+  *
+diff --git a/isl_schedule_private.h b/isl_schedule_private.h
+index dcf15de2..3d679104 100644
+--- a/isl_schedule_private.h
++++ b/isl_schedule_private.h
+@@ -3,7 +3,7 @@
+ 
+ #include <isl/aff.h>
+ #include <isl/schedule.h>
+-#include <isl_schedule_tree.h>
++#include "isl_schedule_tree.h"
+ 
+ /* A complete schedule tree.
+  *
+diff --git a/isl_schedule_read.c b/isl_schedule_read.c
+index b98b72b7..0b68d6cf 100644
+--- a/isl_schedule_read.c
++++ b/isl_schedule_read.c
+@@ -2,8 +2,8 @@
+ #include <isl/val.h>
+ #include <isl/schedule.h>
+ #include <isl/stream.h>
+-#include <isl_schedule_private.h>
+-#include <isl_schedule_tree.h>
++#include "isl_schedule_private.h"
++#include "isl_schedule_tree.h"
+ 
+ /* An enumeration of the various keys that may appear in a YAML mapping
+  * of a schedule.
+@@ -452,7 +452,7 @@ error:
+ #undef EL_BASE
+ #define EL_BASE val
+ 
+-#include <isl_list_read_yaml_templ.c>
++#include "isl_list_read_yaml_templ.c"
+ 
+ /* Read a sequence of integers from "s" (representing the coincident
+  * property of a band node).
+@@ -592,7 +592,7 @@ error:
+ #undef EL_BASE
+ #define EL_BASE schedule_tree
+ 
+-#include <isl_list_read_yaml_templ.c>
++#include "isl_list_read_yaml_templ.c"
+ 
+ /* Read a subtree with root node of type "type" from "s".
+  * The node is represented by a sequence of children.
+diff --git a/isl_schedule_tree.c b/isl_schedule_tree.c
+index 8dfe1d72..8b37c0ca 100644
+--- a/isl_schedule_tree.c
++++ b/isl_schedule_tree.c
+@@ -17,18 +17,18 @@
+ #include <isl/val.h>
+ #include <isl/space.h>
+ #include <isl/map.h>
+-#include <isl_schedule_band.h>
+-#include <isl_schedule_private.h>
++#include "isl_schedule_band.h"
++#include "isl_schedule_private.h"
+ 
+ #undef EL
+ #define EL isl_schedule_tree
+ 
+-#include <isl_list_templ.h>
++#include "isl_list_templ.h"
+ 
+ #undef EL_BASE
+ #define EL_BASE schedule_tree
+ 
+-#include <isl_list_templ.c>
++#include "isl_list_templ.c"
+ 
+ /* Is "tree" the leaf of a schedule tree?
+  */
+diff --git a/isl_schedule_tree.h b/isl_schedule_tree.h
+index a1ecfadd..a5896a9c 100644
+--- a/isl_schedule_tree.h
++++ b/isl_schedule_tree.h
+@@ -1,7 +1,7 @@
+ #ifndef ISL_SCHEDLUE_TREE_H
+ #define ISL_SCHEDLUE_TREE_H
+ 
+-#include <isl_schedule_band.h>
++#include "isl_schedule_band.h"
+ #include <isl/schedule.h>
+ #include <isl/set.h>
+ #include <isl/union_set.h>
+diff --git a/isl_scheduler.c b/isl_scheduler.c
+index 7e67e0d9..f5347fef 100644
+--- a/isl_scheduler.c
++++ b/isl_scheduler.c
+@@ -15,30 +15,30 @@
+  * CS 42112, 75589 Paris Cedex 12, France
+  */
+ 
+-#include <isl_ctx_private.h>
+-#include <isl_map_private.h>
+-#include <isl_space_private.h>
+-#include <isl_aff_private.h>
++#include "isl_ctx_private.h"
++#include "isl_map_private.h"
++#include "isl_space_private.h"
++#include "isl_aff_private.h"
+ #include <isl/hash.h>
+ #include <isl/id.h>
+ #include <isl/constraint.h>
+ #include <isl/schedule.h>
+-#include <isl_schedule_constraints.h>
++#include "isl_schedule_constraints.h"
+ #include <isl/schedule_node.h>
+-#include <isl_mat_private.h>
+-#include <isl_vec_private.h>
++#include "isl_mat_private.h"
++#include "isl_vec_private.h"
+ #include <isl/set.h>
+-#include <isl_union_set_private.h>
+-#include <isl_seq.h>
+-#include <isl_tab.h>
+-#include <isl_dim_map.h>
++#include "isl_union_set_private.h"
++#include "isl_seq.h"
++#include "isl_tab.h"
++#include "isl_dim_map.h"
+ #include <isl/map_to_basic_set.h>
+-#include <isl_sort.h>
+-#include <isl_options_private.h>
+-#include <isl_tarjan.h>
+-#include <isl_morph.h>
++#include "isl_sort.h"
++#include "isl_options_private.h"
++#include "isl_tarjan.h"
++#include "isl_morph.h"
+ #include <isl/ilp.h>
+-#include <isl_val_private.h>
++#include "isl_val_private.h"
+ 
+ #include "isl_scheduler.h"
+ #include "isl_scheduler_clustering.h"
+diff --git a/isl_seq.c b/isl_seq.c
+index 836ad509..29c3b1d0 100644
+--- a/isl_seq.c
++++ b/isl_seq.c
+@@ -8,8 +8,8 @@
+  * Computerwetenschappen, Celestijnenlaan 200A, B-3001 Leuven, Belgium
+  */
+ 
+-#include <isl_ctx_private.h>
+-#include <isl_seq.h>
++#include "isl_ctx_private.h"
++#include "isl_seq.h"
+ 
+ void isl_seq_clr(isl_int *p, unsigned len)
+ {
+diff --git a/isl_seq.h b/isl_seq.h
+index 4701f689..af4ce589 100644
+--- a/isl_seq.h
++++ b/isl_seq.h
+@@ -11,7 +11,7 @@
+ #define ISL_SEQ_H
+ 
+ #include <sys/types.h>
+-#include <isl_int.h>
++#include "isl_int.h"
+ #include <isl/ctx.h>
+ 
+ #if defined(__cplusplus)
+diff --git a/isl_set_list.c b/isl_set_list.c
+index e1bbcaf5..c357c96e 100644
+--- a/isl_set_list.c
++++ b/isl_set_list.c
+@@ -4,31 +4,31 @@
+ #undef EL
+ #define EL isl_basic_set
+ 
+-#include <isl_list_templ.h>
++#include "isl_list_templ.h"
+ 
+ #undef EL
+ #define EL isl_set
+ 
+-#include <isl_list_templ.h>
++#include "isl_list_templ.h"
+ 
+ #undef EL
+ #define EL isl_union_set
+ 
+-#include <isl_list_templ.h>
++#include "isl_list_templ.h"
+ 
+ #undef EL_BASE
+ #define EL_BASE basic_set
+ 
+-#include <isl_list_templ.c>
++#include "isl_list_templ.c"
+ 
+ #undef EL_BASE
+ #define EL_BASE set
+ 
+-#include <isl_list_templ.c>
+-#include <isl_list_read_templ.c>
++#include "isl_list_templ.c"
++#include "isl_list_read_templ.c"
+ 
+ #undef EL_BASE
+ #define EL_BASE union_set
+ 
+-#include <isl_list_templ.c>
+-#include <isl_list_read_templ.c>
++#include "isl_list_templ.c"
++#include "isl_list_read_templ.c"
+diff --git a/isl_sort.c b/isl_sort.c
+index 9ed273ca..a5e63189 100644
+--- a/isl_sort.c
++++ b/isl_sort.c
+@@ -25,7 +25,7 @@
+ #include <errno.h>
+ #include <string.h>
+ #include <stdlib.h>
+-#include <isl_sort.h>
++#include "isl_sort.h"
+ 
+ #define MID(lo, hi) (lo + ((hi - lo) >> 1))
+ 
+diff --git a/isl_space.c b/isl_space.c
+index 07cc0452..adc4ae49 100644
+--- a/isl_space.c
++++ b/isl_space.c
+@@ -16,9 +16,9 @@
+ 
+ #include <stdlib.h>
+ #include <string.h>
+-#include <isl_space_private.h>
+-#include <isl_id_private.h>
+-#include <isl_reordering.h>
++#include "isl_space_private.h"
++#include "isl_id_private.h"
++#include "isl_reordering.h"
+ 
+ isl_ctx *isl_space_get_ctx(__isl_keep isl_space *space)
+ {
+diff --git a/isl_stream.c b/isl_stream.c
+index 9fffd45b..c34deddc 100644
+--- a/isl_stream.c
++++ b/isl_stream.c
+@@ -9,12 +9,12 @@
+ 
+ #include <ctype.h>
+ #include <string.h>
+-#include <isl_ctx_private.h>
+-#include <isl_stream_private.h>
++#include "isl_ctx_private.h"
++#include "isl_stream_private.h"
+ #include <isl/map.h>
+ #include <isl/aff.h>
+-#include <isl_val_private.h>
+-#include <isl_options_private.h>
++#include "isl_val_private.h"
++#include "isl_options_private.h"
+ 
+ struct isl_keyword {
+ 	char			*name;
+diff --git a/isl_stream_private.h b/isl_stream_private.h
+index b199ec64..8df93495 100644
+--- a/isl_stream_private.h
++++ b/isl_stream_private.h
+@@ -1,6 +1,6 @@
+-#include <isl_int.h>
++#include "isl_int.h"
+ #include <isl/stream.h>
+-#include <isl_yaml.h>
++#include "isl_yaml.h"
+ 
+ struct isl_token {
+ 	int type;
+diff --git a/isl_stride.c b/isl_stride.c
+index df5cacc3..1573820d 100644
+--- a/isl_stride.c
++++ b/isl_stride.c
+@@ -8,8 +8,8 @@
+  */
+ 
+ #include <isl/val.h>
+-#include <isl_map_private.h>
+-#include <isl_aff_private.h>
++#include "isl_map_private.h"
++#include "isl_aff_private.h"
+ #include <isl/constraint.h>
+ #include <isl/set.h>
+ 
+diff --git a/isl_tab.c b/isl_tab.c
+index 17c8aeea..5596901c 100644
+--- a/isl_tab.c
++++ b/isl_tab.c
+@@ -13,16 +13,16 @@
+  * B.P. 105 - 78153 Le Chesnay, France
+  */
+ 
+-#include <isl_ctx_private.h>
+-#include <isl_mat_private.h>
+-#include <isl_vec_private.h>
++#include "isl_ctx_private.h"
++#include "isl_mat_private.h"
++#include "isl_vec_private.h"
+ #include "isl_map_private.h"
+ #include "isl_tab.h"
+-#include <isl_seq.h>
+-#include <isl_config.h>
++#include "isl_seq.h"
++#include "isl_config.h"
+ 
+-#include <bset_to_bmap.c>
+-#include <bset_from_bmap.c>
++#include "bset_to_bmap.c"
++#include "bset_from_bmap.c"
+ 
+ /*
+  * The implementation of tableaus in this file was inspired by Section 8
+diff --git a/isl_tab.h b/isl_tab.h
+index 36ca2093..0cf46c5c 100644
+--- a/isl_tab.h
++++ b/isl_tab.h
+@@ -15,7 +15,7 @@
+ #include <isl/map.h>
+ #include <isl/mat.h>
+ #include <isl/set.h>
+-#include <isl_config.h>
++#include "isl_config.h"
+ 
+ struct isl_tab_var {
+ 	int index;
+diff --git a/isl_tab_pip.c b/isl_tab_pip.c
+index d78df917..4723348a 100644
+--- a/isl_tab_pip.c
++++ b/isl_tab_pip.c
+@@ -13,19 +13,19 @@
+  * and Cerebras Systems, 1237 E Arques Ave, Sunnyvale, CA, USA
+  */
+ 
+-#include <isl_ctx_private.h>
++#include "isl_ctx_private.h"
+ #include "isl_map_private.h"
+-#include <isl_seq.h>
++#include "isl_seq.h"
+ #include "isl_tab.h"
+ #include "isl_sample.h"
+-#include <isl_mat_private.h>
+-#include <isl_vec_private.h>
+-#include <isl_aff_private.h>
+-#include <isl_constraint_private.h>
+-#include <isl_options_private.h>
+-#include <isl_config.h>
++#include "isl_mat_private.h"
++#include "isl_vec_private.h"
++#include "isl_aff_private.h"
++#include "isl_constraint_private.h"
++#include "isl_options_private.h"
++#include "isl_config.h"
+ 
+-#include <bset_to_bmap.c>
++#include "bset_to_bmap.c"
+ 
+ /*
+  * The implementation of parametric integer linear programming in this file
+diff --git a/isl_tarjan.c b/isl_tarjan.c
+index a958c016..2ad7c3ab 100644
+--- a/isl_tarjan.c
++++ b/isl_tarjan.c
+@@ -12,7 +12,7 @@
+ 
+ #include <stdlib.h>
+ #include <isl/ctx.h>
+-#include <isl_tarjan.h>
++#include "isl_tarjan.h"
+ 
+ struct isl_tarjan_graph *isl_tarjan_graph_free(struct isl_tarjan_graph *g)
+ {
+diff --git a/isl_test.c b/isl_test.c
+index 7cd51c32..e330fe15 100644
+--- a/isl_test.c
++++ b/isl_test.c
+@@ -20,26 +20,26 @@
+ #include <assert.h>
+ #include <stdio.h>
+ #include <limits.h>
+-#include <isl_ctx_private.h>
+-#include <isl_map_private.h>
+-#include <isl_aff_private.h>
+-#include <isl_space_private.h>
++#include "isl_ctx_private.h"
++#include "isl_map_private.h"
++#include "isl_aff_private.h"
++#include "isl_space_private.h"
+ #include <isl/id.h>
+ #include <isl/set.h>
+ #include <isl/flow.h>
+-#include <isl_constraint_private.h>
++#include "isl_constraint_private.h"
+ #include <isl/polynomial.h>
+ #include <isl/union_set.h>
+ #include <isl/union_map.h>
+-#include <isl_factorization.h>
++#include "isl_factorization.h"
+ #include <isl/schedule.h>
+ #include <isl/schedule_node.h>
+-#include <isl_options_private.h>
+-#include <isl_vertices_private.h>
++#include "isl_options_private.h"
++#include "isl_vertices_private.h"
+ #include <isl/ast_build.h>
+ #include <isl/val.h>
+ #include <isl/ilp.h>
+-#include <isl_ast_build_expr.h>
++#include "isl_ast_build_expr.h"
+ #include <isl/options.h>
+ 
+ #include "isl_srcdir.c"
+diff --git a/isl_test_imath.c b/isl_test_imath.c
+index 2ac39ad3..d7c620b3 100644
+--- a/isl_test_imath.c
++++ b/isl_test_imath.c
+@@ -10,7 +10,7 @@
+ 
+ #include <limits.h>
+ #include <assert.h>
+-#include <isl_imath.h>
++#include "isl_imath.h"
+ 
+ /* This constant is not defined in limits.h, but IMath uses it */
+ #define ULONG_MIN 0ul
+diff --git a/isl_test_int.c b/isl_test_int.c
+index a996411f..b20e481b 100644
+--- a/isl_test_int.c
++++ b/isl_test_int.c
+@@ -10,7 +10,7 @@
+ 
+ #include <assert.h>
+ #include <stdio.h>
+-#include <isl_int.h>
++#include "isl_int.h"
+ 
+ #define ARRAY_SIZE(array) (sizeof(array)/sizeof(*array))
+ 
+diff --git a/isl_transitive_closure.c b/isl_transitive_closure.c
+index c3da35ca..da79c953 100644
+--- a/isl_transitive_closure.c
++++ b/isl_transitive_closure.c
+@@ -8,17 +8,17 @@
+  * 91893 Orsay, France 
+  */
+ 
+-#include <isl_ctx_private.h>
+-#include <isl_map_private.h>
++#include "isl_ctx_private.h"
++#include "isl_map_private.h"
+ #include <isl/map.h>
+-#include <isl_seq.h>
+-#include <isl_space_private.h>
+-#include <isl_lp_private.h>
++#include "isl_seq.h"
++#include "isl_space_private.h"
++#include "isl_lp_private.h"
+ #include <isl/union_map.h>
+-#include <isl_mat_private.h>
+-#include <isl_vec_private.h>
+-#include <isl_options_private.h>
+-#include <isl_tarjan.h>
++#include "isl_mat_private.h"
++#include "isl_vec_private.h"
++#include "isl_options_private.h"
++#include "isl_tarjan.h"
+ 
+ isl_bool isl_map_is_transitively_closed(__isl_keep isl_map *map)
+ {
+diff --git a/isl_union_eval.c b/isl_union_eval.c
+index 050eb8af..f26edf01 100644
+--- a/isl_union_eval.c
++++ b/isl_union_eval.c
+@@ -8,7 +8,7 @@
+  * 91893 Orsay, France
+  */
+ 
+-#include <isl_union_macro.h>
++#include "isl_union_macro.h"
+ 
+ /* Evaluate "u" in the void point "pnt".
+  * In particular, return the value NaN.
+diff --git a/isl_union_map.c b/isl_union_map.c
+index c8393f5e..6bfc4a5a 100644
+--- a/isl_union_map.c
++++ b/isl_union_map.c
+@@ -15,24 +15,24 @@
+  * and Cerebras Systems, 1237 E Arques Ave, Sunnyvale, CA, USA
+  */
+ 
+-#include <isl_map_private.h>
+-#include <isl_union_map_private.h>
++#include "isl_map_private.h"
++#include "isl_union_map_private.h"
+ #include <isl/ctx.h>
+ #include <isl/hash.h>
+-#include <isl_aff_private.h>
++#include "isl_aff_private.h"
+ #include <isl/map.h>
+ #include <isl/set.h>
+-#include <isl_space_private.h>
++#include "isl_space_private.h"
+ #include <isl/union_set.h>
+-#include <isl_maybe_map.h>
+-#include <isl_id_private.h>
++#include "isl_maybe_map.h"
++#include "isl_id_private.h"
+ 
+-#include <bset_from_bmap.c>
+-#include <set_to_map.c>
+-#include <set_from_map.c>
+-#include <uset_to_umap.c>
+-#include <uset_from_umap.c>
+-#include <set_list_from_map_list_inl.c>
++#include "bset_from_bmap.c"
++#include "set_to_map.c"
++#include "set_from_map.c"
++#include "uset_to_umap.c"
++#include "uset_from_umap.c"
++#include "set_list_from_map_list_inl.c"
+ 
+ #undef TYPE
+ #define TYPE	isl_union_map
+diff --git a/isl_union_multi.c b/isl_union_multi.c
+index b630b18b..8b2bcb3d 100644
+--- a/isl_union_multi.c
++++ b/isl_union_multi.c
+@@ -14,7 +14,7 @@
+  */
+ 
+ #include <isl/hash.h>
+-#include <isl_union_macro.h>
++#include "isl_union_macro.h"
+ 
+ /* A group of expressions defined over the same domain space "domain_space".
+  * The entries of "part_table" are the individual expressions,
+@@ -546,4 +546,4 @@ error:
+ 	return NULL;
+ }
+ 
+-#include <isl_union_templ.c>
++#include "isl_union_templ.c"
+diff --git a/isl_union_neg.c b/isl_union_neg.c
+index 386b8dcd..d34e7209 100644
+--- a/isl_union_neg.c
++++ b/isl_union_neg.c
+@@ -8,7 +8,7 @@
+  * 91893 Orsay, France
+  */
+ 
+-#include <isl_union_macro.h>
++#include "isl_union_macro.h"
+ 
+ /* Return the opposite of "part".
+  */
+diff --git a/isl_union_single.c b/isl_union_single.c
+index cf563422..e2c33e6f 100644
+--- a/isl_union_single.c
++++ b/isl_union_single.c
+@@ -11,7 +11,7 @@
+  */
+ 
+ #include <isl/hash.h>
+-#include <isl_union_macro.h>
++#include "isl_union_macro.h"
+ 
+ /* A union of expressions defined over different domain spaces.
+  * "space" describes the parameters.
+@@ -228,4 +228,4 @@ static isl_stat FN(UNION,free_u_entry)(void **entry, void *user)
+ 	return isl_stat_ok;
+ }
+ 
+-#include <isl_union_templ.c>
++#include "isl_union_templ.c"
+diff --git a/isl_val.c b/isl_val.c
+index 8b77622d..09e565d7 100644
+--- a/isl_val.c
++++ b/isl_val.c
+@@ -7,15 +7,15 @@
+  * Ecole Normale Superieure, 45 rue d'Ulm, 75230 Paris, France
+  */
+ 
+-#include <isl_int.h>
+-#include <isl_ctx_private.h>
+-#include <isl_val_private.h>
++#include "isl_int.h"
++#include "isl_ctx_private.h"
++#include "isl_val_private.h"
+ 
+ #undef EL_BASE
+ #define EL_BASE val
+ 
+-#include <isl_list_templ.c>
+-#include <isl_list_read_templ.c>
++#include "isl_list_templ.c"
++#include "isl_list_read_templ.c"
+ 
+ /* Allocate an isl_val object with indeterminate value.
+  */
+@@ -1574,20 +1574,20 @@ __isl_give isl_val *isl_val_zero_on_domain(__isl_take isl_local_space *ls)
+ #undef BASE
+ #define BASE val
+ 
+-#include <isl_multi_no_domain_templ.c>
+-#include <isl_multi_no_explicit_domain.c>
+-#include <isl_multi_templ.c>
+-#include <isl_multi_un_op_templ.c>
+-#include <isl_multi_bin_val_templ.c>
+-#include <isl_multi_arith_templ.c>
+-#include <isl_multi_dim_id_templ.c>
+-#include <isl_multi_dims.c>
+-#include <isl_multi_min_max_templ.c>
+-#include <isl_multi_nan_templ.c>
+-#include <isl_multi_product_templ.c>
+-#include <isl_multi_splice_templ.c>
+-#include <isl_multi_tuple_id_templ.c>
+-#include <isl_multi_zero_templ.c>
++#include "isl_multi_no_domain_templ.c"
++#include "isl_multi_no_explicit_domain.c"
++#include "isl_multi_templ.c"
++#include "isl_multi_un_op_templ.c"
++#include "isl_multi_bin_val_templ.c"
++#include "isl_multi_arith_templ.c"
++#include "isl_multi_dim_id_templ.c"
++#include "isl_multi_dims.c"
++#include "isl_multi_min_max_templ.c"
++#include "isl_multi_nan_templ.c"
++#include "isl_multi_product_templ.c"
++#include "isl_multi_splice_templ.c"
++#include "isl_multi_tuple_id_templ.c"
++#include "isl_multi_zero_templ.c"
+ 
+ /* Does "mv" consist of only zeros?
+  */
+diff --git a/isl_val_gmp.c b/isl_val_gmp.c
+index cd74709a..87dd0eeb 100644
+--- a/isl_val_gmp.c
++++ b/isl_val_gmp.c
+@@ -1,6 +1,6 @@
+ #include <string.h>
+ #include <isl/val_gmp.h>
+-#include <isl_val_private.h>
++#include "isl_val_private.h"
+ 
+ /* Return a reference to an isl_val representing the integer "z".
+  */
+diff --git a/isl_val_imath.c b/isl_val_imath.c
+index dc4acc1d..21ac06ad 100644
+--- a/isl_val_imath.c
++++ b/isl_val_imath.c
+@@ -1,4 +1,4 @@
+-#include <isl_val_private.h>
++#include "isl_val_private.h"
+ 
+ /* Return a reference to an isl_val representing the unsigned
+  * integer value stored in the "n" chunks of size "size" at "chunks".
+diff --git a/isl_val_private.h b/isl_val_private.h
+index 59d85199..d8027555 100644
+--- a/isl_val_private.h
++++ b/isl_val_private.h
+@@ -1,10 +1,10 @@
+ #ifndef ISL_VAL_PRIVATE_H
+ #define ISL_VAL_PRIVATE_H
+ 
+-#include <isl_int.h>
++#include "isl_int.h"
+ #include <isl/val.h>
+ #include <isl/local_space.h>
+-#include <isl_reordering.h>
++#include "isl_reordering.h"
+ 
+ /* Represents a "value", which may be an integer value, a rational value,
+  * plus or minus infinity or "not a number".
+@@ -25,7 +25,7 @@ struct isl_val {
+ #undef EL
+ #define EL isl_val
+ 
+-#include <isl_list_templ.h>
++#include "isl_list_templ.h"
+ 
+ __isl_give isl_val *isl_val_alloc(isl_ctx *ctx);
+ __isl_give isl_val *isl_val_normalize(__isl_take isl_val *v);
+@@ -56,6 +56,6 @@ isl_bool isl_val_plain_is_equal(__isl_keep isl_val *val1,
+ #undef BASE
+ #define BASE val
+ 
+-#include <isl_multi_templ.h>
++#include "isl_multi_templ.h"
+ 
+ #endif
+diff --git a/isl_val_sioimath.c b/isl_val_sioimath.c
+index 9b9e73d8..8e41297b 100644
+--- a/isl_val_sioimath.c
++++ b/isl_val_sioimath.c
+@@ -1,4 +1,4 @@
+-#include <isl_val_private.h>
++#include "isl_val_private.h"
+ 
+ /* Return a reference to an isl_val representing the unsigned
+  * integer value stored in the "n" chunks of size "size" at "chunks".
+diff --git a/isl_vec.c b/isl_vec.c
+index 3163ff60..77664f23 100644
+--- a/isl_vec.c
++++ b/isl_vec.c
+@@ -10,10 +10,10 @@
+  * and Ecole Normale Superieure, 45 rue d’Ulm, 75230 Paris, France
+  */
+ 
+-#include <isl_ctx_private.h>
+-#include <isl_seq.h>
+-#include <isl_val_private.h>
+-#include <isl_vec_private.h>
++#include "isl_ctx_private.h"
++#include "isl_seq.h"
++#include "isl_val_private.h"
++#include "isl_vec_private.h"
+ 
+ isl_ctx *isl_vec_get_ctx(__isl_keep isl_vec *vec)
+ {
+diff --git a/isl_vec_private.h b/isl_vec_private.h
+index a46f56f8..c7c523da 100644
+--- a/isl_vec_private.h
++++ b/isl_vec_private.h
+@@ -1,7 +1,7 @@
+ #ifndef ISL_VEC_PRIVATE_H
+ #define ISL_VEC_PRIVATE_H
+ 
+-#include <isl_blk.h>
++#include "isl_blk.h"
+ #include <isl/vec.h>
+ 
+ #include "isl_reordering.h"
+diff --git a/isl_vertices.c b/isl_vertices.c
+index 3f11998a..ba3497a5 100644
+--- a/isl_vertices.c
++++ b/isl_vertices.c
+@@ -8,16 +8,16 @@
+  * 91893 Orsay, France 
+  */
+ 
+-#include <isl_map_private.h>
+-#include <isl_aff_private.h>
++#include "isl_map_private.h"
++#include "isl_aff_private.h"
+ #include <isl/set.h>
+-#include <isl_seq.h>
+-#include <isl_tab.h>
+-#include <isl_space_private.h>
+-#include <isl_morph.h>
+-#include <isl_vertices_private.h>
+-#include <isl_mat_private.h>
+-#include <isl_vec_private.h>
++#include "isl_seq.h"
++#include "isl_tab.h"
++#include "isl_space_private.h"
++#include "isl_morph.h"
++#include "isl_vertices_private.h"
++#include "isl_mat_private.h"
++#include "isl_vec_private.h"
+ 
+ #define SELECTED	1
+ #define DESELECTED	-1
+diff --git a/pip.c b/pip.c
+index e968ca71..2dc5286c 100644
+--- a/pip.c
++++ b/pip.c
+@@ -9,18 +9,18 @@
+ 
+ #include <assert.h>
+ #include <string.h>
+-#include <isl_map_private.h>
++#include "isl_map_private.h"
+ #include <isl/aff.h>
+ #include <isl/set.h>
+ #include "isl_sample.h"
+ #include "isl_scan.h"
+-#include <isl_seq.h>
+-#include <isl_ilp_private.h>
++#include "isl_seq.h"
++#include "isl_ilp_private.h"
+ #include <isl/printer.h>
+-#include <isl_point_private.h>
+-#include <isl_vec_private.h>
++#include "isl_point_private.h"
++#include "isl_vec_private.h"
+ #include <isl/options.h>
+-#include <isl_config.h>
++#include "isl_config.h"
+ 
+ /* The input of this program is the same as that of the "example" program
+  * from the PipLib distribution, except that the "big parameter column"
+diff --git a/polyhedron_minimize.c b/polyhedron_minimize.c
+index 55eaf040..9ac70bbe 100644
+--- a/polyhedron_minimize.c
++++ b/polyhedron_minimize.c
+@@ -10,9 +10,9 @@
+ #include <assert.h>
+ #include <isl/set.h>
+ #include <isl/vec.h>
+-#include <isl_ilp_private.h>
+-#include <isl_seq.h>
+-#include <isl_vec_private.h>
++#include "isl_ilp_private.h"
++#include "isl_seq.h"
++#include "isl_vec_private.h"
+ 
+ /* The input of this program is the same as that of the "polytope_minimize"
+  * program from the barvinok distribution.
+diff --git a/polyhedron_sample.c b/polyhedron_sample.c
+index 3fc442f2..c29ac8bd 100644
+--- a/polyhedron_sample.c
++++ b/polyhedron_sample.c
+@@ -8,7 +8,7 @@
+  */
+ 
+ #include <assert.h>
+-#include <isl_map_private.h>
++#include "isl_map_private.h"
+ #include "isl_sample.h"
+ #include <isl/vec.h>
+ 
+diff --git a/polytope_scan.c b/polytope_scan.c
+index ae7ee77d..adf73077 100644
+--- a/polytope_scan.c
++++ b/polytope_scan.c
+@@ -8,12 +8,12 @@
+  */
+ 
+ #include <assert.h>
+-#include <isl_map_private.h>
++#include "isl_map_private.h"
+ #include "isl_equalities.h"
+-#include <isl_seq.h>
++#include "isl_seq.h"
+ #include "isl_scan.h"
+-#include <isl_mat_private.h>
+-#include <isl_vec_private.h>
++#include "isl_mat_private.h"
++#include "isl_vec_private.h"
+ 
+ /* The input of this program is the same as that of the "polytope_scan"
+  * program from the barvinok distribution.
+diff --git a/print.c b/print.c
+index a87f9221..0e3ff8da 100644
+--- a/print.c
++++ b/print.c
+@@ -15,91 +15,91 @@
+ 
+ #undef BASE
+ #define BASE id
+-#include <print_templ.c>
++#include "print_templ.c"
+ #undef BASE
+ #define BASE multi_id
+-#include <print_templ.c>
++#include "print_templ.c"
+ #undef BASE
+ #define BASE val
+-#include <print_templ.c>
++#include "print_templ.c"
+ #undef BASE
+ #define BASE multi_val
+-#include <print_templ.c>
++#include "print_templ.c"
+ #undef BASE
+ #define BASE space
+-#include <print_templ.c>
++#include "print_templ.c"
+ #undef BASE
+ #define BASE local_space
+-#include <print_templ.c>
++#include "print_templ.c"
+ #undef BASE
+ #define BASE basic_set
+-#include <print_templ.c>
++#include "print_templ.c"
+ #undef BASE
+ #define BASE basic_map
+-#include <print_templ.c>
++#include "print_templ.c"
+ #undef BASE
+ #define BASE set
+-#include <print_templ.c>
++#include "print_templ.c"
+ #undef BASE
+ #define BASE map
+-#include <print_templ.c>
++#include "print_templ.c"
+ #undef BASE
+ #define BASE union_set
+-#include <print_templ.c>
++#include "print_templ.c"
+ #undef BASE
+ #define BASE union_map
+-#include <print_templ.c>
++#include "print_templ.c"
+ #undef BASE
+ #define BASE qpolynomial
+-#include <print_templ.c>
++#include "print_templ.c"
+ #undef BASE
+ #define BASE qpolynomial_fold
+-#include <print_templ.c>
++#include "print_templ.c"
+ #undef BASE
+ #define BASE pw_qpolynomial
+-#include <print_templ.c>
++#include "print_templ.c"
+ #undef BASE
+ #define BASE pw_qpolynomial_fold
+-#include <print_templ.c>
++#include "print_templ.c"
+ #undef BASE
+ #define BASE union_pw_qpolynomial
+-#include <print_templ.c>
++#include "print_templ.c"
+ #undef BASE
+ #define BASE union_pw_qpolynomial_fold
+-#include <print_templ.c>
++#include "print_templ.c"
+ #undef BASE
+ #define BASE constraint
+-#include <print_templ.c>
++#include "print_templ.c"
+ #undef BASE
+ #define BASE aff
+-#include <print_templ.c>
++#include "print_templ.c"
+ #undef BASE
+ #define BASE pw_aff
+-#include <print_templ.c>
++#include "print_templ.c"
+ #undef BASE
+ #define BASE multi_aff
+-#include <print_templ.c>
++#include "print_templ.c"
+ #undef BASE
+ #define BASE pw_multi_aff
+-#include <print_templ.c>
++#include "print_templ.c"
+ #undef BASE
+ #define BASE union_pw_multi_aff
+-#include <print_templ.c>
++#include "print_templ.c"
+ #undef BASE
+ #define BASE multi_pw_aff
+-#include <print_templ.c>
++#include "print_templ.c"
+ #undef BASE
+ #define BASE union_pw_aff
+-#include <print_templ.c>
++#include "print_templ.c"
+ #undef BASE
+ #define BASE multi_union_pw_aff
+-#include <print_templ.c>
++#include "print_templ.c"
+ #undef BASE
+ #define BASE point
+-#include <print_templ.c>
++#include "print_templ.c"
+ #undef BASE
+ #define BASE ast_expr
+-#include <print_templ_yaml.c>
++#include "print_templ_yaml.c"
+ #undef BASE
+ #define BASE ast_node
+-#include <print_templ_yaml.c>
++#include "print_templ_yaml.c"
+diff --git a/print_templ.c b/print_templ.c
+index 9ed93f14..b28b642f 100644
+--- a/print_templ.c
++++ b/print_templ.c
+@@ -1,4 +1,4 @@
+-#include <isl_printer_private.h>
++#include "isl_printer_private.h"
+ 
+ #define xCAT(A,B) A ## B
+ #define CAT(A,B) xCAT(A,B)
+diff --git a/test-lefur04-0.c b/test-lefur04-0.c
+new file mode 100644
+index 00000000..e69de29b
