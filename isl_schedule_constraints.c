@@ -553,7 +553,7 @@ __isl_give isl_printer *isl_printer_print_schedule_constraints(
 
 #undef BASE
 #define BASE schedule_constraints
-#include <print_templ_yaml.c>
+#include "print_templ_yaml.c"
 
 #undef KEY
 #define KEY enum isl_sc_key

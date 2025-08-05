@@ -15,8 +15,8 @@
 #include "isl_point_private.h"
 #include "isl_vec_private.h"
 
-#include <set_to_map.c>
-#include <set_from_map.c>
+#include "set_to_map.c"
+#include "set_from_map.c"
 
 /* Expand the constraint "c" into "v".  The initial "dim" dimensions
  * are the same, but "v" may have more divs than "c" and the divs of "c"

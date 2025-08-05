@@ -304,5 +304,5 @@ static isl_bool isl_id_plain_is_equal(__isl_keep isl_id *id1,
 #define BASE id
 
 #include "isl_multi_no_domain_templ.c"
-#include <isl_multi_no_explicit_domain.c>
+#include "isl_multi_no_explicit_domain.c"
 #include "isl_multi_templ.c"

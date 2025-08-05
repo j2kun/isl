@@ -21,8 +21,8 @@
 #include "isl_seq.h"
 #include "isl_config.h"
 
-#include <bset_to_bmap.c>
-#include <bset_from_bmap.c>
+#include "bset_to_bmap.c"
+#include "bset_from_bmap.c"
 
 /*
  * The implementation of tableaus in this file was inspired by Section 8

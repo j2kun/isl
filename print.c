@@ -99,7 +99,7 @@
 #include "print_templ.c"
 #undef BASE
 #define BASE ast_expr
-#include <print_templ_yaml.c>
+#include "print_templ_yaml.c"
 #undef BASE
 #define BASE ast_node
-#include <print_templ_yaml.c>
+#include "print_templ_yaml.c"

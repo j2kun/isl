@@ -51,10 +51,10 @@
 #include "isl_printer_private.h"
 #include "isl_maybe_aff.h"
 
-#include <bset_to_bmap.c>
-#include <bset_from_bmap.c>
-#include <set_to_map.c>
-#include <set_from_map.c>
+#include "bset_to_bmap.c"
+#include "bset_from_bmap.c"
+#include "set_to_map.c"
+#include "set_from_map.c"
 
 /* Treat "bset" as a basic map.
  * Internally, isl_basic_set is defined to isl_basic_map, so in practice,

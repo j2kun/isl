@@ -23,9 +23,9 @@
 #include "isl_tab.h"
 #include "isl_sort.h"
 
-#include <bset_to_bmap.c>
-#include <bset_from_bmap.c>
-#include <set_to_map.c>
+#include "bset_to_bmap.c"
+#include "bset_from_bmap.c"
+#include "set_to_map.c"
 
 static __isl_give isl_basic_set *uset_convex_hull_wrap_bounded(
 	__isl_take isl_set *set);

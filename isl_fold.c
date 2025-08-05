@@ -952,7 +952,7 @@ static __isl_give isl_qpolynomial_fold *isl_qpolynomial_fold_zero_in_space(
 
 #include "isl_pw_templ.c"
 #include "isl_pw_add_disjoint_templ.c"
-#include <isl_pw_eval.c>
+#include "isl_pw_eval.c"
 #include "isl_pw_fix_templ.c"
 #include "isl_pw_from_range_templ.c"
 #include "isl_pw_insert_dims_templ.c"
@@ -964,8 +964,8 @@ static __isl_give isl_qpolynomial_fold *isl_qpolynomial_fold_zero_in_space(
 #undef BASE
 #define BASE pw_qpolynomial_fold
 
-#include <isl_union_single.c>
-#include <isl_union_eval.c>
+#include "isl_union_single.c"
+#include "isl_union_eval.c"
 
 /* Construct a new reduction of the given type and space
  * with an empty list of polynomials.

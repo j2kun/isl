@@ -1575,13 +1575,13 @@ __isl_give isl_val *isl_val_zero_on_domain(__isl_take isl_local_space *ls)
 #define BASE val
 
 #include "isl_multi_no_domain_templ.c"
-#include <isl_multi_no_explicit_domain.c>
+#include "isl_multi_no_explicit_domain.c"
 #include "isl_multi_templ.c"
 #include "isl_multi_un_op_templ.c"
 #include "isl_multi_bin_val_templ.c"
 #include "isl_multi_arith_templ.c"
 #include "isl_multi_dim_id_templ.c"
-#include <isl_multi_dims.c>
+#include "isl_multi_dims.c"
 #include "isl_multi_min_max_templ.c"
 #include "isl_multi_nan_templ.c"
 #include "isl_multi_product_templ.c"

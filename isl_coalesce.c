@@ -33,8 +33,8 @@
 #include "isl_equalities.h"
 #include "isl_constraint_private.h"
 
-#include <set_to_map.c>
-#include <set_from_map.c>
+#include "set_to_map.c"
+#include "set_from_map.c"
 
 #define STATUS_ERROR		-1
 #define STATUS_REDUNDANT	 1

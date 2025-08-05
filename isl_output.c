@@ -38,9 +38,9 @@
 #include "isl_sort.h"
 #include "isl_output_private.h"
 
-#include <bset_to_bmap.c>
-#include <set_to_map.c>
-#include <uset_to_umap.c>
+#include "bset_to_bmap.c"
+#include "set_to_map.c"
+#include "uset_to_umap.c"
 
 static const char *s_to[2] = { " -> ", " \\to " };
 static const char *s_and[2] = { " and ", " \\wedge " };

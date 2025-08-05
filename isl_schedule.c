@@ -681,4 +681,4 @@ __isl_give isl_printer *isl_printer_print_schedule(__isl_take isl_printer *p,
 
 #undef BASE
 #define BASE schedule
-#include <print_templ_yaml.c>
+#include "print_templ_yaml.c"

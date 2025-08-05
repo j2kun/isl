@@ -27,12 +27,12 @@
 #include "isl_maybe_map.h"
 #include "isl_id_private.h"
 
-#include <bset_from_bmap.c>
-#include <set_to_map.c>
-#include <set_from_map.c>
-#include <uset_to_umap.c>
-#include <uset_from_umap.c>
-#include <set_list_from_map_list_inl.c>
+#include "bset_from_bmap.c"
+#include "set_to_map.c"
+#include "set_from_map.c"
+#include "uset_to_umap.c"
+#include "uset_from_umap.c"
+#include "set_list_from_map_list_inl.c"
 
 #undef TYPE
 #define TYPE	isl_union_map

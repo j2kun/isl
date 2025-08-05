@@ -2914,8 +2914,8 @@ static __isl_give isl_aff *isl_aff_zero_in_space(__isl_take isl_space *space)
 #include "isl_pw_add_disjoint_templ.c"
 #include "isl_pw_bind_domain_templ.c"
 #include "isl_pw_domain_reverse_templ.c"
-#include <isl_pw_eval.c>
-#include <isl_pw_hash.c>
+#include "isl_pw_eval.c"
+#include "isl_pw_hash.c"
 #include "isl_pw_fix_templ.c"
 #include "isl_pw_from_range_templ.c"
 #include "isl_pw_insert_dims_templ.c"
@@ -2925,13 +2925,13 @@ static __isl_give isl_aff *isl_aff_zero_in_space(__isl_take isl_space *space)
 #include "isl_pw_pullback_templ.c"
 #include "isl_pw_scale_templ.c"
 #include "isl_pw_sub_templ.c"
-#include <isl_pw_union_opt.c>
+#include "isl_pw_union_opt.c"
 
 #undef BASE
 #define BASE pw_aff
 
-#include <isl_union_single.c>
-#include <isl_union_neg.c>
+#include "isl_union_single.c"
+#include "isl_union_neg.c"
 #include "isl_union_sub_templ.c"
 
 #undef BASE
@@ -4092,19 +4092,19 @@ static __isl_give isl_basic_set *isl_multi_aff_domain(
 #undef BASE
 #define BASE aff
 
-#include <isl_multi_no_explicit_domain.c>
+#include "isl_multi_no_explicit_domain.c"
 #include "isl_multi_templ.c"
 #include "isl_multi_un_op_templ.c"
 #include "isl_multi_bin_val_templ.c"
 #include "isl_multi_add_constant_templ.c"
-#include <isl_multi_align_set.c>
+#include "isl_multi_align_set.c"
 #include "isl_multi_arith_templ.c"
 #include "isl_multi_bind_domain_templ.c"
-#include <isl_multi_cmp.c>
+#include "isl_multi_cmp.c"
 #include "isl_multi_dim_id_templ.c"
-#include <isl_multi_dims.c>
+#include "isl_multi_dims.c"
 #include "isl_multi_domain_reverse_templ.c"
-#include <isl_multi_floor.c>
+#include "isl_multi_floor.c"
 #include "isl_multi_from_base_templ.c"
 #include "isl_multi_identity_templ.c"
 #include "isl_multi_insert_domain_templ.c"
@@ -4121,7 +4121,7 @@ static __isl_give isl_basic_set *isl_multi_aff_domain(
 #define DOMBASE set
 #include "isl_multi_check_domain_templ.c"
 #include "isl_multi_apply_set_no_explicit_domain_templ.c"
-#include <isl_multi_gist.c>
+#include "isl_multi_gist.c"
 
 #undef DOMBASE
 #define DOMBASE basic_set
@@ -4733,14 +4733,14 @@ __isl_give isl_set *isl_multi_aff_lex_gt_set(__isl_take isl_multi_aff *ma1,
 #include "isl_pw_neg_templ.c"
 #include "isl_pw_pullback_templ.c"
 #include "isl_pw_range_tuple_id_templ.c"
-#include <isl_pw_union_opt.c>
+#include "isl_pw_union_opt.c"
 
 #undef BASE
 #define BASE pw_multi_aff
 
-#include <isl_union_multi.c>
+#include "isl_union_multi.c"
 #include "isl_union_locals_templ.c"
-#include <isl_union_neg.c>
+#include "isl_union_neg.c"
 #include "isl_union_sub_templ.c"
 
 #undef BASE
@@ -6699,29 +6699,29 @@ error:
 #undef DOMBASE
 #define DOMBASE set
 
-#include <isl_multi_explicit_domain.c>
-#include <isl_multi_pw_aff_explicit_domain.c>
+#include "isl_multi_explicit_domain.c"
+#include "isl_multi_pw_aff_explicit_domain.c"
 #include "isl_multi_templ.c"
 #include "isl_multi_un_op_templ.c"
 #include "isl_multi_bin_val_templ.c"
 #include "isl_multi_add_constant_templ.c"
-#include <isl_multi_align_set.c>
+#include "isl_multi_align_set.c"
 #include "isl_multi_apply_set_explicit_domain_templ.c"
 #include "isl_multi_arith_templ.c"
 #include "isl_multi_bind_templ.c"
 #include "isl_multi_bind_domain_templ.c"
-#include <isl_multi_coalesce.c>
+#include "isl_multi_coalesce.c"
 #include "isl_multi_domain_templ.c"
 #include "isl_multi_domain_reverse_templ.c"
 #include "isl_multi_dim_id_templ.c"
-#include <isl_multi_dims.c>
+#include "isl_multi_dims.c"
 #include "isl_multi_from_base_templ.c"
 #include "isl_multi_check_domain_templ.c"
-#include <isl_multi_gist.c>
-#include <isl_multi_hash.c>
+#include "isl_multi_gist.c"
+#include "isl_multi_hash.c"
 #include "isl_multi_identity_templ.c"
 #include "isl_multi_insert_domain_templ.c"
-#include <isl_multi_intersect.c>
+#include "isl_multi_intersect.c"
 #include "isl_multi_min_max_templ.c"
 #include "isl_multi_move_dims_templ.c"
 #include "isl_multi_nan_templ.c"
@@ -8650,24 +8650,24 @@ error:
 #undef DOMBASE
 #define DOMBASE union_set
 
-#include <isl_multi_explicit_domain.c>
-#include <isl_multi_union_pw_aff_explicit_domain.c>
+#include "isl_multi_explicit_domain.c"
+#include "isl_multi_union_pw_aff_explicit_domain.c"
 #include "isl_multi_templ.c"
 #include "isl_multi_un_op_templ.c"
 #include "isl_multi_bin_val_templ.c"
-#include <isl_multi_align_set.c>
-#include <isl_multi_align_union_set.c>
+#include "isl_multi_align_set.c"
+#include "isl_multi_align_union_set.c"
 #include "isl_multi_apply_set_explicit_domain_templ.c"
 #include "isl_multi_apply_union_set_explicit_domain_templ.c"
 #include "isl_multi_arith_templ.c"
 #include "isl_multi_bind_templ.c"
-#include <isl_multi_coalesce.c>
+#include "isl_multi_coalesce.c"
 #include "isl_multi_dim_id_templ.c"
-#include <isl_multi_floor.c>
+#include "isl_multi_floor.c"
 #include "isl_multi_from_base_templ.c"
 #include "isl_multi_check_domain_templ.c"
-#include <isl_multi_gist.c>
-#include <isl_multi_intersect.c>
+#include "isl_multi_gist.c"
+#include "isl_multi_intersect.c"
 #include "isl_multi_nan_templ.c"
 #include "isl_multi_tuple_id_templ.c"
 #include "isl_multi_union_add_templ.c"

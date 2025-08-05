@@ -27,7 +27,7 @@
 #include "isl_vec_private.h"
 #include "isl_output_private.h"
 
-#include <set_to_map.c>
+#include "set_to_map.c"
 
 isl_ctx *isl_point_get_ctx(__isl_keep isl_point *pnt)
 {

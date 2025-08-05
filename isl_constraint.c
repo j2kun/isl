@@ -19,8 +19,8 @@
 #include "isl_val_private.h"
 #include "isl_vec_private.h"
 
-#include <bset_to_bmap.c>
-#include <bset_from_bmap.c>
+#include "bset_to_bmap.c"
+#include "bset_from_bmap.c"
 
 #undef EL_BASE
 #define EL_BASE constraint

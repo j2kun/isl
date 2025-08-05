@@ -25,7 +25,7 @@
 #include "isl_options_private.h"
 #include "isl_config.h"
 
-#include <bset_to_bmap.c>
+#include "bset_to_bmap.c"
 
 /*
  * The implementation of parametric integer linear programming in this file
