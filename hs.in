@@ -1,0 +1,3 @@
+{ S[row,col,ct,slot] -> [ct,slot] : 0 <= row,ct < 4 and 0 <= col < 8 and 0 <= slot < 32 and ((-row + slot) % 4) = 0 and (-col + ct + slot) % 8 = 0 }
+{ : }
+{ }
