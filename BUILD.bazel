@@ -231,3 +231,9 @@ cc_binary(
     srcs = ["ast_debug.c"],
     deps = [":isl"],
 )
+
+cc_binary(
+    name = "hs_manual",
+    srcs = ["hs_manual.c"],
+    deps = [":isl"],
+)
