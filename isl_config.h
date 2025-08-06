@@ -142,4 +142,4 @@
 /* Version number of package */
 #define VERSION "0.27"
 
-#include <isl_config_post.h>
+#include "isl_config_post.h"
