@@ -21,12 +21,10 @@
 /* Construct the schedule map manually using ISL API */
 static __isl_give isl_union_map *construct_hs_schedule(isl_ctx *ctx)
 {
-  isl_union_map *umap = isl_union_map_read_from_str(ctx,
+  return isl_union_map_read_from_str(ctx,
     "{ S[row,col,ct,slot] -> [ct,slot] : "
     "0 <= row,ct < 4 and 0 <= col < 8 and 0 <= slot < 32 and "
     "((-row + slot) % 4) = 0 and (-col + ct + slot) % 8 = 0 }");
-
-	return union_map;
 }
 
 /* Construct AST from manually created schedule */
