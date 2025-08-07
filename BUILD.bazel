@@ -1,4 +1,5 @@
-load("@rules_cc//cc:defs.bzl", "cc_library")
+load("@rules_cc//cc:cc_binary.bzl", "cc_binary")
+load("@rules_cc//cc:cc_library.bzl", "cc_library")
 load("@rules_license//rules:license.bzl", "license")
 
 package(
@@ -14,46 +15,66 @@ exports_files([
     "LICENSE",
 ])
 
-# Template files that are included by other source files but not compiled directly
-filegroup(
-    name = "template_files",
-    srcs = glob([
-        "*_templ.c",
-        "print_templ.c",
-        "print_templ_yaml.c",
-        "**/*_templ.c",
-        # Other included C files
-        "bset_from_bmap.c",
-        "bset_to_bmap.c",
-        "set_from_map.c",
-        "set_to_map.c",
-        "uset_from_umap.c",
-        "uset_to_umap.c",
-        "extract_key.c",
-        "set_list_from_map_list_inl.c",
-        "isl_pw_eval.c",
-        "isl_multi_no_explicit_domain.c",
-        "isl_union_single.c",
-        "isl_pw_hash.c",
-        "isl_multi_align_set.c",
-        "isl_multi_align_union_set.c",
-        "isl_multi_cmp.c",
-        "isl_multi_coalesce.c",
-        "isl_multi_dims.c",
-        "isl_multi_explicit_domain.c",
-        "isl_multi_floor.c",
-        "isl_multi_gist.c",
-        "isl_multi_hash.c",
-        "isl_multi_intersect.c",
-        "isl_multi_pw_aff_explicit_domain.c",
-        "isl_multi_union_pw_aff_explicit_domain.c",
-        "isl_union_multi.c",
-        "isl_union_neg.c",
-        "isl_union_eval.c",
-        "isl_pw_union_opt.c",
-        "isl_type_check_match_range_multi_val.c",
-    ]),
-)
+_TEMPLATE_FILES = [
+    "bset_from_bmap.c",
+    "bset_to_bmap.c",
+    "set_from_map.c",
+    "set_to_map.c",
+    "uset_from_umap.c",
+    "uset_to_umap.c",
+    "extract_key.c",
+    "isl_pw_eval.c",
+    "isl_multi_no_explicit_domain.c",
+    "isl_union_single.c",
+    "isl_pw_hash.c",
+    "isl_multi_align_set.c",
+    "isl_multi_align_union_set.c",
+    "isl_multi_cmp.c",
+    "isl_multi_coalesce.c",
+    "isl_multi_dims.c",
+    "isl_multi_explicit_domain.c",
+    "isl_multi_floor.c",
+    "isl_multi_gist.c",
+    "isl_multi_hash.c",
+    "isl_multi_intersect.c",
+    "isl_multi_pw_aff_explicit_domain.c",
+    "isl_multi_union_pw_aff_explicit_domain.c",
+    "isl_union_multi.c",
+    "isl_union_neg.c",
+    "isl_union_eval.c",
+    "isl_pw_union_opt.c",
+    "isl_type_check_match_range_multi_val.c",
+    "include/isl/vertices.h",
+    "include/isl/hmap.h",
+] + glob([
+    "**/*templ*.c",
+    "**/*templ*.h",
+    "include/isl/*maybe*.h",
+    "*_inl.c",
+])
+
+_C_EXCLUDES = glob(["*imath*"]) + glob(["imath*/**/*"]) + [
+    "isl_srcdir.c",
+    # Calls undefined functions such as __gmp_allocate_func, skip for now
+    "mp_get_memory_functions.c",
+    # Executables
+    "flow.c",
+    "flow_cmp.c",
+    "schedule_cmp.c",
+    "bound.c",
+    "cat.c",
+    "closure.c",
+    "codegen.c",
+    "isl_test.c",
+    "isl_test_imath.c",
+    "isl_test_int.c",
+    "pip.c",
+    "polyhedron_detect_equalities.c",
+    "polyhedron_minimize.c",
+    "polyhedron_sample.c",
+    "polytope_scan.c",
+    "schedule.c",
+]
 
 cc_library(
     name = "isl",
@@ -82,7 +103,6 @@ cc_library(
         "isl_int.h",
         "isl_list_macro.h",
         "isl_list_private.h",
-        "isl_list_templ.h",
         "isl_local_private.h",
         "isl_local.h",
         "isl_local_space_private.h",
@@ -93,9 +113,7 @@ cc_library(
         "isl_maybe_ast_graft_list.h",
         "isl_maybe_map.h",
         "isl_multi_macro.h",
-        "isl_multi_templ.h",
         "isl_pw_macro.h",
-        "isl_pw_templ.h",
         "isl_union_macro.h",
         "isl_morph.h",
         "isl_id_private.h",
@@ -216,27 +234,44 @@ cc_library(
         "isl_version.c",
         "isl_vertices.c",
     ],
-    hdrs = glob([
-        "include/isl/*.h",
-    ]),
-    textual_hdrs = [
-        ":template_files",
-    ],
-    copts = [
-        "-Wall",
-    ],
+    hdrs = glob(
+        ["include/isl/*.h"],
+        exclude = _TEMPLATE_FILES,
+    ),
+    hdrs_check = "loose",
     includes = [
         "include",
     ],
-    local_defines = [
-        "HAVE_CONFIG_H",
-    ],
-    linkopts = [
-        "-lgmp",
-    ],
-    data = [
-        ":template_files",
-    ],
-    visibility = ["//visibility:public"],
+    linkopts = ["-lgmp"],
+    textual_hdrs = _TEMPLATE_FILES,
 )
 
+cc_binary(
+    name = "isl_codegen",
+    srcs = [
+        "codegen.c",
+    ],
+    deps = [
+        ":isl",
+    ],
+)
+
+cc_binary(
+    name = "isl_schedule",
+    srcs = [
+        "schedule.c",
+    ],
+    deps = [
+        ":isl",
+    ],
+)
+
+cc_binary(
+    name = "isl_cat",
+    srcs = [
+        "cat.c",
+    ],
+    deps = [
+        ":isl",
+    ],
+)
