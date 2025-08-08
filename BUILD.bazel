@@ -252,7 +252,7 @@ cc_library(
     name = "imath",
     srcs = glob(
         ["imath/*.c"],
-        exclude = ["imath/imtest.c", "imath/imtimer.c"],
+        exclude = ["imath/imtest.c", "imath/imtimer.c", "imath/imdrover.h", "imath/imdrover.c"],
     ),
     hdrs = glob(
         ["imath/*.h"],
