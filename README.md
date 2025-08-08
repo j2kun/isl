@@ -22,7 +22,7 @@ load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
 
 git_repository(
     name = "isl",
-    commit = "d41222f9c9ca460d92bd3a2b9b91f6c2b158b536",
+    commit = "99182fd133736a6d93aed83d1224dcd0c97f8c06",
     remote = "git@github.com:j2kun/isl.git",
 )
 ```
