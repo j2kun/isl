@@ -83,7 +83,10 @@ cc_library(
         "gitversion.h",
         "isl_config.h",
         "isl_config_post.h",
-        "isl_int_gmp.h",
+        "isl_imath.h",
+        "isl_imath.c",
+        "isl_int_sioimath.c",
+        "isl_int_sioimath.h",
         "isl_aff_private.h",
         "isl_ast_private.h",
         "isl_ast_build_private.h",
@@ -148,10 +151,6 @@ cc_library(
         "isl_vertices_private.h",
         "isl_yaml.h",
         "opt_type.h",
-
-        # MP_SRC files
-        "isl_gmp.c",
-        "isl_val_gmp.c",
 
         # Core library sources
         "isl_aff.c",
@@ -241,9 +240,23 @@ cc_library(
     hdrs_check = "loose",
     includes = [
         "include",
+        "imath",
     ],
-    linkopts = ["-lgmp"],
+    deps = [
+        "//:imath",
+    ],
     textual_hdrs = _TEMPLATE_FILES,
+)
+
+cc_library(
+    name = "imath",
+    srcs = glob(
+        ["imath/*.c"],
+        exclude = ["imath/imtest.c", "imath/imtimer.c"],
+    ),
+    hdrs = glob(
+        ["imath/*.h"],
+    ),
 )
 
 cc_binary(
