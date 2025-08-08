@@ -131,13 +131,13 @@
 #define STDC_HEADERS 1
 
 /* use gmp to implement isl_int */
-#define USE_GMP_FOR_MP /**/
+/* #define USE_GMP_FOR_MP */
 
 /* use imath to implement isl_int */
-/* #undef USE_IMATH_FOR_MP */
+#define USE_IMATH_FOR_MP
 
 /* Use small integer optimization */
-/* #undef USE_SMALL_INT_OPT */
+#define USE_SMALL_INT_OPT
 
 /* Version number of package */
 #define VERSION "0.27"
