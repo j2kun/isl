@@ -2,7 +2,7 @@
 #define __attribute__(x)
 #endif
 
-#if HAVE_DECL_FFS
+#if HAVE_DECL_FFS && !defined(_WIN32)
 #include <strings.h>
 #endif
 
@@ -15,7 +15,7 @@ int isl_ffs(int i);
 #define ffs isl_ffs
 #endif
 
-#if HAVE_DECL_STRCASECMP || HAVE_DECL_STRNCASECMP
+#if (HAVE_DECL_STRCASECMP || HAVE_DECL_STRNCASECMP) && !defined(_WIN32)
 #include <strings.h>
 #endif
 
